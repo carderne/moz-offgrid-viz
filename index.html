@@ -9,18 +9,36 @@
         <link href='style.css' rel='stylesheet' />
     </head>
     <body>
+        <!-- Everything except the modal goes in here -->
         <div class="flex-container">
             <div id="sidebar">
-                <div>
+
+                <!-- Headers, logos -->
+                <div class="sb-head">
                     <h3>Mozambique Off-Grid Energy</h3>
                     <p>Explore data and market opportunities</p>
                 </div>
-                <div class="sidebar-content"></div>
-                <div class="info" onclick=openModal()>
-                    <a href="#modal-root">More info</a>
+
+                <!-- Instructions, information -->
+                <div class="sb-info">
+                    <p>This tool is designed to...</p>
+                </div>
+
+                <!-- Controls and filters -->
+                <div class="sb-cont">
+                    <p>Filters and controls</p>
+                </div>
+
+                <!-- More info button -->
+                <div class="sb-foot" onclick=openModal()>
+                    <p>About</p>
                 </div>
             </div>
+
+            <!-- Container for Mapbox GL map object -->
             <div id='map'></div>
+
+            <!-- Layer selector -->
             <div class="layers">
                 <div><strong>Layers</strong></div>
                 <div>
@@ -28,27 +46,28 @@
                     <input type="checkbox" id="toggle-satellite" /><label for="toggle-satellite"></label>
                 </div>
             </div>
+
+            <!-- Legend/key -->
             <div class="legend">
+                <div><strong>Legend</strong></div>
                 <div>
                     <span class="legend-key" style="background-color: #8C552D"></span>
                     <span>Legend text</span>
                 </div>
-                <div>
-                    <span class="legend-key" style="background-color: #A4BE97"></span>
-                    <span>Legend text</span>
-                </div>
-                <div>
-                    <span class="legend-key" style="background-color: #111111"></span>
-                    <span>Legend text</span>
-                </div>
             </div>
+
+            <!-- Map controls are added in JS -->
         </div>
+
+        <!-- Modal is toggled with the about button bottom of the sidebar -->
         <div id="modal-root">
             <div class="modal">
                 <h3>About</h3>
                 <p>Modal text here.</p>
             </div>
         </div>
+
+        <!-- All app logic is in here -->
         <script src="main.js"></script>
         <noscript>
             <div class='noscript'>This interactive map doesn't work without JavaScript.</div>

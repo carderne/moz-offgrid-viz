@@ -1,5 +1,5 @@
 :root {
-  --sidebar-width: 400px;
+    --sidebar-width: 400px;
 }
 
 html {
@@ -47,15 +47,29 @@ h4 a:visited {
     background-color: #f3ebe8;
 }
 
-.sidebar-content {
+.sb-info {
+    background-color: white;
     flex-grow: 1;
 }
 
-.info {
+.sb-cont {
+    flex-grow: 1;
 }
 
-.info:hover {
+.sb-foot {
+    height: 50px;
+    background-color: gray;
+    cursor: pointer;
+    text-align: center;
+}
+
+.foot:hover {
     background-color: #dad3d0;
+}
+
+.foot p {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #map {

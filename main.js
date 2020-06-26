@@ -14,7 +14,11 @@ let map = new mapboxgl.Map({
 });
 
 map.on('load', () => {
-  map.addControl(new mapboxgl.NavigationControl());
+  map.addControl(new mapboxgl.ScaleControl({
+    maxWidth: 200,
+    unit: 'metric',
+  }), 'top-right');
+  map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 });
 
 const get = document.getElementById.bind(document);
