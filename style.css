@@ -56,6 +56,33 @@ h4 a:visited {
     flex-grow: 1;
 }
 
+.range-container {
+    display: flex;
+}
+
+.range-wrap {
+    position: relative;
+    margin: 0 10px 3rem;
+    width: 100%;
+}
+
+.range {
+    width: 100%;
+    margin-top: 20px;
+    flex-grow: 1;
+}
+
+.bubble {
+    font-size: 11px;
+    background: gray;
+    color: white;
+    padding: 4px 12px;
+    position: absolute;
+    border-radius: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .sb-foot {
     height: 50px;
     background-color: gray;
