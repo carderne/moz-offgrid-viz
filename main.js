@@ -5,13 +5,14 @@ let maxBounds = [
 ];
 let map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/carderne/ckbw1g00f0p0r1imlb641eur4',
+  style: 'mapbox://styles/carderne/ckbw6t28y0a4e1iqqzk28d5vd',
   center: [35, -18],
   zoom: 5,
   maxZoom: 14,
   minZoom: 5,
   maxBounds: maxBounds
 });
+map.setLayoutProperty('mapbox-satellite', 'visibility', 'none');
 
 const get = document.getElementById.bind(document);
 const query = document.querySelector.bind(document);
