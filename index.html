@@ -9,35 +9,31 @@
         <link href='style.css' rel='stylesheet' />
     </head>
     <body>
-        <div id='map'></div>
-        <div class='banner'>
-            <div>
-                <div onclick=openModal()>
-                    <h3 style="margin-bottom:-10px">Mozambique Off-Grid Energy</h3>
-                    <p class="mobile-small">Explore data and market opportunities</p>
+        <div class="flex-container">
+            <div id="sidebar">
+                <div>
+                    <h3>Mozambique Off-Grid Energy</h3>
+                    <p>Explore data and market opportunities</p>
+                </div>
+                <div class="sidebar-content"></div>
+                <div class="info" onclick=openModal()>
+                    <a href="#modal-root">More info</a>
                 </div>
             </div>
-            <div>
-                <div onclick=openModal() style="float:right">
-                    <h4 style="text-align:right">ABOUT</h4>
+            <div id='map'></div>
+            <div class="map-overlay">
+                <div>
+                    <span class="legend-key" style="background-color: #8C552D"></span>
+                    <span>Legend text</span>
                 </div>
-                <div style="float:right">
-                    <h4 style="text-align:right"><a target="_blank" rel="noopener noreferrer" href="">DOWNLOAD</a></h4>
+                <div>
+                    <span class="legend-key" style="background-color: #A4BE97"></span>
+                    <span>Legend text</span>
                 </div>
-            </div>
-        </div>
-        <div class="map-overlay">
-            <div>
-                <span class="legend-key" style="background-color: #8C552D"></span>
-                <span>Legend text</span>
-            </div>
-            <div>
-                <span class="legend-key" style="background-color: #A4BE97"></span>
-                <span>Legend text</span>
-            </div>
-            <div>
-                <span class="legend-key" style="background-color: #111111"></span>
-                <span>Legend text</span>
+                <div>
+                    <span class="legend-key" style="background-color: #111111"></span>
+                    <span>Legend text</span>
+                </div>
             </div>
         </div>
         <div id="modal-root">

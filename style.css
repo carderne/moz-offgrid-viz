@@ -21,7 +21,6 @@ h4 {
 p {
     font-size: 0.95em;
     margin: 10px;
-    text-align: left;
 }
 
 h4 a {
@@ -32,15 +31,32 @@ h4 a:visited {
     color: inherit;
 }
 
-.mobile-small {
-    font-size: 0.55em;
+.flex-container {
+    display: flex;
+    height: 100vh;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    background-color: #f3ebe8;
+}
+
+.sidebar-content {
+    flex-grow: 1;
+}
+
+.info {
+}
+
+.info:hover {
+    background-color: #dad3d0;
 }
 
 #map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
+    width: calc(100vw - 200px);
+    position: relative;
 }
 
 .map-overlay {
@@ -51,7 +67,6 @@ h4 a:visited {
     margin-right: 20px;
     overflow: auto;
     border-radius: 3px;
-
     padding: 10px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     line-height: 18px;
@@ -66,43 +81,6 @@ h4 a:visited {
     width: 10px;
     height: 10px;
     margin-right: 5px;
-}
-
-.noscript {
-    text-align: center;
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -80%);
-}
-
-.banner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    background-color: #0B3C98;
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 70px;
-    color: #fdfbfb;
-}
-
-.banner>div {
-    margin-left: 20px;
-    margin-right: 30px;
-}
-
-.banner>div>div {
-    display: inline-block;
-    cursor: pointer;
-}
-
-.banner>div>div:hover {
-    color: #dddddd;
-    transition: color 0.15s ease-out;
-    text-decoration: none;
 }
 
 #modal-root {
@@ -142,7 +120,13 @@ h4 a:visited {
     .modal {
         width: 600px;
     }
-    .mobile-small {
-        font-size: 0.85em;
-    }
 }
+
+.noscript {
+    text-align: center;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+}
+
