@@ -1,3 +1,7 @@
+:root {
+  --sidebar-width: 400px;
+}
+
 html {
     font-family: sans-serif;
     color: #111111;
@@ -39,7 +43,7 @@ h4 a:visited {
 #sidebar {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: var(--sidebar-width);
     background-color: #f3ebe8;
 }
 
@@ -59,13 +63,70 @@ h4 a:visited {
     position: relative;
 }
 
-.map-overlay {
+.layers {
+    position: absolute;
+    bottom: 0;
+    left: var(--sidebar-width);
+    background: rgba(255, 255, 255, 0.8);
+    margin-left: 20px;
+    overflow: hidden;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    line-height: 18px;
+    height: 60px;
+    margin-bottom: 40px;
+    width: 210px;
+}
+
+input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    width: 40px;
+    height: 20px;
+    background: grey;
+    display: inline-block;
+    border-radius: 20px;
+    position: relative;
+}
+
+label:after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+input:checked + label {
+    background: #bada55;
+}
+
+input:checked + label:after {
+    left: calc(100% - 4px);
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    width: 20px;
+}
+
+.legend {
     position: absolute;
     bottom: 0;
     right: 0;
     background: rgba(255, 255, 255, 0.8);
     margin-right: 20px;
-    overflow: auto;
+    overflow: hidden;
     border-radius: 3px;
     padding: 10px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
