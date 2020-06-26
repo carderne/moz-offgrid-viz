@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Mozambique Off-Grid Energy</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='vendor/mapbox-gl.js'></script>
+        <link href='vendor/mapbox-gl.css' rel='stylesheet' />
+        <link href='style.css' rel='stylesheet' />
+    </head>
+    <body>
+        <div id='map'></div>
+        <div class='banner'>
+            <div>
+                <div onclick=openModal()>
+                    <h3 style="margin-bottom:-10px">Mozambique Off-Grid Energy</h3>
+                    <p class="mobile-small">Explore data and market opportunities</p>
+                </div>
+            </div>
+            <div>
+                <div onclick=openModal() style="float:right">
+                    <h4 style="text-align:right">ABOUT</h4>
+                </div>
+                <div style="float:right">
+                    <h4 style="text-align:right"><a target="_blank" rel="noopener noreferrer" href="">DOWNLOAD</a></h4>
+                </div>
+            </div>
+        </div>
+        <div class="map-overlay">
+            <div>
+                <span class="legend-key" style="background-color: #8C552D"></span>
+                <span>Legend text</span>
+            </div>
+            <div>
+                <span class="legend-key" style="background-color: #A4BE97"></span>
+                <span>Legend text</span>
+            </div>
+            <div>
+                <span class="legend-key" style="background-color: #111111"></span>
+                <span>Legend text</span>
+            </div>
+        </div>
+        <div id="modal-root">
+            <div class="modal">
+                <h3>About</h3>
+                <p>Modal text here.</p>
+            </div>
+        </div>
+        <script src="main.js"></script>
+        <noscript>
+            <div class='noscript'>This interactive map doesn't work without JavaScript.</div>
+        </noscript>
+    </body>
+</html>
