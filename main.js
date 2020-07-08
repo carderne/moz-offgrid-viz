@@ -5,9 +5,9 @@ let maxBounds = [
 ];
 let map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/carderne/ckbw6t28y0a4e1iqqzk28d5vd',
+  style: 'mapbox://styles/carderne/ckbw6t28y0a4e1iqqzk28d5vd?fresh=true',
   center: [35, -18],
-  zoom: 5,
+  zoom: 6,
   maxZoom: 14,
   minZoom: 5,
   maxBounds: maxBounds
