@@ -8,6 +8,7 @@ let modal = query(".modal");
 let about = get("about");
 let toggles = {
   clusters: get("toggle-clusters"),
+  grid: get("toggle-grid"),
   satellite: get("toggle-satellite"),
 };
 
@@ -117,8 +118,9 @@ function showClusterInfo(e) {
 
 function toggleLayer(e) {
   let toggleMap = {
-    "toggle-satellite": ["mapbox-satellite"],
     "toggle-clusters": ["clusters-poly", "clusters-line"],
+    "toggle-grid": ["gridfinder"],
+    "toggle-satellite": ["mapbox-satellite"],
   };
   let layers = toggleMap[e.target.id];
   let vis = e.target.checked ? "visible" : "none";
