@@ -6,6 +6,12 @@ const query = document.querySelector.bind(document);
 let modalRoot = get("modal-root");
 let modal = query(".modal");
 let about = get("about");
+
+let filters = {
+  pop: get("range-pop"),
+  grid: get("range-grid"),
+};
+
 let toggles = {
   clusters: get("toggle-clusters"),
   grid: get("toggle-grid"),
@@ -49,6 +55,11 @@ map.on("load", () => {
     toggles[key].onchange = toggleLayer;
   }
 
+  // Call function when range slider value changes
+  for (let key in filters) {
+    filters[key].oninput = filterUpdate;
+  }
+
   // Style cursor when entering/leaving clusters
   map.on("mouseenter", "clusters-poly", () => {
     map.getCanvas().style.cursor = "pointer";
@@ -65,20 +76,17 @@ map.on("load", () => {
       query(".cluster").style.display = "none";
     }
   });
-
-  // Call function when range slider value changes
-  get("range-grid").oninput = filterUpdate;
 });
 
-function filterUpdate(e) {
-  let id = e.target.id.split("-")[1];
-  let val = parseFloat(e.target.value);
-  console.log(id, val);
+function filterUpdate() {
+  let valFilter = [
+    "all",
+    [">=", "pop", parseFloat(filters.pop.value)],
+    [">=", "grid", parseFloat(filters.grid.value)],
+  ];
 
-  let filters = ["all", [">=", id, val]];
-
-  map.setFilter("clusters-poly", filters);
-  map.setFilter("clusters-line", filters);
+  map.setFilter("clusters-poly", valFilter);
+  //map.setFilter("clusters-line", filters);
 }
 
 function showClusterInfo(e) {
@@ -86,7 +94,6 @@ function showClusterInfo(e) {
   query(".cluster").style.display = "block";
 
   let props = e.features[0].properties;
-  console.log(props);
   props = {
     id: props.fid,
     village: props.village,
