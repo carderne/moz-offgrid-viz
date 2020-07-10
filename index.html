@@ -45,6 +45,36 @@
             <!-- Container for Mapbox GL map object -->
             <div id='map'></div>
 
+            <!-- Cluster info (hidden and empty until clusters clicked) -->
+            <div class="cluster">
+                <div style="text-align:center;"><strong>Cluster info</strong></div>
+                <table>
+                    <tbody>
+                        <tr><th>ID</th><td id="cluster-id"></td><td></td></tr>
+                        <tr><th>Village</th><td id="cluster-village"></td><td></td></tr>
+                        <tr><th>Posto</th><td id="cluster-adm3"></td><td></td></tr>
+                        <tr><th>District</th><td id="cluster-adm2"></td><td></td></tr>
+                        <tr><th>Province</th><td id="cluster-adm1"></td><td></td></tr>
+                        <tr><th>Pop</th><td id="cluster-pop"></td><td></td></tr>
+                        <tr><th>Households</th><td id="cluster-hh"></td><td></td></tr>
+                        <tr><th>Pop density</th><td id="cluster-popd"></td><td>pop/km2</td></tr>
+                        <tr><th>Area</th><td id="cluster-area"></td><td>km2</td></tr>
+                        <tr><th>NTL</th><td id="cluster-ntl"></td><td></td></tr>
+                        <tr><th>GDP</th><td id="cluster-gdp"></td><td>USD</td></tr>
+                        <tr><th>Grid dist</th><td id="cluster-grid"></td><td>km</td></tr>
+                        <tr><th>Electrfied</th><td id="cluster-elec"></td><td></td></tr>
+                        <tr><th>Travel</th><td id="cluster-travel"></td><td>hours</td></tr>
+                        <tr><th>Near city</th><td id="cluster-city"></td><td></td></tr>
+                        <tr><th>City dist</th><td id="cluster-cityd"></td><td>km</td></tr>
+                        <tr><th>Urban</th><td id="cluster-urban"></td><td></td></tr>
+                        <tr><th>Health sites</th><td id="cluster-health"></td><td></td></tr>
+                        <tr><th>Schools</th><td id="cluster-school"></td><td></td></tr>
+                        <tr><th>Lat</th><td id="cluster-lat"></td><td></td></tr>
+                        <tr><th>Long</th><td id="cluster-lng"></td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
             <!-- Layer selector -->
             <div class="layers">
                 <div><strong>Layers</strong></div>

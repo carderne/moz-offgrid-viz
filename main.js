@@ -1,5 +1,14 @@
 /* global mapboxgl */
 
+const get = document.getElementById.bind(document);
+const query = document.querySelector.bind(document);
+
+let modalRoot = get("modal-root");
+let modal = query(".modal");
+let toggleClusters = get("toggle-clusters");
+let toggleSatellite = get("toggle-satellite");
+let about = get("about");
+
 mapboxgl.accessToken =
   "pk.eyJ1IjoiY2FyZGVybmUiLCJhIjoiY2puMXN5cnBtNG53NDN2bnhlZ3h4b3RqcCJ9.eNjrtezXwvM7Ho1VSxo06w";
 let maxBounds = [
@@ -10,7 +19,7 @@ let map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/carderne/ckbw6t28y0a4e1iqqzk28d5vd?fresh=true",
   center: [35, -18],
-  zoom: 6,
+  zoom: 7,
   maxZoom: 14,
   minZoom: 5,
   maxBounds: maxBounds,
@@ -25,22 +34,62 @@ map.on("load", () => {
     "top-right"
   );
   map.addControl(new mapboxgl.NavigationControl(), "top-right");
+
+  modalRoot.onclick = rootClick;
+  modal.onclick = modalClick;
+  toggleClusters.onchange = toggleLayer;
+  toggleSatellite.onchange = toggleLayer;
+  about.onclick = openModal;
+
+  // Style cursor when entering/leaving clusters
+  map.on("mouseenter", "clusters-poly", () => {
+    map.getCanvas().style.cursor = "pointer";
+  });
+  map.on("mouseleave", "clusters-poly", () => {
+    map.getCanvas().style.cursor = "";
+  });
+
+  map.on("click", "clusters-poly", showClusterInfo);
+  map.on("click", (e) => {
+    if (e.defaultPrevented === false) {
+      query(".cluster").style.display = "none";
+    }
+  });
 });
 
-const get = document.getElementById.bind(document);
-const query = document.querySelector.bind(document);
+function showClusterInfo(e) {
+  e.preventDefault();
+  query(".cluster").style.display = "block";
 
-let modalRoot = get("modal-root");
-let modal = query(".modal");
-let toggleClusters = get("toggle-clusters");
-let toggleSatellite = get("toggle-satellite");
-let about = get("about");
+  let props = e.features[0].properties;
+  props = {
+    id: props.fid,
+    village: props.village_name,
+    adm3: props.adm3_posto,
+    adm2: props.adm2_district,
+    adm1: props.adm1_province,
+    pop: props.pop.toFixed(0),
+    hh: props.households.toFixed(0),
+    popd: props.pop_density.toFixed(0),
+    area: props.area.toFixed(2),
+    ntl: props.ntl.toFixed(2),
+    gdp: props.gdp.toFixed(2),
+    grid: props.gridfinder.toFixed(2),
+    elec: props.electrified,
+    travel: props.travel.toFixed(0),
+    city: props.nearest_city,
+    cityd: props.city_dist.toFixed(0),
+    urban: props.urban_level.toFixed(0),
+    health: props.health_sites,
+    school: props.schools,
+    lat: props.lat,
+    lng: props.long,
+  };
 
-modalRoot.onclick = rootClick;
-modal.onclick = modalClick;
-toggleClusters.onchange = toggleLayer;
-toggleSatellite.onchange = toggleLayer;
-about.onclick = openModal;
+  for (let key in props) {
+    get("cluster-" + key).textContent = props[key];
+  }
+}
 
 function toggleLayer(e) {
   let toggleMap = {
