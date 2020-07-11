@@ -2,7 +2,7 @@
 <html lang='en'>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Mozambique Off-Grid Energy</title>
+        <title>Energia fora da rede de Moçambique</title>
         <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
         <script src='/vendor/mapbox-gl.js'></script>
         <link href='/vendor/mapbox-gl.css' rel='stylesheet' />
@@ -15,27 +15,27 @@
 
                 <!-- Headers, logos -->
                 <div class="sb-head">
-                    <h3>Mozambique Off-Grid Energy</h3>
-                    <p>Explore data and market opportunities</p>
+                    <h3>Energia fora da rede de Moçambique</h3>
+                    <p>Explore dados e oportunidades de mercado</p>
                 </div>
 
                 <!-- Instructions, information -->
                 <div class="sb-info">
-                    <p>This tool is designed to...</p>
+                    <p>Esta ferramenta foi projetada para ...</p>
                 </div>
 
                 <!-- Controls and filters -->
                 <div class="sb-cont">
-                    <p>Filters and controls</p>
+                    <p>Filtros e controles</p>
                     <div class="range-container">
-                        <div class="range-label">Population</div>
+                        <div class="range-label">População</div>
                         <div class="range-wrap">
                             <output class="bubble"></output>
                             <input type="range" id="range-pop" class="range" min="0" max="5000" step="100" value="0">
                         </div>
                     </div>
                     <div class="range-container">
-                        <div class="range-label">Grid distance</div>
+                        <div class="range-label">Distância da grade</div>
                         <div class="range-wrap">
                             <output class="bubble"></output>
                             <input type="range" id="range-grid" class="range" min="0" max="50" step="1" value="0">
@@ -45,7 +45,7 @@
 
                 <!-- More info button -->
                 <div class="sb-foot" id="about">
-                    <p>About</p>
+                    <p>Sobre</p>
                 </div>
             </div>
 
@@ -54,24 +54,24 @@
 
             <!-- Cluster info (hidden and empty until clusters clicked) -->
             <div class="cluster">
-                <div style="text-align:center;"><strong>Cluster info</strong></div>
+                <div style="text-align:center;"><strong>Informações do cluster</strong></div>
                 <table>
                     <tbody>
                         <tr><th>ID</th><td id="cluster-id"></td><td></td></tr>
-                        <tr><th>Village</th><td id="cluster-village"></td><td></td></tr>
+                        <tr><th>Vil</th><td id="cluster-village"></td><td></td></tr>
                         <tr><th>Posto</th><td id="cluster-adm3"></td><td></td></tr>
-                        <tr><th>District</th><td id="cluster-adm2"></td><td></td></tr>
-                        <tr><th>Province</th><td id="cluster-adm1"></td><td></td></tr>
-                        <tr><th>Population</th><td id="cluster-pop"></td><td></td></tr>
-                        <tr><th>Households</th><td id="cluster-hh"></td><td></td></tr>
-                        <tr><th>Pop density</th><td id="cluster-popd"></td><td>pop/km2</td></tr>
-                        <tr><th>Area</th><td id="cluster-area"></td><td>km2</td></tr>
+                        <tr><th>Distrito</th><td id="cluster-adm2"></td><td></td></tr>
+                        <tr><th>Província</th><td id="cluster-adm1"></td><td></td></tr>
+                        <tr><th>População</th><td id="cluster-pop"></td><td></td></tr>
+                        <tr><th>Famílias</th><td id="cluster-hh"></td><td></td></tr>
+                        <tr><th>Densidade populacional</th><td id="cluster-popd"></td><td>pop/km2</td></tr>
+                        <tr><th>Área</th><td id="cluster-area"></td><td>km2</td></tr>
                         <tr><th>NTL</th><td id="cluster-ntl"></td><td></td></tr>
                         <tr><th>GDP</th><td id="cluster-gdp"></td><td>USD</td></tr>
-                        <tr><th>Grid dist</th><td id="cluster-grid"></td><td>km</td></tr>
+                        <tr><th>Distância da grade</th><td id="cluster-grid"></td><td>km</td></tr>
                         <tr><th>Electrified</th><td id="cluster-elec"></td><td></td></tr>
-                        <tr><th>Travel</th><td id="cluster-travel"></td><td>hours</td></tr>
-                        <tr><th>Near city</th><td id="cluster-city"></td><td></td></tr>
+                        <tr><th>Viagem</th><td id="cluster-travel"></td><td>hours</td></tr>
+                        <tr><th>Cidade mais próxima</th><td id="cluster-city"></td><td></td></tr>
                         <tr><th>City dist</th><td id="cluster-cityd"></td><td>km</td></tr>
                         <tr><th>Urban</th><td id="cluster-urban"></td><td></td></tr>
                         <tr><th>Health sites</th><td id="cluster-health"></td><td></td></tr>
@@ -90,21 +90,21 @@
                     <input type="checkbox" id="toggle-clusters" checked /><label for="toggle-clusters"></label>
                 </div>
                 <div>
-                    <span>Grid</span>
+                    <span>Rede</span>
                     <input type="checkbox" id="toggle-grid" checked /><label for="toggle-grid"></label>
                 </div>
                 <div>
-                    <span>Satellite</span>
+                    <span><Satélite</span>
                     <input type="checkbox" id="toggle-satellite" /><label for="toggle-satellite"></label>
                 </div>
             </div>
 
             <!-- Legend/key -->
             <div class="legend">
-                <div><strong>Legend</strong></div>
+                <div><strong>Lenda</strong></div>
                 <div>
                     <span class="legend-key" style="background-color: #8C552D"></span>
-                    <span>Legend text</span>
+                    <span>Texto da legenda</span>
                 </div>
             </div>
 
@@ -114,15 +114,15 @@
         <!-- Modal is toggled with the about button bottom of the sidebar -->
         <div id="modal-root">
             <div class="modal">
-                <h3>About</h3>
-                <p>Modal text here.</p>
+                <h3>Sobre</h3>
+                <p>Texto modal aqui.</p>
             </div>
         </div>
 
         <!-- All app logic is in here -->
         <script src="/main.js"></script>
         <noscript>
-            <div class='noscript'>This interactive map doesn't work without JavaScript.</div>
+            <div class='noscript'>Este mapa interativo não funciona sem JavaScript.</div>
         </noscript>
     </body>
 </html>

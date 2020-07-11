@@ -1,11 +1,11 @@
 # moz-offgrid-viz
 
-To serve locally, install and use `lite-server`:
+To serve locally, install and use `light-server`:
 ```
-sudo npm i -g lite-server
+npm install --global light-server
 ```
 
-Then from the project directory simply run `lite-server` to get an auto-refreshing localhost.
+Then from the project directory simply run `light-server -s .` to get a localhost server.
 
 Remove `?fresh=true` from map style URL before publishing.
 
