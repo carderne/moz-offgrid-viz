@@ -116,6 +116,8 @@ function showClusterInfo(e) {
     school: props.school,
     lat: props.lat,
     lng: props.lng,
+    ndvi: props.ndvi,
+    no2: props.no2,
   };
 
   for (let key in props) {

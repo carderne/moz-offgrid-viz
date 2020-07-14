@@ -9,11 +9,22 @@ Then from the project directory simply run `light-server -s .` to get a localhos
 
 Remove `?fresh=true` from map style URL before publishing.
 
+## Get clusters as GeoJSON
+Export clusters as GeoJSON from QGIS
+
 ## Convert GeoJSON to MBtiles
 
 For clusters:
 ```
-tippecanoe -z16 -Z5 -o clusters.mbtiles --drop-densest-as-needed clusters.geojson
+# -z highest level
+# -Z lowest level
+# -o output file
+# -as drop as needed
+# -l layer name
+# -f force
+tippecanoe -z16 -Z5 -o clusters.mbtiles -as -l clusters-v2 -f clusters.geojson
+
+# increment the -v2 version number each time!
 ```
 
 ## Buffered inverted border outline
