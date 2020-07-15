@@ -34,3 +34,7 @@ Uses [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cult
 2. Then filter the admin layer with `"SOV_A3" = 'MOZ'` and buffer by 0.2 degrees.
 3. Then use vector `Difference` to subtract the buffered Mozambique from the big square.
 4. Save as GeoJSON for loading in Mapbox Studio.
+
+# TODO
+
+Create documentation with Sphinx/Jekyll.
