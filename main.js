@@ -29,8 +29,8 @@ let map = new mapboxgl.Map({
   style: "mapbox://styles/carderne/ckbw6t28y0a4e1iqqzk28d5vd?fresh=true",
   center: [35, -18],
   zoom: 5,
-  maxZoom: 16,
   minZoom: 5,
+  maxZoom: 16,
   maxBounds: [
     [15, -35],
     [55, -5],

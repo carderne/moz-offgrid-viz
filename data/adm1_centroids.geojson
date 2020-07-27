@@ -1,0 +1,17 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "adm1": "Cabo Delgado", "adm1_code": "MZ01", "pop": 2215578, "hh": 443116, "area": 77897, "health": 113, "schools": 47, "prov_elec": 15, "prov_poverty": 54 }, "geometry": { "type": "Point", "coordinates": [ 39.365251129253508, -12.461983030929646 ] } },
+{ "type": "Feature", "properties": { "fid": 2, "adm1": "Gaza", "adm1_code": "MZ02", "pop": 1536988, "hh": 307398, "area": 75382, "health": 132, "schools": 9, "prov_elec": 46, "prov_poverty": 35 }, "geometry": { "type": "Point", "coordinates": [ 32.803791054660017, -23.322040892570268 ] } },
+{ "type": "Feature", "properties": { "fid": 3, "adm1": "Inhambane", "adm1_code": "MZ03", "pop": 1509162, "hh": 301832, "area": 68782, "health": 125, "schools": 44, "prov_elec": 20, "prov_poverty": 36 }, "geometry": { "type": "Point", "coordinates": [ 34.514779559931718, -22.810215181814996 ] } },
+{ "type": "Feature", "properties": { "fid": 4, "adm1": "Manica", "adm1_code": "MZ04", "pop": 2362137, "hh": 472427, "area": 62314, "health": 104, "schools": 29, "prov_elec": 22, "prov_poverty": 33 }, "geometry": { "type": "Point", "coordinates": [ 33.430024247628602, -19.024502701488473 ] } },
+{ "type": "Feature", "properties": { "fid": 5, "adm1": "Maputo", "adm1_code": "MZ05", "pop": 2171973, "hh": 434395, "area": 23274, "health": 111, "schools": 21, "prov_elec": 96, "prov_poverty": 14 }, "geometry": { "type": "Point", "coordinates": [ 32.450480218327392, -25.531886696176393 ] } },
+{ "type": "Feature", "properties": { "fid": 6, "adm1": "Maputo City", "adm1_code": "MZ06", "pop": 1224865, "hh": 244973, "area": 347, "health": 39, "schools": 117, "prov_elec": 96, "prov_poverty": 4 }, "geometry": { "type": "Point", "coordinates": [ 32.624585612814364, -25.961702946034027 ] } },
+{ "type": "Feature", "properties": { "fid": 7, "adm1": "Nampula", "adm1_code": "MZ07", "pop": 6041342, "hh": 1208268, "area": 78172, "health": 211, "schools": 41, "prov_elec": 23, "prov_poverty": 45 }, "geometry": { "type": "Point", "coordinates": [ 39.248460893892492, -14.967656516848731 ] } },
+{ "type": "Feature", "properties": { "fid": 8, "adm1": "Niassa", "adm1_code": "MZ08", "pop": 2191841, "hh": 438368, "area": 129406, "health": 160, "schools": 36, "prov_elec": 16, "prov_poverty": 47 }, "geometry": { "type": "Point", "coordinates": [ 36.461640508159441, -13.059399194778326 ] } },
+{ "type": "Feature", "properties": { "fid": 9, "adm1": "Sofala", "adm1_code": "MZ09", "pop": 2339010, "hh": 467802, "area": 67747, "health": 230, "schools": 87, "prov_elec": 38, "prov_poverty": 40 }, "geometry": { "type": "Point", "coordinates": [ 34.670659456177809, -19.063107811441878 ] } },
+{ "type": "Feature", "properties": { "fid": 10, "adm1": "Tete", "adm1_code": "MZ10", "pop": 3507728, "hh": 701546, "area": 100698, "health": 129, "schools": 14, "prov_elec": 15, "prov_poverty": 48 }, "geometry": { "type": "Point", "coordinates": [ 32.768525191352964, -15.518198674726744 ] } },
+{ "type": "Feature", "properties": { "fid": 11, "adm1": "Zambezia", "adm1_code": "MZ11", "pop": 5775941, "hh": 1155188, "area": 103068, "health": 230, "schools": 48, "prov_elec": 13, "prov_poverty": 53 }, "geometry": { "type": "Point", "coordinates": [ 36.982527935262993, -16.656232334247917 ] } }
+]
+}

@@ -27,6 +27,13 @@ tippecanoe -z16 -Z5 -o clusters.mbtiles -as -l clusters-v2 -f clusters.geojson
 # increment the -v2 version number each time!
 ```
 
+For adm layers:
+```
+tippecanoe -z11 -Z5 -o adm1.mbtiles -as -l adm1-v3 -f adm1.geojson
+tippecanoe -z11 -Z5 -o adm2.mbtiles -as -l adm2-v3 -f adm2.geojson
+tippecanoe -z11 -Z5 -o adm3.mbtiles -as -l adm3-v3 -f adm3.geojson
+```
+
 ## Buffered inverted border outline
 Uses [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/) admin layer. Following steps in QGIS.
 
@@ -34,6 +41,12 @@ Uses [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cult
 2. Then filter the admin layer with `"SOV_A3" = 'MOZ'` and buffer by 0.2 degrees.
 3. Then use vector `Difference` to subtract the buffered Mozambique from the big square.
 4. Save as GeoJSON for loading in Mapbox Studio.
+
+## Create adm centroids
+```
+./make_centroids.py adm1.geojson
+# same for others
+```
 
 # TODO
 
