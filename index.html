@@ -15,18 +15,18 @@
 
                 <!-- Headers, logos -->
                 <div class="sb-head">
-                    <h3>Mozambique Off-Grid Energy</h3>
+                    <h2>Mozambique Off-Grid Energy</h2>
                     <p>Explore data and market opportunities</p>
                 </div>
 
                 <!-- Instructions, information -->
-                <div class="sb-info">
+                <div id="info">
                     <p>This tool is designed to...</p>
                 </div>
 
-                <!-- Controls and filters -->
-                <div class="sb-cont">
-                    <p>Filters and controls</p>
+                <!-- Filters -->
+                <div id="filters">
+                    <h2>Filters</h2>
                     <div class="range-container">
                         <div class="range-label">Population</div>
                         <div class="range-wrap">
@@ -41,76 +41,89 @@
                             <input type="range" id="range-grid" class="range" min="0" max="50" step="1" value="0">
                         </div>
                     </div>
+
+                    <!-- Controls -->
+                </div>
+                <div id="controls">
+                    <h2>Layers</h2>
+                    <div>
+                        <span>Clusters</span>
+                        <input type="checkbox" id="toggle-clusters" checked /><label for="toggle-clusters"></label>
+                    </div>
+                    <div>
+                        <span>Postos</span>
+                        <input type="checkbox" id="toggle-adm3" /><label for="toggle-adm3"></label>
+                    </div>
+                    <label for="postos">Colour postos by</label>
+                    <select name="postos" id="postos">
+                        <option value="pop">Population</option>
+                        <option value="prov_elec">Electricity access</option>
+                    </select>
+                    <div>
+                        <span>Gridfinder</span>
+                        <input type="checkbox" id="toggle-grid" checked /><label for="toggle-grid"></label>
+                    </div>
+                    <div>
+                        <span>Satellite</span>
+                        <input type="checkbox" id="toggle-satellite" /><label for="toggle-satellite"></label>
+                    </div>
                 </div>
 
-                <!-- More info button -->
-                <div class="sb-foot" id="about">
-                    <p>About</p>
-                </div>
+            <!-- More info button -->
+            <div class="sb-foot" id="about">
+                <p>About</p>
             </div>
+        </div>
 
-            <!-- Container for Mapbox GL map object -->
-            <div id='map'></div>
+        <!-- Container for Mapbox GL map object -->
+        <div id='map'></div>
 
-            <!-- Cluster info (hidden and empty until clusters clicked) -->
-            <div class="cluster">
-                <div style="text-align:center;"><strong>Cluster info</strong></div>
-                <table>
-                    <tbody>
-                        <tr><th>ID</th><td id="cluster-id"></td><td></td></tr>
-                        <tr><th>Village</th><td id="cluster-village"></td><td></td></tr>
-                        <tr><th>Posto</th><td id="cluster-adm3"></td><td></td></tr>
-                        <tr><th>District</th><td id="cluster-adm2"></td><td></td></tr>
-                        <tr><th>Province</th><td id="cluster-adm1"></td><td></td></tr>
-                        <tr><th>Population</th><td id="cluster-pop"></td><td></td></tr>
-                        <tr><th>Households</th><td id="cluster-hh"></td><td></td></tr>
-                        <tr><th>Pop density</th><td id="cluster-popd"></td><td>pop/km2</td></tr>
-                        <tr><th>Area</th><td id="cluster-area"></td><td>km2</td></tr>
-                        <tr><th>NTL</th><td id="cluster-ntl"></td><td></td></tr>
-                        <tr><th>GDP</th><td id="cluster-gdp"></td><td>USD</td></tr>
-                        <tr><th>Grid dist</th><td id="cluster-grid"></td><td>km</td></tr>
-                        <tr><th>Electrified</th><td id="cluster-elec"></td><td></td></tr>
-                        <tr><th>Travel</th><td id="cluster-travel"></td><td>hours</td></tr>
-                        <tr><th>Near city</th><td id="cluster-city"></td><td></td></tr>
-                        <tr><th>City dist</th><td id="cluster-cityd"></td><td>km</td></tr>
-                        <tr><th>Urban</th><td id="cluster-urban"></td><td></td></tr>
-                        <tr><th>Health sites</th><td id="cluster-health"></td><td></td></tr>
-                        <tr><th>Schools</th><td id="cluster-school"></td><td></td></tr>
-                        <tr><th>Lat</th><td id="cluster-lat"></td><td></td></tr>
-                        <tr><th>Lng</th><td id="cluster-lng"></td><td></td></tr>
-                        <tr><th>NDVI</th><td id="cluster-ndvi"></td><td></td></tr>
-                        <tr><th>NO2</th><td id="cluster-no2"></td><td></td></tr>
-                    </tbody>
-                </table>
+        <!-- Cluster info (hidden and empty until clusters clicked) -->
+        <div class="cluster">
+            <div style="text-align:center;"><strong>Cluster info</strong></div>
+            <table>
+                <tbody>
+                    <tr><th>ID</th><td id="cluster-id"></td><td></td></tr>
+                    <tr><th>Village</th><td id="cluster-village"></td><td></td></tr>
+                    <tr><th>Posto</th><td id="cluster-adm3"></td><td></td></tr>
+                    <tr><th>District</th><td id="cluster-adm2"></td><td></td></tr>
+                    <tr><th>Province</th><td id="cluster-adm1"></td><td></td></tr>
+                    <tr><th>Population</th><td id="cluster-pop"></td><td></td></tr>
+                    <tr><th>Households</th><td id="cluster-hh"></td><td></td></tr>
+                    <tr><th>Pop density</th><td id="cluster-popd"></td><td>pop/km2</td></tr>
+                    <tr><th>Area</th><td id="cluster-area"></td><td>km2</td></tr>
+                    <tr><th>NTL</th><td id="cluster-ntl"></td><td></td></tr>
+                    <tr><th>GDP</th><td id="cluster-gdp"></td><td>USD</td></tr>
+                    <tr><th>Grid dist</th><td id="cluster-grid"></td><td>km</td></tr>
+                    <tr><th>Electrified</th><td id="cluster-elec"></td><td></td></tr>
+                    <tr><th>Travel</th><td id="cluster-travel"></td><td>hours</td></tr>
+                    <tr><th>Near city</th><td id="cluster-city"></td><td></td></tr>
+                    <tr><th>City dist</th><td id="cluster-cityd"></td><td>km</td></tr>
+                    <tr><th>Urban</th><td id="cluster-urban"></td><td></td></tr>
+                    <tr><th>Health sites</th><td id="cluster-health"></td><td></td></tr>
+                    <tr><th>Schools</th><td id="cluster-school"></td><td></td></tr>
+                    <tr><th>Lat</th><td id="cluster-lat"></td><td></td></tr>
+                    <tr><th>Lng</th><td id="cluster-lng"></td><td></td></tr>
+                    <tr><th>NDVI</th><td id="cluster-ndvi"></td><td></td></tr>
+                    <tr><th>NO2</th><td id="cluster-no2"></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Legend/key -->
+        <div class="legend">
+            <div><strong>Legend</strong></div>
+            <div>
+                <span class="legend-key" style="background-color: #e2a1a1"></span>
+                <span>Electrified</span>
             </div>
-
-            <!-- Layer selector -->
-            <div class="layers">
-                <div><strong>Layers</strong></div>
-                <div>
-                    <span>Include gridfinder</span>
-                    <input type="checkbox" id="toggle-grid" checked /><label for="toggle-grid"></label>
-                </div>
-                <div>
-                    <span>Satellite</span>
-                    <input type="checkbox" id="toggle-satellite" /><label for="toggle-satellite"></label>
-                </div>
+            <div>
+                <span class="legend-key" style="background-color: #616161"></span>
+                <span>Not electrified</span>
             </div>
+        </div>
 
-            <!-- Legend/key -->
-            <div class="legend">
-                <div><strong>Legend</strong></div>
-                <div>
-                    <span class="legend-key" style="background-color: #e2a1a1"></span>
-                    <span>Electrified</span>
-                </div>
-                <div>
-                    <span class="legend-key" style="background-color: #616161"></span>
-                    <span>No access</span>
-                </div>
-            </div>
-
-            <!-- Map controls are added in JS -->
+        <!-- Map controls are added in JS -->
         </div>
 
         <!-- Modal is toggled with the about button bottom of the sidebar -->

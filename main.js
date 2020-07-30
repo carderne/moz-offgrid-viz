@@ -2,6 +2,7 @@
 
 const get = document.getElementById.bind(document);
 const query = document.querySelector.bind(document);
+const queryAll = document.querySelectorAll.bind(document);
 
 let modalRoot = get("modal-root");
 let modal = query(".modal");
@@ -14,6 +15,8 @@ let filters = {
 };
 
 let toggles = {
+  clusters: get("toggle-clusters"),
+  adm3: get("toggle-adm3"),
   satellite: get("toggle-satellite"),
 };
 
@@ -76,7 +79,27 @@ map.on("load", () => {
       query(".cluster").style.display = "none";
     }
   });
+
+  get("postos").onchange = postosColor;
 });
+
+function postosColor() {
+  let by = get("postos").value;
+  let min = 0;
+  let max = 100;
+  if (by == "pop") {
+    min = 1000;
+    max = 100000;
+  }
+
+  map.setPaintProperty("adm3", "fill-color", {
+    property: by,
+    stops: [
+      [min, "#9fafe9"],
+      [max, "#2651ed"],
+    ],
+  });
+}
 
 function filterUpdate() {
   map.setFilter("clusters", [
@@ -127,11 +150,15 @@ function showClusterInfo(e) {
 
 function toggleLayer(e) {
   let toggleMap = {
-    "toggle-satellite": "mapbox-satellite",
+    "toggle-clusters": ["clusters"],
+    "toggle-adm3": ["adm3", "adm3-label"],
+    "toggle-satellite": ["mapbox-satellite"],
   };
-  let layer = toggleMap[e.target.id];
+  let layers = toggleMap[e.target.id];
   let vis = e.target.checked ? "visible" : "none";
-  map.setLayoutProperty(layer, "visibility", vis);
+  layers.forEach((layer) => {
+    map.setLayoutProperty(layer, "visibility", vis);
+  });
 }
 
 function rootClick() {
@@ -148,10 +175,9 @@ function modalClick(e) {
   return false;
 }
 
-const allRanges = document.querySelectorAll(".range-wrap");
-allRanges.forEach((wrap) => {
-  const range = wrap.querySelector(".range");
-  const bubble = wrap.querySelector(".bubble");
+queryAll(".range-wrap").forEach((wrap) => {
+  let range = wrap.querySelector(".range");
+  let bubble = wrap.querySelector(".bubble");
 
   range.addEventListener("input", () => {
     setBubble(range, bubble);
@@ -160,12 +186,20 @@ allRanges.forEach((wrap) => {
 });
 
 function setBubble(range, bubble) {
-  const val = range.value;
-  const min = range.min ? range.min : 0;
-  const max = range.max ? range.max : 100;
-  const newVal = Number(((val - min) * 100) / (max - min));
+  let val = range.value;
+  let min = range.min ? range.min : 0;
+  let max = range.max ? range.max : 100;
+  let newVal = Number(((val - min) * 100) / (max - min));
   bubble.innerHTML = val;
 
   // Sorta magic numbers based on size of the native UI thumb
   bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+
+  let pc = 100 - parseInt((100 * val) / max);
+  range.style.background =
+    "linear-gradient(to left, #82CFD0 0%, #82CFD0 " +
+    pc +
+    "%, #fff " +
+    pc +
+    "%, white 100%)";
 }
