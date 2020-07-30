@@ -8,13 +8,12 @@ let modal = query(".modal");
 let about = get("about");
 
 let filters = {
-  pop: get("range-pop"),
-  grid: get("range-grid"),
+  clustersPop: get("range-pop"),
+  clustersGrid: get("range-grid"),
+  gridSource: get("toggle-grid"),
 };
 
 let toggles = {
-  clusters: get("toggle-clusters"),
-  grid: get("toggle-grid"),
   satellite: get("toggle-satellite"),
 };
 
@@ -59,18 +58,19 @@ map.on("load", () => {
   for (let key in filters) {
     filters[key].oninput = filterUpdate;
   }
+  filterUpdate();
 
   // Style cursor when entering/leaving clusters
-  map.on("mouseenter", "clusters-poly", () => {
+  map.on("mouseenter", "clusters", () => {
     map.getCanvas().style.cursor = "pointer";
   });
-  map.on("mouseleave", "clusters-poly", () => {
+  map.on("mouseleave", "clusters", () => {
     map.getCanvas().style.cursor = "";
   });
 
   // Open info box when click on a cluster
   // And close info box when click anywhere else
-  map.on("click", "clusters-poly", showClusterInfo);
+  map.on("click", "clusters", showClusterInfo);
   map.on("click", (e) => {
     if (e.defaultPrevented === false) {
       query(".cluster").style.display = "none";
@@ -79,14 +79,14 @@ map.on("load", () => {
 });
 
 function filterUpdate() {
-  let valFilter = [
+  map.setFilter("clusters", [
     "all",
-    [">=", "pop", parseFloat(filters.pop.value)],
-    [">=", "grid", parseFloat(filters.grid.value)],
-  ];
+    [">=", "pop", parseFloat(filters.clustersPop.value)],
+    [">=", "grid", parseFloat(filters.clustersGrid.value)],
+  ]);
 
-  map.setFilter("clusters-poly", valFilter);
-  //map.setFilter("clusters-line", filters);
+  let gridFilter = filters.gridSource.checked ? null : ["==", "source", "osm"];
+  map.setFilter("grid", gridFilter);
 }
 
 function showClusterInfo(e) {
@@ -127,15 +127,11 @@ function showClusterInfo(e) {
 
 function toggleLayer(e) {
   let toggleMap = {
-    "toggle-clusters": ["clusters-poly", "clusters-line"],
-    "toggle-grid": ["gridfinder"],
-    "toggle-satellite": ["mapbox-satellite"],
+    "toggle-satellite": "mapbox-satellite",
   };
-  let layers = toggleMap[e.target.id];
+  let layer = toggleMap[e.target.id];
   let vis = e.target.checked ? "visible" : "none";
-  layers.forEach((layer) => {
-    map.setLayoutProperty(layer, "visibility", vis);
-  });
+  map.setLayoutProperty(layer, "visibility", vis);
 }
 
 function rootClick() {

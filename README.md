@@ -34,6 +34,11 @@ tippecanoe -z11 -Z5 -o adm2.mbtiles -as -l adm2-v3 -f adm2.geojson
 tippecanoe -z11 -Z5 -o adm3.mbtiles -as -l adm3-v3 -f adm3.geojson
 ```
 
+For grid:
+```
+tippecanoe -z11 -Z5 -o grid.mbtiles -as -l grid-v1 -f grid.geojson
+```
+
 ## Buffered inverted border outline
 Uses [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/) admin layer. Following steps in QGIS.
 

@@ -31,7 +31,7 @@
                         <div class="range-label">Population</div>
                         <div class="range-wrap">
                             <output class="bubble"></output>
-                            <input type="range" id="range-pop" class="range" min="0" max="5000" step="100" value="0">
+                            <input type="range" id="range-pop" class="range" min="0" max="5000" step="100" value="1000">
                         </div>
                     </div>
                     <div class="range-container">
@@ -88,11 +88,7 @@
             <div class="layers">
                 <div><strong>Layers</strong></div>
                 <div>
-                    <span>Clusters</span>
-                    <input type="checkbox" id="toggle-clusters" checked /><label for="toggle-clusters"></label>
-                </div>
-                <div>
-                    <span>Grid</span>
+                    <span>Include gridfinder</span>
                     <input type="checkbox" id="toggle-grid" checked /><label for="toggle-grid"></label>
                 </div>
                 <div>
@@ -105,8 +101,12 @@
             <div class="legend">
                 <div><strong>Legend</strong></div>
                 <div>
-                    <span class="legend-key" style="background-color: #8C552D"></span>
-                    <span>Legend text</span>
+                    <span class="legend-key" style="background-color: #e2a1a1"></span>
+                    <span>Electrified</span>
+                </div>
+                <div>
+                    <span class="legend-key" style="background-color: #616161"></span>
+                    <span>No access</span>
                 </div>
             </div>
 
