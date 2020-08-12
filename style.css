@@ -25,12 +25,12 @@ h1, h2 {
     width: 100%;
     color: var(--accent);
     text-transform: uppercase;
-    margin: 0;
 }
 
 h1 {
     font-size: 1.1em;
     text-align: center;
+    margin: 0;
 }
 
 h2 {
@@ -39,6 +39,9 @@ h2 {
 
 p {
     font-size: 0.9em;
+}
+
+a {
 }
 
 .flex-container {
@@ -67,17 +70,20 @@ p {
 .controls > div {
     height: 30px;
     line-height: 30px;
+    font-size: 0.8em;
 }
 
-.controls > div.range-container {
+.controls > div.double {
     height: 60px;
     line-height: 60px;
 }
 
-.controls > div > div:first-child {
+.controls > div > div {
     display: inline-block;
+}
+
+.controls > div > div:first-child {
     width: 130px;
-    font-size: 0.8em;
 }
 
 .controls input[type=checkbox] {
@@ -136,7 +142,6 @@ p {
     width: 100%;
     flex-grow: 1;
     background: linear-gradient(to right, var(--accent) 0%, var(--accent) 50%, #fff 50%, #fff 100%);
-    /*border: solid 1px #82CFD0;*/
     border-radius: 8px;
     height: 7px;
     outline: none;
@@ -167,7 +172,6 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 50%;
 }
 
-
 .bubble {
     line-height: initial;
     font-size: 0.6em;
@@ -177,6 +181,25 @@ input[type="range"]::-moz-range-thumb {
     position: absolute;
     border-radius: 4px;
     transform: translateX(-50%);
+}
+
+.wrapper {
+    vertical-align: middle;
+}
+
+.download {
+    float: left;
+    width: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 30px;
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+    background-color: white;
+    color: var(--accent);
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
 }
 
 #about {
@@ -200,7 +223,6 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 3px;
     padding: 0;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    line-height: 18px;
 }
 
 .map-overlay > h2 {

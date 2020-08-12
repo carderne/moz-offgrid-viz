@@ -89,27 +89,7 @@ map.on("load", () => {
       query(".cluster").style.display = "none";
     }
   });
-
-  //get("postos").onchange = postosColor;
 });
-
-//function postosColor() {
-//let by = get("postos").value;
-//let min = 0;
-//let max = 100;
-//if (by == "pop") {
-//min = 1000;
-//max = 100000;
-//}
-
-//map.setPaintProperty("adm3", "fill-color", {
-//property: by,
-//stops: [
-//[min, "#9fafe9"],
-//[max, "#2651ed"],
-//],
-//});
-//}
 
 function filterUpdate() {
   map.setFilter("clusters", [
