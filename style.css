@@ -1,10 +1,19 @@
 :root {
     --sidebar-width: 400px;
+    --light-bg: 250, 250, 250;
+    --med-bg: 235, 235, 235;
+    --dark-bg: 196, 196, 196;
+    --accent: #15BE69;
+    --text: #6B6F72;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 html {
     font-family: sans-serif;
-    color: #111111;
+    color: var(--text);
 }
 
 body {
@@ -12,32 +21,24 @@ body {
     padding: 0;
 }
 
-h2 {
-    font-size: 1em;
+h1, h2 {
+    width: 100%;
+    color: var(--accent);
     text-transform: uppercase;
+    margin: 0;
 }
 
-h3 {
-    margin: 10px;
+h1 {
     font-size: 1.1em;
+    text-align: center;
 }
 
-h4 {
-    margin: 10px;
-    font-size: 0.8em;
+h2 {
+    font-size: 0.9em;
 }
 
 p {
-    font-size: 0.95em;
-    margin: 10px;
-}
-
-h4 a {
-    text-decoration: none;
-}
-
-h4 a:visited {
-    color: inherit;
+    font-size: 0.9em;
 }
 
 .flex-container {
@@ -45,40 +46,58 @@ h4 a:visited {
     height: 100vh;
 }
 
-#sidebar {
+.sidebar {
     display: flex;
     flex-direction: column;
     width: var(--sidebar-width);
-    background-color: #f3ebe8;
+    background-color: rgb(var(--light-bg));
+    height: 100%;
 }
 
-#info {
-    background-color: white;
+.sidebar > * {
+    padding: 20px;
+}
+
+.controls {
     flex-grow: 1;
+    background-color: rgb(var(--med-bg));
+    overflow-y: auto;
 }
 
-#controls {
-    flex-grow: 1;
-    background-color: white;
+.controls > div {
+    height: 30px;
+    line-height: 30px;
 }
 
-#controls input[type=checkbox] {
+.controls > div.range-container {
+    height: 60px;
+    line-height: 60px;
+}
+
+.controls > div > div:first-child {
+    display: inline-block;
+    width: 130px;
+    font-size: 0.8em;
+}
+
+.controls input[type=checkbox] {
     height: 0;
     width: 0;
     visibility: hidden;
 }
 
-#controls input + label {
+.controls input + label {
+    vertical-align: middle;
     cursor: pointer;
     width: 40px;
     height: 20px;
-    background: grey;
+    background-color: gray;
     display: inline-block;
     border-radius: 20px;
     position: relative;
 }
 
-#controls input + label:after {
+.controls input + label:after {
     content: '';
     position: absolute;
     top: 4px;
@@ -90,16 +109,16 @@ h4 a:visited {
     transition: 0.3s;
 }
 
-#controls input:checked + label {
-    background: #bada55;
+.controls input:checked + label {
+    background: var(--accent);
 }
 
-#controls input:checked + label:after {
+.controls input:checked + label:after {
     left: calc(100% - 4px);
     transform: translateX(-100%);
 }
 
-#controls label:active:after {
+.controls label:active:after {
     width: 20px;
 }
 
@@ -115,10 +134,9 @@ h4 a:visited {
 
 .range {
     width: 100%;
-    margin-top: 20px;
     flex-grow: 1;
-    background: linear-gradient(to right, #82CFD0 0%, #82CFD0 50%, #fff 50%, #fff 100%);
-    border: solid 1px #82CFD0;
+    background: linear-gradient(to right, var(--accent) 0%, var(--accent) 50%, #fff 50%, #fff 100%);
+    /*border: solid 1px #82CFD0;*/
     border-radius: 8px;
     height: 7px;
     outline: none;
@@ -130,72 +148,93 @@ h4 a:visited {
     cursor: pointer;
 }
 
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* needed for Chrome */
+    height: 16px;
+    width: 16px;
+    border: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    background: white;
+    border-radius: 50%;
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 16px;
+    width: 16px;
+    border: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    background: white;
+    border-radius: 50%;
+}
+
+
 .bubble {
-    font-size: 11px;
+    line-height: initial;
+    font-size: 0.6em;
     background: gray;
     color: white;
-    padding: 4px 12px;
+    padding: 4px 8px;
     position: absolute;
     border-radius: 4px;
-    left: 50%;
     transform: translateX(-50%);
 }
 
 #about {
-    height: 50px;
-    background-color: gray;
+    background-color: rgb(var(--dark-bg));
     cursor: pointer;
     text-align: center;
-}
-
-#about:hover {
-    background-color: #dad3d0;
-}
-
-#about p {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 0;
+    font-weight: bold;
 }
 
 #map {
-    width: calc(100vw - 200px);
+    width: calc(100vw - var(--sidebar-width));
     position: relative;
+}
+
+.map-overlay {
+    position: absolute;
+    right: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-left: 10px;
+    border-radius: 3px;
+    padding: 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    line-height: 18px;
+}
+
+.map-overlay > h2 {
+    text-align: center;
+    margin: 0;
+    background-color: rgba(var(--med-bg), 0.9);
+}
+
+.map-overlay > * {
+    padding: 10px;
 }
 
 .cluster {
     display: none;
-    position: absolute;
-    top: 0;
-    left: var(--sidebar-width);
-    background: rgba(255, 255, 255, 0.8);
-    margin-left: 20px;
-    overflow: hidden;
-    border-radius: 3px;
-    padding: 10px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    line-height: 18px;
-    margin-top: 40px;
-    width: 210px;
+    top: 60px;
+    width: 400px;
 }
 
-.cluster > table {
-    font-size: 10px;
+.table {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.table > div > div {
+    display: inline-block;
+    width: 140px;
+}
+
+.table > div > span {
+    margin-left: 10px;
 }
 
 .legend {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.8);
-    margin-right: 20px;
-    overflow: hidden;
-    border-radius: 3px;
-    padding: 10px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    line-height: 18px;
-    height: 60px;
-    margin-bottom: 40px;
-    width: 210px;
+    bottom: 60px;
 }
 
 .legend-key {
@@ -228,7 +267,7 @@ h4 a:visited {
 .modal {
     margin: 0 auto;
     width: 60%;
-    background-color: #fdfbfb;
+    background-color: rgb(var(--light-bg));
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);

@@ -20,6 +20,8 @@ let toggles = {
   satellite: get("toggle-satellite"),
 };
 
+let formatter = new Intl.NumberFormat("en-US");
+
 about.onclick = openModal;
 modalRoot.onclick = rootClick;
 modal.onclick = modalClick;
@@ -48,20 +50,28 @@ map.on("load", () => {
       maxWidth: 200,
       unit: "metric",
     }),
-    "top-right"
+    "bottom-right"
   );
-  map.addControl(new mapboxgl.NavigationControl(), "top-right");
+  map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
 
   // Layer toggles
   for (let key in toggles) {
     toggles[key].onchange = toggleLayer;
   }
+  toggleLayer();
 
   // Call function when range slider value changes
   for (let key in filters) {
     filters[key].oninput = filterUpdate;
   }
   filterUpdate();
+
+  map.setPaintProperty("clusters", "fill-opacity", [
+    "case",
+    ["boolean", ["feature-state", "hover"], false],
+    1,
+    0.5,
+  ]);
 
   // Style cursor when entering/leaving clusters
   map.on("mouseenter", "clusters", () => {
@@ -80,26 +90,26 @@ map.on("load", () => {
     }
   });
 
-  get("postos").onchange = postosColor;
+  //get("postos").onchange = postosColor;
 });
 
-function postosColor() {
-  let by = get("postos").value;
-  let min = 0;
-  let max = 100;
-  if (by == "pop") {
-    min = 1000;
-    max = 100000;
-  }
+//function postosColor() {
+//let by = get("postos").value;
+//let min = 0;
+//let max = 100;
+//if (by == "pop") {
+//min = 1000;
+//max = 100000;
+//}
 
-  map.setPaintProperty("adm3", "fill-color", {
-    property: by,
-    stops: [
-      [min, "#9fafe9"],
-      [max, "#2651ed"],
-    ],
-  });
-}
+//map.setPaintProperty("adm3", "fill-color", {
+//property: by,
+//stops: [
+//[min, "#9fafe9"],
+//[max, "#2651ed"],
+//],
+//});
+//}
 
 function filterUpdate() {
   map.setFilter("clusters", [
@@ -123,7 +133,7 @@ function showClusterInfo(e) {
     adm3: props.adm3,
     adm2: props.adm2,
     adm1: props.adm1,
-    pop: props.pop.toFixed(0),
+    pop: formatter.format(props.pop.toFixed(0)),
     hh: props.hh.toFixed(0),
     popd: props.popd.toFixed(0),
     area: props.area.toFixed(2),
@@ -144,21 +154,27 @@ function showClusterInfo(e) {
   };
 
   for (let key in props) {
-    get("cluster-" + key).textContent = props[key];
+    let cell = get("cluster-" + key);
+    if (cell !== null) {
+      cell.textContent = props[key];
+    }
   }
 }
 
-function toggleLayer(e) {
+function toggleLayer() {
   let toggleMap = {
     "toggle-clusters": ["clusters"],
     "toggle-adm3": ["adm3", "adm3-label"],
     "toggle-satellite": ["mapbox-satellite"],
   };
-  let layers = toggleMap[e.target.id];
-  let vis = e.target.checked ? "visible" : "none";
-  layers.forEach((layer) => {
-    map.setLayoutProperty(layer, "visibility", vis);
-  });
+
+  for (let key in toggles) {
+    let layers = toggleMap[toggles[key].id];
+    let vis = toggles[key].checked ? "visible" : "none";
+    layers.forEach((layer) => {
+      map.setLayoutProperty(layer, "visibility", vis);
+    });
+  }
 }
 
 function rootClick() {
@@ -197,7 +213,7 @@ function setBubble(range, bubble) {
 
   let pc = 100 - parseInt((100 * val) / max);
   range.style.background =
-    "linear-gradient(to left, #82CFD0 0%, #82CFD0 " +
+    "linear-gradient(to left, #15BE69 0%, #15BE69 " +
     pc +
     "%, #fff " +
     pc +
