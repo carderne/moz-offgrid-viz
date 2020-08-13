@@ -7,6 +7,8 @@ const queryAll = document.querySelectorAll.bind(document);
 let modalRoot = get("modal-root");
 let modal = query(".modal");
 let about = get("about");
+let clusterExit = get("cluster-exit");
+let modalExit = get("modal-exit");
 
 let filters = {
   clustersPop: get("range-pop"),
@@ -25,6 +27,8 @@ let formatter = new Intl.NumberFormat("en-US");
 about.onclick = openModal;
 modalRoot.onclick = rootClick;
 modal.onclick = modalClick;
+modalExit.onclick = rootClick;
+clusterExit.onclick = closeClusterInfo;
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoiY2FyZGVybmUiLCJhIjoiY2puMXN5cnBtNG53NDN2bnhlZ3h4b3RqcCJ9.eNjrtezXwvM7Ho1VSxo06w";
@@ -86,7 +90,7 @@ map.on("load", () => {
   map.on("click", "clusters", showClusterInfo);
   map.on("click", (e) => {
     if (e.defaultPrevented === false) {
-      query(".cluster").style.display = "none";
+      closeClusterInfo();
     }
   });
 });
@@ -139,6 +143,10 @@ function showClusterInfo(e) {
       cell.textContent = props[key];
     }
   }
+}
+
+function closeClusterInfo() {
+  query(".cluster").style.display = "none";
 }
 
 function toggleLayer() {

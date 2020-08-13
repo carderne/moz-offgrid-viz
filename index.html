@@ -96,7 +96,7 @@
 
             <!-- Cluster info (hidden and empty until clusters clicked) -->
             <div class="map-overlay cluster">
-                <h2>Cluster details</h2>
+                <div><h2>Cluster details</h2><span class="exit" id="cluster-exit">×</span></div>
                 <div class="table">
                     <div><div>Name:</div><span id="cluster-village"></span><span></span></div>
                     <div><div>Posto:</div><span id="cluster-adm3"></span><span></span></div>
@@ -108,7 +108,7 @@
 
             <!-- Legend/key -->
             <div class="map-overlay legend">
-                <h2>Legend</h2>
+                <div><h2>Legend</h2></div>
                 <div>
                     <div>
                         <span class="legend-key" style="background-color: #e2a1a1"></span>
@@ -127,8 +127,26 @@
         <!-- Modal is toggled with the about button bottom of the sidebar -->
         <div id="modal-root">
             <div class="modal">
-                <h2>About</h2>
-                <p>Modal text here.</p>
+                <div><h2>&nbsp;</h2><span class="exit" id="modal-exit">×</span></div>
+                <div class="modal-flex">
+                    <div>
+                        <h2>Background</h2>
+                        <p>This map was created as part of the GIZ off-grid energy program in Mozambique. It is intended to support the development of the off-grid sector, by providing improved access to data and market intelligence, to both mini-grid and solar home system developers, distributors and investors.</p>
+                        <p>The map shows data for all provinces of Mozambique, using only publicly available data. It incorporates analysis from combining international, government and satellite data to help developers find markets and customers.</p>
+                        <h2>Open</h2>
+                        <p>The full list of public datasets used and the methods used in preparing them is available at the project's <a href="https://github.com/carderne/moz-offgrid-data">GitHub repository</a>. The code and resources used in this website are available in a <a href="https://github.com/carderne/moz-offgrid-viz">separate repository</a>.</p>
+                    </div>
+                    <div>
+                        <h2>Support</h2>
+                        <p>This program is operated and supported by the Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH</p>
+                        <p>Program name</p>
+                        <p>Address</p>
+                        <p>Contact</p>
+                        <h2>Development</h2>
+                        <p>The analysis and web development are by Chris Arderne.</p>
+                        <p><a href="https://rdrn.me/">www.rdrn.me</a></p>
+                    </div>
+                </div>
             </div>
         </div>
 

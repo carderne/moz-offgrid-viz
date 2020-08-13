@@ -55,4 +55,7 @@ Uses [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cult
 
 # TODO
 
-Create documentation with Sphinx/Jekyll.
+- Create documentation with Sphinx/Jekyll.
+- Add hover/click styling to clusters
+- Postos styling/color?
+- Add text to about page

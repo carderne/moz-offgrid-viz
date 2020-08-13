@@ -225,13 +225,30 @@ input[type="range"]::-moz-range-thumb {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.map-overlay > h2 {
-    text-align: center;
+.map-overlay > div:first-child, .modal > div:first-child {
     margin: 0;
     background-color: rgba(var(--med-bg), 0.9);
 }
 
-.map-overlay > * {
+.map-overlay h2, .modal h2 {
+    margin: 0;
+    text-align: center;
+}
+
+.exit {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 26px;
+    font-weight: lighter;
+}
+
+.exit:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.map-overlay > *, .modal > * {
     padding: 10px;
 }
 
@@ -270,7 +287,7 @@ input[type="range"]::-moz-range-thumb {
 #modal-root {
     position: fixed;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.7);
     left : 0;
     top: 0;
     width: 0px;
@@ -288,22 +305,28 @@ input[type="range"]::-moz-range-thumb {
 
 .modal {
     margin: 0 auto;
-    width: 60%;
+    width: 80%;
     background-color: rgb(var(--light-bg));
-    padding: 20px;
     border-radius: 5px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 20%;
+    transform: translateY(-20%);
     max-height: calc(100vh - 210px);
     overflow-y: auto;
 }
 
-@media (min-width: 700px) {
-    .modal {
-        width: 600px;
-    }
+.modal-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.modal-flex > div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
 }
 
 .noscript {
