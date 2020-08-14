@@ -1,149 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<title>Mozambique Off-Grid Energy</title>
-<meta content="initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport"/>
-<script src="/vendor/mapbox-gl.js"></script>
-<link href="/vendor/mapbox-gl.css" rel="stylesheet"/>
-<link href="/style.css" rel="stylesheet"/>
-</head>
-<body>
-<!-- Everything except the modal goes in here -->
-<div class="flex-container">
-<div class="sidebar">
-<!-- Headers, logos -->
-<div>
-<h1>Mozambique Off-Grid Energy</h1>
-<p style="color:red;text-align:center;">NOT YET PUBLIC</p>
-<p>This tool allows you to explore data relevant to off-grid energy market opportunities.</p>
-</div>
-<!-- Filters and controls -->
-<div class="controls">
-<h2>Filters</h2>
-<div class="range-container double">
-<div class="range-label"><p>Population</p></div>
-<div class="range-wrap">
-<output class="bubble"></output>
-<input class="range" id="range-pop" max="5000" min="0" step="100" type="range" value="1000"/>
-</div>
-</div>
-<div class="range-container double">
-<div class="range-label"><p>Grid distance</p></div><br/>
-<div class="range-wrap">
-<output class="bubble"></output>
-<input class="range" id="range-grid" max="50" min="0" step="1" type="range" value="0"/>
-</div>
-</div>
-<h2>Layers</h2>
-<div>
-<div>Clusters</div>
-<div>
-<input checked="" id="toggle-clusters" type="checkbox"/>
-<label for="toggle-clusters"></label>
-</div>
-</div>
-<div>
-<div>Gridfinder</div>
-<div>
-<input checked="" id="toggle-grid" type="checkbox"/>
-<label for="toggle-grid"></label>
-</div>
-</div>
-<div>
-<div>Postos</div>
-<div>
-<input id="toggle-adm3" type="checkbox"/>
-<label for="toggle-adm3"></label>
-</div>
-</div>
-<div>
-<div>Satellite</div>
-<div>
-<input id="toggle-satellite" type="checkbox"/>
-<label for="toggle-satellite"></label>
-</div>
-</div>
-<h2>Downloads</h2>
-<div class="double">
-<div>Download clusters</div>
-<div class="wrapper">
-<a download="" href="/download/moz-clusters.csv" target="_blank"><span class="download">CSV</span></a>
-<a download="" href="/download/moz-clusters.kml" target="_blank"><span class="download">KML</span></a>
-</div>
-</div>
-<div class="double">
-<div>Download postos</div>
-<div class="wrapper">
-<a download="" href="/download/moz-postos.csv" target="_blank"><span class="download">CSV</span></a>
-<a download="" href="/download/moz-postos.kml" target="_blank"><span class="download">KML</span></a>
-</div>
-</div>
-</div>
-<!-- More info button -->
-<div id="about">
-<p>About</p>
-</div>
-</div>
-<!-- Container for Mapbox GL map object -->
-<div id="map"></div>
-<!-- Cluster info (hidden and empty until clusters clicked) -->
-<div class="map-overlay cluster">
-<div><h2>Cluster details</h2><span class="exit" id="cluster-exit">×</span></div>
-<div class="table">
-<div><div>Name</div><span id="cluster-village"></span><span></span></div>
-<div><div>Posto</div><span id="cluster-adm3"></span><span></span></div>
-<div><div>Population</div><span id="cluster-pop"></span><span></span></div>
-<div><div>Grid distance</div><span id="cluster-grid"></span><span>km</span></div>
-<div><div>Nearest city</div><span id="cluster-city"></span><span></span></div>
-</div>
-</div>
-<!-- Legend/key -->
-<div class="map-overlay legend">
-<div><h2>Legend</h2></div>
-<div>
-<div>
-<span class="legend-key" style="background-color: #e2a1a1"></span>
-<span>Electrified</span>
-</div>
-<div>
-<span class="legend-key" style="background-color: #616161"></span>
-<span>Not electrified</span>
-</div>
-</div>
-</div>
-<!-- Map controls are added in JS -->
-</div>
-<!-- Modal is toggled with the about button bottom of the sidebar -->
-<div id="modal-root">
-<div class="modal">
-<div><h2> </h2><span class="exit" id="modal-exit">×</span></div>
-<div class="modal-flex">
-<div>
-<h2>Background</h2>
-<p>This map was created as part of the GIZ off-grid energy program in Mozambique. It is intended to support the development of the off-grid sector, by providing improved access to data and market intelligence, to both mini-grid and solar home system developers, distributors and investors.</p>
-<p>The map shows data for all provinces of Mozambique, using only publicly available data. It incorporates analysis from combining international, government and satellite data to help developers find markets and customers.</p>
-<h2>Open</h2>
-<p>The full list of public datasets used and the methods used in preparing them is available at the project's GitHub repository<a href="https://github.com/carderne/moz-offgrid-data"> moz-offgrid-data.</a></p>
-<p>The code and resources used in this website are available in a separate repository<a href="https://github.com/carderne/moz-offgrid-viz"> moz-offgrid-viz</a>.</p>
-</div>
-<div>
-<h2>Support</h2>
-<p>This program is operated and supported by the Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH</p>
-<p>Program name</p>
-<p>Address</p>
-<p>Contact</p>
-<h2>Development</h2>
-<p>The analysis and web development are by Chris Arderne.</p>
-<p><a href="https://rdrn.me/">www.rdrn.me</a></p>
-</div>
-</div>
-</div>
-</div>
-<!-- All app logic is in here -->
-<script src="/main.js"></script>
-<noscript>
-<div class="noscript">This interactive map doesn't work without JavaScript.</div>
-</noscript>
-</body>
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Mozambique Off-Grid Energy
+  </title>
+  <meta content="initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport"/>
+  <script src="/vendor/mapbox-gl.js">
+  </script>
+  <link href="/vendor/mapbox-gl.css" rel="stylesheet"/>
+  <link href="/style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <!-- Everything except the modal goes in here -->
+  <div class="flex-container">
+   <div class="sidebar">
+    <!-- Headers, logos -->
+    <div>
+     <div class="lang">
+      <span id="en">
+       <a href="/">
+        🇬🇧
+       </a>
+      </span>
+      <span id="pt">
+       <a href="/pt/">
+        🇲🇿
+       </a>
+      </span>
+     </div>
+     <h1>
+      Mozambique Off-Grid Energy
+     </h1>
+     <p style="color:red;text-align:center;">
+      NOT YET PUBLIC
+     </p>
+     <p>
+      This tool allows you to explore data relevant to off-grid energy market opportunities.
+     </p>
+    </div>
+    <!-- Filters and controls -->
+    <div class="controls">
+     <h2>
+      Filters
+     </h2>
+     <div class="range-container double">
+      <div class="range-label">
+       <p>
+        Population
+       </p>
+      </div>
+      <div class="range-wrap">
+       <output class="bubble">
+       </output>
+       <input class="range" id="range-pop" max="5000" min="0" step="100" type="range" value="1000"/>
+      </div>
+     </div>
+     <div class="range-container double">
+      <div class="range-label">
+       <p>
+        Grid distance
+       </p>
+      </div>
+      <br/>
+      <div class="range-wrap">
+       <output class="bubble">
+       </output>
+       <input class="range" id="range-grid" max="50" min="0" step="1" type="range" value="0"/>
+      </div>
+     </div>
+     <h2>
+      Layers
+     </h2>
+     <div>
+      <div>
+       Clusters
+      </div>
+      <div>
+       <input checked="" id="toggle-clusters" type="checkbox"/>
+       <label for="toggle-clusters">
+       </label>
+      </div>
+     </div>
+     <div>
+      <div>
+       Gridfinder
+      </div>
+      <div>
+       <input checked="" id="toggle-grid" type="checkbox"/>
+       <label for="toggle-grid">
+       </label>
+      </div>
+     </div>
+     <div>
+      <div>
+       Postos
+      </div>
+      <div>
+       <input id="toggle-adm3" type="checkbox"/>
+       <label for="toggle-adm3">
+       </label>
+      </div>
+     </div>
+     <div>
+      <div>
+       Satellite
+      </div>
+      <div>
+       <input id="toggle-satellite" type="checkbox"/>
+       <label for="toggle-satellite">
+       </label>
+      </div>
+     </div>
+     <h2>
+      Downloads
+     </h2>
+     <div class="double">
+      <div>
+       Download clusters
+      </div>
+      <div class="wrapper">
+       <a download="" href="/download/moz-clusters.csv" target="_blank">
+        <span class="download">
+         CSV
+        </span>
+       </a>
+       <a download="" href="/download/moz-clusters.kml" target="_blank">
+        <span class="download">
+         KML
+        </span>
+       </a>
+      </div>
+     </div>
+     <div class="double">
+      <div>
+       Download postos
+      </div>
+      <div class="wrapper">
+       <a download="" href="/download/moz-postos.csv" target="_blank">
+        <span class="download">
+         CSV
+        </span>
+       </a>
+       <a download="" href="/download/moz-postos.kml" target="_blank">
+        <span class="download">
+         KML
+        </span>
+       </a>
+      </div>
+     </div>
+    </div>
+    <!-- More info button -->
+    <div id="about">
+     <p>
+      About
+     </p>
+    </div>
+   </div>
+   <!-- Container for Mapbox GL map object -->
+   <div id="map">
+   </div>
+   <!-- Cluster info (hidden and empty until clusters clicked) -->
+   <div class="map-overlay cluster">
+    <div>
+     <h2>
+      Cluster details
+     </h2>
+     <span class="exit" id="cluster-exit">
+      ×
+     </span>
+    </div>
+    <div class="table">
+     <div>
+      <div>
+       Name
+      </div>
+      <span id="cluster-village">
+      </span>
+      <span>
+      </span>
+     </div>
+     <div>
+      <div>
+       Posto
+      </div>
+      <span id="cluster-adm3">
+      </span>
+      <span>
+      </span>
+     </div>
+     <div>
+      <div>
+       Population
+      </div>
+      <span id="cluster-pop">
+      </span>
+      <span>
+      </span>
+     </div>
+     <div>
+      <div>
+       Grid distance
+      </div>
+      <span id="cluster-grid">
+      </span>
+      <span>
+       km
+      </span>
+     </div>
+     <div>
+      <div>
+       Nearest city
+      </div>
+      <span id="cluster-city">
+      </span>
+      <span>
+      </span>
+     </div>
+    </div>
+   </div>
+   <!-- Legend/key -->
+   <div class="map-overlay legend">
+    <div>
+     <h2>
+      Legend
+     </h2>
+    </div>
+    <div>
+     <div>
+      <span class="legend-key" style="background-color: #e2a1a1">
+      </span>
+      <span>
+       Electrified
+      </span>
+     </div>
+     <div>
+      <span class="legend-key" style="background-color: #616161">
+      </span>
+      <span>
+       Not electrified
+      </span>
+     </div>
+    </div>
+   </div>
+   <!-- Map controls are added in JS -->
+  </div>
+  <!-- Modal is toggled with the about button bottom of the sidebar -->
+  <div id="modal-root">
+   <div class="modal">
+    <div>
+     <h2>
+     </h2>
+     <span class="exit" id="modal-exit">
+      ×
+     </span>
+    </div>
+    <div class="modal-flex">
+     <div>
+      <h2>
+       Background
+      </h2>
+      <p>
+       This map was created as part of the GIZ off-grid energy program in Mozambique. It is intended to support the development of the off-grid sector, by providing improved access to data and market intelligence, to both mini-grid and solar home system developers, distributors and investors.
+      </p>
+      <p>
+       The map shows data for all provinces of Mozambique, using only publicly available data. It incorporates analysis from combining international, government and satellite data to help developers find markets and customers.
+      </p>
+      <h2>
+       Open
+      </h2>
+      <p>
+       The full list of public datasets used and the methods used in preparing them is available at the project's GitHub repository
+       <a href="https://github.com/carderne/moz-offgrid-data">
+        moz-offgrid-data.
+       </a>
+      </p>
+      <p>
+       The code and resources used in this website are available in a separate repository
+       <a href="https://github.com/carderne/moz-offgrid-viz">
+        moz-offgrid-viz
+       </a>
+       .
+      </p>
+     </div>
+     <div>
+      <h2>
+       Support
+      </h2>
+      <p>
+       This program is operated and supported by the Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH
+      </p>
+      <p>
+       Program name
+      </p>
+      <p>
+       Address
+      </p>
+      <p>
+       Contact
+      </p>
+      <h2>
+       Development
+      </h2>
+      <p>
+       The analysis and web development are by Chris Arderne.
+      </p>
+      <p>
+       <a href="https://rdrn.me/">
+        www.rdrn.me
+       </a>
+      </p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- All app logic is in here -->
+  <script src="/main.js">
+  </script>
+  <noscript>
+   <div class="noscript">
+    This interactive map doesn't work without JavaScript.
+   </div>
+  </noscript>
+ </body>
 </html>

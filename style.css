@@ -61,6 +61,16 @@ a {
     padding: 20px;
 }
 
+.lang {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+}
+
+.lang a {
+    text-decoration: none;
+}
+
 .controls {
     flex-grow: 1;
     background-color: rgb(var(--med-bg));
@@ -232,6 +242,7 @@ input[type="range"]::-moz-range-thumb {
 .map-overlay > div:first-child, .modal > div:first-child {
     margin: 0;
     background-color: rgba(var(--med-bg), 0.9);
+    height: 38px;
 }
 
 .map-overlay h2, .modal h2 {
@@ -269,7 +280,7 @@ input[type="range"]::-moz-range-thumb {
 
 .table > div > div {
     display: inline-block;
-    width: 140px;
+    width: 60%;
 }
 
 .table > div > span {

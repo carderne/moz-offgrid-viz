@@ -26,6 +26,9 @@ for lang, files in langs.items():
     p = re.compile(r"{{.*?}}")
     tags = ["title", "h1", "h2", "p", "div", "span", "a"]
 
+    # change = soup.find("span", {"id": lang})
+    # change.contents[0].replace_with(change.text)
+
     for t in tags:
         res = soup.find_all(t)
         for r in res:
@@ -41,4 +44,4 @@ for lang, files in langs.items():
     out.parents[0].mkdir(exist_ok=True)
     print(f"writing to {out}")
     with open(out, "w") as f:
-        f.write(str(soup))
+        f.write(str(soup.prettify()))

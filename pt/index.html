@@ -1,149 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<title>Mozambique Off-Grid Energy</title>
-<meta content="initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport"/>
-<script src="/vendor/mapbox-gl.js"></script>
-<link href="/vendor/mapbox-gl.css" rel="stylesheet"/>
-<link href="/style.css" rel="stylesheet"/>
-</head>
-<body>
-<!-- Everything except the modal goes in here -->
-<div class="flex-container">
-<div class="sidebar">
-<!-- Headers, logos -->
-<div>
-<h1>Energia fora da rede de Moçambique</h1>
-<p style="color:red;text-align:center;">AINDA NÃO PÚBLICO</p>
-<p>Esta ferramenta permite que você explore dados relevantes para oportunidades de mercado de energia fora da rede.</p>
-</div>
-<!-- Filters and controls -->
-<div class="controls">
-<h2>Filtros</h2>
-<div class="range-container double">
-<div class="range-label"><p>População</p></div>
-<div class="range-wrap">
-<output class="bubble"></output>
-<input class="range" id="range-pop" max="5000" min="0" step="100" type="range" value="1000"/>
-</div>
-</div>
-<div class="range-container double">
-<div class="range-label"><p>Distância da rede</p></div><br/>
-<div class="range-wrap">
-<output class="bubble"></output>
-<input class="range" id="range-grid" max="50" min="0" step="1" type="range" value="0"/>
-</div>
-</div>
-<h2>Camadas</h2>
-<div>
-<div>Clusters</div>
-<div>
-<input checked="" id="toggle-clusters" type="checkbox"/>
-<label for="toggle-clusters"></label>
-</div>
-</div>
-<div>
-<div>Gridfinder</div>
-<div>
-<input checked="" id="toggle-grid" type="checkbox"/>
-<label for="toggle-grid"></label>
-</div>
-</div>
-<div>
-<div>Postos</div>
-<div>
-<input id="toggle-adm3" type="checkbox"/>
-<label for="toggle-adm3"></label>
-</div>
-</div>
-<div>
-<div>Satélite</div>
-<div>
-<input id="toggle-satellite" type="checkbox"/>
-<label for="toggle-satellite"></label>
-</div>
-</div>
-<h2>Transferências</h2>
-<div class="double">
-<div>Baixar clusters</div>
-<div class="wrapper">
-<a download="" href="/download/moz-clusters.csv" target="_blank"><span class="download">CSV</span></a>
-<a download="" href="/download/moz-clusters.kml" target="_blank"><span class="download">KML</span></a>
-</div>
-</div>
-<div class="double">
-<div>Baixar postagens</div>
-<div class="wrapper">
-<a download="" href="/download/moz-postos.csv" target="_blank"><span class="download">CSV</span></a>
-<a download="" href="/download/moz-postos.kml" target="_blank"><span class="download">KML</span></a>
-</div>
-</div>
-</div>
-<!-- More info button -->
-<div id="about">
-<p>Sobre</p>
-</div>
-</div>
-<!-- Container for Mapbox GL map object -->
-<div id="map"></div>
-<!-- Cluster info (hidden and empty until clusters clicked) -->
-<div class="map-overlay cluster">
-<div><h2>Detalhes do cluster</h2><span class="exit" id="cluster-exit">×</span></div>
-<div class="table">
-<div><div>Inhame</div><span id="cluster-village"></span><span></span></div>
-<div><div>Posto</div><span id="cluster-adm3"></span><span></span></div>
-<div><div>População</div><span id="cluster-pop"></span><span></span></div>
-<div><div>Distância da rede</div><span id="cluster-grid"></span><span>km</span></div>
-<div><div>Cidade mais próxima</div><span id="cluster-city"></span><span></span></div>
-</div>
-</div>
-<!-- Legend/key -->
-<div class="map-overlay legend">
-<div><h2>Lenda</h2></div>
-<div>
-<div>
-<span class="legend-key" style="background-color: #e2a1a1"></span>
-<span>Eletrificado</span>
-</div>
-<div>
-<span class="legend-key" style="background-color: #616161"></span>
-<span>Não eletrificado</span>
-</div>
-</div>
-</div>
-<!-- Map controls are added in JS -->
-</div>
-<!-- Modal is toggled with the about button bottom of the sidebar -->
-<div id="modal-root">
-<div class="modal">
-<div><h2> </h2><span class="exit" id="modal-exit">×</span></div>
-<div class="modal-flex">
-<div>
-<h2>Fundo</h2>
-<p>Este mapa foi criado como parte do programa de energia fora da rede da GIZ em Moçambique. Destina-se a apoiar o desenvolvimento do setor fora da rede, fornecendo acesso melhorado a dados e inteligência de mercado, para desenvolvedores, distribuidores e investidores de minirredes e sistemas solares domésticos.</p>
-<p>O mapa mostra dados para todas as províncias de Moçambique, usando apenas dados disponíveis publicamente. Ele incorpora a análise da combinação de dados internacionais, governamentais e de satélite para ajudar os desenvolvedores a encontrar mercados e clientes.</p>
-<h2>Abrir</h2>
-<p>A lista completa de conjuntos de dados públicos usados e os métodos usados para prepará-los está disponível no repositório GitHub do projeto<a href="https://github.com/carderne/moz-offgrid-data"> moz-offgrid-data.</a></p>
-<p>O código e os recursos usados neste site estão disponíveis em um repositório separado<a href="https://github.com/carderne/moz-offgrid-viz"> moz-offgrid-viz</a>.</p>
-</div>
-<div>
-<h2>Suporte</h2>
-<p>Este programa é operado e apoiado pela Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH</p>
-<p>Nome do programa</p>
-<p>Endereço</p>
-<p>Contato</p>
-<h2>Desenvolvimento</h2>
-<p>A análise e o desenvolvimento web são de Chris Arderne.</p>
-<p><a href="https://rdrn.me/">www.rdrn.me</a></p>
-</div>
-</div>
-</div>
-</div>
-<!-- All app logic is in here -->
-<script src="/main.js"></script>
-<noscript>
-<div class="noscript">This interactive map doesn't work without JavaScript.</div>
-</noscript>
-</body>
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Mozambique Off-Grid Energy
+  </title>
+  <meta content="initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport"/>
+  <script src="/vendor/mapbox-gl.js">
+  </script>
+  <link href="/vendor/mapbox-gl.css" rel="stylesheet"/>
+  <link href="/style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <!-- Everything except the modal goes in here -->
+  <div class="flex-container">
+   <div class="sidebar">
+    <!-- Headers, logos -->
+    <div>
+     <div class="lang">
+      <span id="en">
+       <a href="/">
+        🇬🇧
+       </a>
+      </span>
+      <span id="pt">
+       <a href="/pt/">
+        🇲🇿
+       </a>
+      </span>
+     </div>
+     <h1>
+      Energia fora da rede de Moçambique
+     </h1>
+     <p style="color:red;text-align:center;">
+      AINDA NÃO PÚBLICO
+     </p>
+     <p>
+      Esta ferramenta permite que você explore dados relevantes para oportunidades de mercado de energia fora da rede.
+     </p>
+    </div>
+    <!-- Filters and controls -->
+    <div class="controls">
+     <h2>
+      Filtros
+     </h2>
+     <div class="range-container double">
+      <div class="range-label">
+       <p>
+        População
+       </p>
+      </div>
+      <div class="range-wrap">
+       <output class="bubble">
+       </output>
+       <input class="range" id="range-pop" max="5000" min="0" step="100" type="range" value="1000"/>
+      </div>
+     </div>
+     <div class="range-container double">
+      <div class="range-label">
+       <p>
+        Distância da rede
+       </p>
+      </div>
+      <br/>
+      <div class="range-wrap">
+       <output class="bubble">
+       </output>
+       <input class="range" id="range-grid" max="50" min="0" step="1" type="range" value="0"/>
+      </div>
+     </div>
+     <h2>
+      Camadas
+     </h2>
+     <div>
+      <div>
+       Clusters
+      </div>
+      <div>
+       <input checked="" id="toggle-clusters" type="checkbox"/>
+       <label for="toggle-clusters">
+       </label>
+      </div>
+     </div>
+     <div>
+      <div>
+       Gridfinder
+      </div>
+      <div>
+       <input checked="" id="toggle-grid" type="checkbox"/>
+       <label for="toggle-grid">
+       </label>
+      </div>
+     </div>
+     <div>
+      <div>
+       Postos
+      </div>
+      <div>
+       <input id="toggle-adm3" type="checkbox"/>
+       <label for="toggle-adm3">
+       </label>
+      </div>
+     </div>
+     <div>
+      <div>
+       Satélite
+      </div>
+      <div>
+       <input id="toggle-satellite" type="checkbox"/>
+       <label for="toggle-satellite">
+       </label>
+      </div>
+     </div>
+     <h2>
+      Transferências
+     </h2>
+     <div class="double">
+      <div>
+       Baixar clusters
+      </div>
+      <div class="wrapper">
+       <a download="" href="/download/moz-clusters.csv" target="_blank">
+        <span class="download">
+         CSV
+        </span>
+       </a>
+       <a download="" href="/download/moz-clusters.kml" target="_blank">
+        <span class="download">
+         KML
+        </span>
+       </a>
+      </div>
+     </div>
+     <div class="double">
+      <div>
+       Baixar postagens
+      </div>
+      <div class="wrapper">
+       <a download="" href="/download/moz-postos.csv" target="_blank">
+        <span class="download">
+         CSV
+        </span>
+       </a>
+       <a download="" href="/download/moz-postos.kml" target="_blank">
+        <span class="download">
+         KML
+        </span>
+       </a>
+      </div>
+     </div>
+    </div>
+    <!-- More info button -->
+    <div id="about">
+     <p>
+      Sobre
+     </p>
+    </div>
+   </div>
+   <!-- Container for Mapbox GL map object -->
+   <div id="map">
+   </div>
+   <!-- Cluster info (hidden and empty until clusters clicked) -->
+   <div class="map-overlay cluster">
+    <div>
+     <h2>
+      Detalhes do cluster
+     </h2>
+     <span class="exit" id="cluster-exit">
+      ×
+     </span>
+    </div>
+    <div class="table">
+     <div>
+      <div>
+       Inhame
+      </div>
+      <span id="cluster-village">
+      </span>
+      <span>
+      </span>
+     </div>
+     <div>
+      <div>
+       Posto
+      </div>
+      <span id="cluster-adm3">
+      </span>
+      <span>
+      </span>
+     </div>
+     <div>
+      <div>
+       População
+      </div>
+      <span id="cluster-pop">
+      </span>
+      <span>
+      </span>
+     </div>
+     <div>
+      <div>
+       Distância da rede
+      </div>
+      <span id="cluster-grid">
+      </span>
+      <span>
+       km
+      </span>
+     </div>
+     <div>
+      <div>
+       Cidade mais próxima
+      </div>
+      <span id="cluster-city">
+      </span>
+      <span>
+      </span>
+     </div>
+    </div>
+   </div>
+   <!-- Legend/key -->
+   <div class="map-overlay legend">
+    <div>
+     <h2>
+      Lenda
+     </h2>
+    </div>
+    <div>
+     <div>
+      <span class="legend-key" style="background-color: #e2a1a1">
+      </span>
+      <span>
+       Eletrificado
+      </span>
+     </div>
+     <div>
+      <span class="legend-key" style="background-color: #616161">
+      </span>
+      <span>
+       Não eletrificado
+      </span>
+     </div>
+    </div>
+   </div>
+   <!-- Map controls are added in JS -->
+  </div>
+  <!-- Modal is toggled with the about button bottom of the sidebar -->
+  <div id="modal-root">
+   <div class="modal">
+    <div>
+     <h2>
+     </h2>
+     <span class="exit" id="modal-exit">
+      ×
+     </span>
+    </div>
+    <div class="modal-flex">
+     <div>
+      <h2>
+       Fundo
+      </h2>
+      <p>
+       Este mapa foi criado como parte do programa de energia fora da rede da GIZ em Moçambique. Destina-se a apoiar o desenvolvimento do setor fora da rede, fornecendo acesso melhorado a dados e inteligência de mercado, para desenvolvedores, distribuidores e investidores de minirredes e sistemas solares domésticos.
+      </p>
+      <p>
+       O mapa mostra dados para todas as províncias de Moçambique, usando apenas dados disponíveis publicamente. Ele incorpora a análise da combinação de dados internacionais, governamentais e de satélite para ajudar os desenvolvedores a encontrar mercados e clientes.
+      </p>
+      <h2>
+       Abrir
+      </h2>
+      <p>
+       A lista completa de conjuntos de dados públicos usados e os métodos usados para prepará-los está disponível no repositório GitHub do projeto
+       <a href="https://github.com/carderne/moz-offgrid-data">
+        moz-offgrid-data.
+       </a>
+      </p>
+      <p>
+       O código e os recursos usados neste site estão disponíveis em um repositório separado
+       <a href="https://github.com/carderne/moz-offgrid-viz">
+        moz-offgrid-viz
+       </a>
+       .
+      </p>
+     </div>
+     <div>
+      <h2>
+       Suporte
+      </h2>
+      <p>
+       Este programa é operado e apoiado pela Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH
+      </p>
+      <p>
+       Nome do programa
+      </p>
+      <p>
+       Endereço
+      </p>
+      <p>
+       Contato
+      </p>
+      <h2>
+       Desenvolvimento
+      </h2>
+      <p>
+       A análise e o desenvolvimento web são de Chris Arderne.
+      </p>
+      <p>
+       <a href="https://rdrn.me/">
+        www.rdrn.me
+       </a>
+      </p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- All app logic is in here -->
+  <script src="/main.js">
+  </script>
+  <noscript>
+   <div class="noscript">
+    This interactive map doesn't work without JavaScript.
+   </div>
+  </noscript>
+ </body>
 </html>
