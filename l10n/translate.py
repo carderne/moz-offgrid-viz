@@ -9,23 +9,20 @@ from bs4 import BeautifulSoup
 
 l10n = Path(sys.path[0])
 root = l10n.parents[0]
-blank = l10n / "index_nolang.html"
+template = root / "index_template.html"
 
 langs = {
-    "en": {
-        "yml": l10n / "en.yaml",
-        "out": [root / "index.html", root / "en/index.html"],
-    },
-    "pt": {"yml": l10n / "pt.yaml", "out": [root / "pt/index.html"]},
+    "en": {"yml": l10n / "en.yaml", "out": root / "index.html"},
+    "pt": {"yml": l10n / "pt.yaml", "out": root / "pt/index.html"},
 }
 
-with open(blank, "r") as f:
-    doc = f.read()
-    soup = BeautifulSoup(doc, "lxml")
 
 for lang, files in langs.items():
+    with open(template, "r") as f:
+        soup = BeautifulSoup(f.read(), "lxml")
+
     text = yaml.safe_load(open(files["yml"]))
-    out_files = files["out"]
+    out = files["out"]
     p = re.compile(r"{{.*?}}")
     tags = ["title", "h1", "h2", "p", "div", "span", "a"]
 
@@ -39,10 +36,9 @@ for lang, files in langs.items():
                     var = (
                         m.group().replace("{{", "").replace("}}", "").strip().split(".")
                     )
-                    msg = text[var[0]][var[1]]
-                    el.replace_with(msg)
+                    el.replace_with(text[var[0]][var[1]])
 
-    for out in out_files:
-        out.parents.mkdir(exist_ok=True)
-        with open(out, "w") as f:
-            f.write(str(soup))
+    out.parents[0].mkdir(exist_ok=True)
+    print(f"writing to {out}")
+    with open(out, "w") as f:
+        f.write(str(soup))

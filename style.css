@@ -130,6 +130,7 @@ a {
 
 .range-container {
     display: flex;
+    flex-direction: column;
 }
 
 .range-wrap {
@@ -140,7 +141,6 @@ a {
 
 .range {
     width: 100%;
-    flex-grow: 1;
     background: linear-gradient(to right, var(--accent) 0%, var(--accent) 50%, #fff 50%, #fff 100%);
     border-radius: 8px;
     height: 7px;
@@ -151,6 +151,10 @@ a {
 
 .range:hover {
     cursor: pointer;
+}
+
+.range-label > p {
+    line-height: 0;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -174,7 +178,7 @@ input[type="range"]::-moz-range-thumb {
 
 .bubble {
     line-height: initial;
-    font-size: 0.6em;
+    font-size: 0.7em;
     background: gray;
     color: white;
     padding: 4px 8px;
