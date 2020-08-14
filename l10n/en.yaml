@@ -1,0 +1,53 @@
+main:
+  title: "Mozambique Off-Grid Energy"
+  warning: "NOT YET PUBLIC"
+  intro: "This tool allows you to explore data relevant to off-grid energy market opportunities."
+  about: "About"
+
+filters:
+  title: "Filters"
+  pop: "Population"
+  grid: "Grid distance"
+
+layers:
+  title: "Layers"
+  clusters: "Clusters"
+  gridfinder: "Gridfinder"
+  adm3: "Postos"
+  satellite: "Satellite"
+
+downloads:
+  title: "Downloads"
+  clusters: "Download clusters"
+  adm3: "Download postos"
+
+clusters:
+  title: "Cluster details"
+  name: "Name"
+  adm3: "Posto"
+  pop: "Population"
+  grid: "Grid distance"
+  city: "Nearest city"
+
+legend:
+  title: "Legend"
+  elec: "Electrified"
+  not: "Not electrified"
+
+background:
+  title: "Background"
+  text1: "This map was created as part of the GIZ off-grid energy program in Mozambique. It is intended to support the development of the off-grid sector, by providing improved access to data and market intelligence, to both mini-grid and solar home system developers, distributors and investors."
+  text2: "The map shows data for all provinces of Mozambique, using only publicly available data. It incorporates analysis from combining international, government and satellite data to help developers find markets and customers."
+open:
+  title: "Open"
+  text1: "The full list of public datasets used and the methods used in preparing them is available at the project's GitHub repository"
+  text2: "The code and resources used in this website are available in a separate repository"
+support:
+  title: "Support"
+  text1: "This program is operated and supported by the Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH"
+  program: "Program name"
+  address: "Address"
+  contact: "Contact"
+dev:
+  title: "Development"
+  text1: "The analysis and web development are by Chris Arderne."

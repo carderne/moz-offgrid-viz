@@ -1,0 +1,53 @@
+main:
+  title: "Energia fora da rede de Moçambique"
+  warning: "AINDA NÃO PÚBLICO"
+  intro: "Esta ferramenta permite que você explore dados relevantes para oportunidades de mercado de energia fora da rede."
+  about: "Sobre"
+
+filters:
+  title: "Filtros"
+  pop: "População"
+  grid: "Distância da rede"
+
+layers:
+  title: "Camadas"
+  clusters: "Clusters"
+  gridfinder: "Gridfinder"
+  adm3: "Postos"
+  satellite: "Satélite"
+
+downloads:
+  title: "Transferências"
+  clusters: "Baixar clusters"
+  adm3: "Baixar postagens"
+
+clusters:
+  title: "Detalhes do cluster"
+  name: "Inhame"
+  adm3: "Posto"
+  pop: "População"
+  grid: "Distância da rede"
+  city: "Cidade mais próxima"
+
+legend:
+  title: "Lenda"
+  elec: "Eletrificado"
+  not: "Não eletrificado"
+
+background:
+  title: "Fundo"
+  text1: "Este mapa foi criado como parte do programa de energia fora da rede da GIZ em Moçambique. Destina-se a apoiar o desenvolvimento do setor fora da rede, fornecendo acesso melhorado a dados e inteligência de mercado, para desenvolvedores, distribuidores e investidores de minirredes e sistemas solares domésticos."
+  text2: "O mapa mostra dados para todas as províncias de Moçambique, usando apenas dados disponíveis publicamente. Ele incorpora a análise da combinação de dados internacionais, governamentais e de satélite para ajudar os desenvolvedores a encontrar mercados e clientes."
+open:
+  title: "Abrir"
+  text1: "A lista completa de conjuntos de dados públicos usados e os métodos usados para prepará-los está disponível no repositório GitHub do projeto"
+  text2: "O código e os recursos usados neste site estão disponíveis em um repositório separado"
+support:
+  title: "Suporte"
+  text1: "Este programa é operado e apoiado pela Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH"
+  program: "Nome do programa"
+  address: "Endereço"
+  contact: "Contato"
+dev:
+  title: "Desenvolvimento"
+  text1: "A análise e o desenvolvimento web são de Chris Arderne."

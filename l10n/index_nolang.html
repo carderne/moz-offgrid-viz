@@ -15,69 +15,69 @@
 
                 <!-- Headers, logos -->
                 <div>
-                    <h1>Mozambique Off-Grid Energy</h1>
-                    <p style="color:red;text-align:center;">NOT YET PUBLIC</p>
-                    <p>This tool allows you to explore data relevant to off-grid energy market opportunities.
+                    <h1>{{ main.title }}</h1>
+                    <p style="color:red;text-align:center;">{{ main.warning }}</p>
+                    <p>{{ main.intro }}</p>
                 </div>
 
                 <!-- Filters and controls -->
                 <div class="controls">
-                    <h2>Filters</h2>
+                    <h2>{{ filters.title }}</h2>
                     <div class="range-container double">
-                        <div class="range-label">Population</div>
+                        <div class="range-label">{{ filters.pop }}</div>
                         <div class="range-wrap">
                             <output class="bubble"></output>
                             <input type="range" id="range-pop" class="range" min="0" max="5000" step="100" value="1000">
                         </div>
                     </div>
                     <div class="range-container double">
-                        <div class="range-label">Grid distance</div>
+                        <div class="range-label">{{ filters.grid }}</div>
                         <div class="range-wrap">
                             <output class="bubble"></output>
                             <input type="range" id="range-grid" class="range" min="0" max="50" step="1" value="0">
                         </div>
                     </div>
 
-                    <h2>Layers</h2>
+                    <h2>{{ layers.title }}</h2>
                     <div>
-                        <div>Clusters</div>
+                        <div>{{ layers.clusters }}</div>
                         <div>
                             <input type="checkbox" id="toggle-clusters" checked />
                             <label for="toggle-clusters"></label>
                         </div>
                     </div>
                     <div>
-                        <div>Gridfinder</div>
+                        <div>{{ layers.gridfinder }}</div>
                         <div>
                             <input type="checkbox" id="toggle-grid" checked />
                             <label for="toggle-grid"></label>
                         </div>
                     </div>
                     <div>
-                        <div>Postos</div>
+                        <div>{{ layers.adm3 }}</div>
                         <div>
                             <input type="checkbox" id="toggle-adm3" />
                             <label for="toggle-adm3"></label>
                         </div>
                     </div>
                     <div>
-                        <div>Satellite</div>
+                        <div>{{ layers.satellite }}</div>
                         <div>
                             <input type="checkbox" id="toggle-satellite" />
                             <label for="toggle-satellite"></label>
                         </div>
                     </div>
 
-                    <h2>Downloads</h2>
+                    <h2>{{ downloads.title }}</h2>
                     <div class="double">
-                        <div>Download clusters</div>
+                        <div>{{ downloads.clusters }}</div>
                         <div class="wrapper">
                             <a href="/download/moz-clusters.csv" download target="_blank"><span class="download">CSV</span></a>
                             <a href="/download/moz-clusters.kml" download target="_blank"><span class="download">KML</span></a>
                         </div>
                     </div>
                     <div class="double">
-                        <div>Download postos</div>
+                        <div>{{ downloads.adm3 }}</div>
                         <div class="wrapper">
                             <a href="/download/moz-postos.csv" download target="_blank"><span class="download">CSV</span></a>
                             <a href="/download/moz-postos.kml" download target="_blank"><span class="download">KML</span></a>
@@ -87,7 +87,7 @@
 
                 <!-- More info button -->
                 <div id="about">
-                    <p>About</p>
+                    <p>{{ main.about }}</p>
                 </div>
             </div>
 
@@ -96,27 +96,27 @@
 
             <!-- Cluster info (hidden and empty until clusters clicked) -->
             <div class="map-overlay cluster">
-                <div><h2>Cluster details</h2><span class="exit" id="cluster-exit">×</span></div>
+                <div><h2>{{ clusters.title }}</h2><span class="exit" id="cluster-exit">×</span></div>
                 <div class="table">
-                    <div><div>Name:</div><span id="cluster-village"></span><span></span></div>
-                    <div><div>Posto:</div><span id="cluster-adm3"></span><span></span></div>
-                    <div><div>Population:</div><span id="cluster-pop"></span><span></span></div>
-                    <div><div>Grid distance:</div><span id="cluster-grid"></span><span>km</span></div>
-                    <div><div>Nearest city:</div><span id="cluster-city"></span><span></span></div>
+                    <div><div>{{ clusters.name }}:</div><span id="cluster-village"></span><span></span></div>
+                    <div><div>{{ clusters.adm3 }}:</div><span id="cluster-adm3"></span><span></span></div>
+                    <div><div>{{ clusters.pop }}:</div><span id="cluster-pop"></span><span></span></div>
+                    <div><div>{{ clusters.grid }}:</div><span id="cluster-grid"></span><span>km</span></div>
+                    <div><div>{{ clusters.city }}:</div><span id="cluster-city"></span><span></span></div>
                 </div>
             </div>
 
             <!-- Legend/key -->
             <div class="map-overlay legend">
-                <div><h2>Legend</h2></div>
+                <div><h2>{{ legend.title }}</h2></div>
                 <div>
                     <div>
                         <span class="legend-key" style="background-color: #e2a1a1"></span>
-                        <span>Electrified</span>
+                        <span>{{ legend.elec }}</span>
                     </div>
                     <div>
                         <span class="legend-key" style="background-color: #616161"></span>
-                        <span>Not electrified</span>
+                        <span>{{ legend.not }}</span>
                     </div>
                 </div>
             </div>
@@ -130,20 +130,21 @@
                 <div><h2>&nbsp;</h2><span class="exit" id="modal-exit">×</span></div>
                 <div class="modal-flex">
                     <div>
-                        <h2>Background</h2>
-                        <p>This map was created as part of the GIZ off-grid energy program in Mozambique. It is intended to support the development of the off-grid sector, by providing improved access to data and market intelligence, to both mini-grid and solar home system developers, distributors and investors.</p>
-                        <p>The map shows data for all provinces of Mozambique, using only publicly available data. It incorporates analysis from combining international, government and satellite data to help developers find markets and customers.</p>
-                        <h2>Open</h2>
-                        <p>The full list of public datasets used and the methods used in preparing them is available at the project's <a href="https://github.com/carderne/moz-offgrid-data">GitHub repository</a>. The code and resources used in this website are available in a <a href="https://github.com/carderne/moz-offgrid-viz">separate repository</a>.</p>
+                        <h2>{{ background.title }}</h2>
+                        <p>{{ background.text1 }}</p>
+                        <p>{{ background.text2 }}</p>
+                        <h2>{{ open.title }}</h2>
+                        <p>{{ open.text1 }}<a href="https://github.com/carderne/moz-offgrid-data"> moz-offgrid-data.</a></p>
+                        <p>{{ open.text2 }}<a href="https://github.com/carderne/moz-offgrid-viz"> moz-offgrid-viz</a>.</p>
                     </div>
                     <div>
-                        <h2>Support</h2>
-                        <p>This program is operated and supported by the Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH</p>
-                        <p>Program name</p>
-                        <p>Address</p>
-                        <p>Contact</p>
-                        <h2>Development</h2>
-                        <p>The analysis and web development are by Chris Arderne.</p>
+                        <h2>{{ support.title }}</h2>
+                        <p>{{ support.text1 }}</p>
+                        <p>{{ support.program }}</p>
+                        <p>{{ support.address }}</p>
+                        <p>{{ support.contact }}</p>
+                        <h2>{{ dev.title }}</h2>
+                        <p>{{ dev.text1 }}</p>
                         <p><a href="https://rdrn.me/">www.rdrn.me</a></p>
                     </div>
                 </div>
