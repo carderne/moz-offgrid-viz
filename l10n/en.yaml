@@ -7,7 +7,7 @@ main:
 filters:
   title: "Filters"
   pop: "Population"
-  grid: "Grid distance"
+  grid: "Grid distance (km)"
 
 layers:
   title: "Layers"

@@ -7,7 +7,7 @@ main:
 filters:
   title: "Filtros"
   pop: "População"
-  grid: "Distância da rede"
+  grid: "Distância da rede (km)"
 
 layers:
   title: "Camadas"
