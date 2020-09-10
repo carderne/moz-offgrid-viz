@@ -26,8 +26,9 @@ for lang, files in langs.items():
     p = re.compile(r"{{.*?}}")
     tags = ["title", "h1", "h2", "p", "div", "span", "a"]
 
-    # change = soup.find("span", {"id": lang})
-    # change.contents[0].replace_with(change.text)
+    # Replace <a> for current language with bare text (e.g. "en")
+    change = soup.find("span", {"id": lang})
+    change.contents[0].replace_with(change.text)
 
     for t in tags:
         res = soup.find_all(t)

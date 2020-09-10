@@ -9,6 +9,11 @@ Then from the project directory simply run `light-server -s .` to get a localhos
 
 Remove `?fresh=true` from map style URL before publishing.
 
+## Localization
+All manual edits should be made to `index_template.html`. Language files are in `./l10n`. (Currently `en.yaml` and `pt.yaml`.)
+
+Run `./l10n/translate.py` to create the localized `index.html` files for each language. (English at root and others at e.g. `./pt/index.html`.)
+
 ## Get clusters as GeoJSON
 Export clusters as GeoJSON from QGIS
 

@@ -352,3 +352,10 @@ input[type="range"]::-moz-range-thumb {
     transform: translate(-50%, -80%);
 }
 
+.eu-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    margin-bottom: 10px;
+}
