@@ -14,11 +14,21 @@ All manual edits should be made to `index_template.html`. Language files are in 
 
 Run `./l10n/translate.py` to create the localized `index.html` files for each language. (English at root and others at e.g. `./pt/index.html`.)
 
-## Get clusters as GeoJSON
-Export clusters as GeoJSON from QGIS
+## Convert to GeoJSON
+Use the script to convert clusters to GeoJSON:
+```bash
+./data/convert_clusters.py ../data/clusters/clu-man-feat.gpkg ./data/clusters.geojson
+```
+
+Convert adm files and create centroids:
+```bash
+./data/convert_adm.py ../data/admin/ ./data/
+```
+
+## Create files for download
+Need to use QGIS to manually convert clusters and adm files to CSV and KML.
 
 ## Convert GeoJSON to MBtiles
-
 For clusters:
 ```
 # -z highest level
@@ -27,22 +37,20 @@ For clusters:
 # -as drop as needed
 # -l layer name
 # -f force
-tippecanoe -z16 -Z5 -o clusters.mbtiles -as -l clusters-v2 -f clusters.geojson
-
-# increment the -v2 version number each time!
+tippecanoe -z16 -Z5 -o ./data/clusters.mbtiles -as -l clusters -f ./data/clusters.geojson
 ```
 
 For adm layers:
 ```
-tippecanoe -z11 -Z5 -o adm1.mbtiles -as -l adm1-v3 -f adm1.geojson
-tippecanoe -z11 -Z5 -o adm2.mbtiles -as -l adm2-v3 -f adm2.geojson
-tippecanoe -z11 -Z5 -o adm3.mbtiles -as -l adm3-v3 -f adm3.geojson
+tippecanoe -z11 -Z5 -o ./data/adm3.mbtiles -as -l adm3 -f ./data/adm3.geojson
 ```
 
 For grid:
 ```
-tippecanoe -z11 -Z5 -o grid.mbtiles -as -l grid-v1 -f grid.geojson
+tippecanoe -z11 -Z5 -o ./data/grid.mbtiles -as -l grid -f ./data/grid.geojson
 ```
+
+Use the replace functionality on Mapbox Studio to replace tilesets, rather than uploading new ones.
 
 ## Buffered inverted border outline
 Uses [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/) admin layer. Following steps in QGIS.
@@ -59,8 +67,13 @@ Uses [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cult
 ```
 
 # TODO
-
+- Use Mapbox style with more detail
 - Create documentation with Sphinx/Jekyll.
 - Add hover/click styling to clusters
 - Postos styling/color?
 - Add text to about page
+- pop-density filter
+- pre-filter clusters to pop>100?
+- filter bars broken on chrome 
+- cluster details broken for long names
+- Google Maps style satellite/map switcher
