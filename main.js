@@ -113,7 +113,7 @@ function showClusterInfo(e) {
   let props = e.features[0].properties;
   props = {
     id: props.fid,
-    village: props.village,
+    name: props.name,
     adm3: props.adm3,
     adm2: props.adm2,
     adm1: props.adm1,
@@ -131,8 +131,8 @@ function showClusterInfo(e) {
     urban: props.urban.toFixed(0),
     health: props.health,
     school: props.school,
+    lon: props.lon,
     lat: props.lat,
-    lng: props.lng,
     ndvi: props.ndvi,
     no2: props.no2,
   };

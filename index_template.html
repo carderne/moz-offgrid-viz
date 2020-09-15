@@ -30,7 +30,7 @@
                         <div class="range-label"><p>{{ filters.pop }}</p></div>
                         <div class="range-wrap">
                             <output class="bubble"></output>
-                            <input type="range" id="range-pop" class="range" min="0" max="5000" step="100" value="1000">
+                            <input type="range" id="range-pop" class="range" min="0" max="5000" step="100" value="0">
                         </div>
                     </div>
                     <div class="range-container double">
@@ -101,7 +101,7 @@
             <div class="map-overlay cluster">
                 <div><h2>{{ clusters.title }}</h2><span class="exit" id="cluster-exit">×</span></div>
                 <div class="table">
-                    <div><div>{{ clusters.name }}:</div><span id="cluster-village"></span><span></span></div>
+                    <div><div>{{ clusters.name }}:</div><span id="cluster-name"></span><span></span></div>
                     <div><div>{{ clusters.adm3 }}:</div><span id="cluster-adm3"></span><span></span></div>
                     <div><div>{{ clusters.pop }}:</div><span id="cluster-pop"></span><span></span></div>
                     <div><div>{{ clusters.grid }}:</div><span id="cluster-grid"></span><span>km</span></div>
