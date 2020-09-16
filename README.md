@@ -78,3 +78,4 @@ Uses [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cult
 - cluster details broken for long names
 - Google Maps style satellite/map switcher
 - Info popup for postos, extra info for clusters
+- Do something with score/cat

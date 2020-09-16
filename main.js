@@ -194,7 +194,18 @@ function setBubble(range, bubble) {
   let min = range.min ? range.min : 0;
   let max = range.max ? range.max : 100;
   let newVal = Number(((val - min) * 100) / (max - min));
-  bubble.innerHTML = "> " + val;
+  let prefix, suffix;
+  let which = range.id.split("-")[1];
+
+  if (which == "pop") {
+    prefix = "";
+    suffix = "";
+  } else if (which == "grid") {
+    prefix = "";
+    suffix = " km";
+  }
+
+  bubble.innerHTML = prefix + " > " + val + suffix;
 
   // Sorta magic numbers based on size of the native UI thumb
   bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;

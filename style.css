@@ -41,9 +41,6 @@ p {
     font-size: 0.9em;
 }
 
-a {
-}
-
 .flex-container {
     display: flex;
     height: 100vh;
@@ -78,31 +75,30 @@ a {
 }
 
 .controls > div {
-    height: 30px;
-    line-height: 30px;
-    font-size: 0.8em;
-}
-
-.controls > div.double {
-    height: 60px;
-    line-height: 60px;
+    margin-bottom: 30px;
 }
 
 .controls > div > div {
+    font-size: 0.8em;
+    margin: 10px auto;
+}
+
+
+.controls > div > div > div {
     display: inline-block;
 }
 
-.controls > div > div:first-child {
+.label {
     width: 130px;
 }
 
-.controls input[type=checkbox] {
+.layers input[type=checkbox] {
     height: 0;
     width: 0;
     visibility: hidden;
 }
 
-.controls input + label {
+.layers input + label {
     vertical-align: middle;
     cursor: pointer;
     width: 40px;
@@ -113,7 +109,7 @@ a {
     position: relative;
 }
 
-.controls input + label:after {
+.layers input + label:after {
     content: '';
     position: absolute;
     top: 4px;
@@ -125,17 +121,21 @@ a {
     transition: 0.3s;
 }
 
-.controls input:checked + label {
+.layers input:checked + label {
     background: var(--accent);
 }
 
-.controls input:checked + label:after {
+.layers input:checked + label:after {
     left: calc(100% - 4px);
     transform: translateX(-100%);
 }
 
-.controls label:active:after {
+.layers label:active:after {
     width: 20px;
+}
+
+.downloads > div {
+    height: 60px;
 }
 
 .range-container {
@@ -143,9 +143,13 @@ a {
     flex-direction: column;
 }
 
+.range-container:not(:last-child) {
+    margin-bottom: 30px;
+}
+
 .range-wrap {
     position: relative;
-    margin: 0 10px 3rem;
+    margin-top: 25px;
     width: 100%;
 }
 
@@ -161,10 +165,6 @@ a {
 
 .range:hover {
     cursor: pointer;
-}
-
-.range-label > p {
-    line-height: 0;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -187,7 +187,6 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .bubble {
-    line-height: initial;
     font-size: 0.7em;
     background: gray;
     color: white;
@@ -195,6 +194,7 @@ input[type="range"]::-moz-range-thumb {
     position: absolute;
     border-radius: 4px;
     transform: translateX(-50%);
+    bottom: 20px;
 }
 
 .wrapper {
@@ -215,6 +215,7 @@ input[type="range"]::-moz-range-thumb {
     text-align: center;
     cursor: pointer;
 }
+
 
 #about {
     background-color: rgb(var(--dark-bg));
@@ -350,12 +351,4 @@ input[type="range"]::-moz-range-thumb {
     top: 20%;
     left: 50%;
     transform: translate(-50%, -80%);
-}
-
-.eu-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-    margin-bottom: 10px;
 }

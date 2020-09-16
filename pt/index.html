@@ -39,112 +39,117 @@
     </div>
     <!-- Filters and controls -->
     <div class="controls">
-     <h2>
-      Filtros
-     </h2>
-     <div class="range-container double">
-      <div class="range-label">
-       <p>
+     <!-- Filter sliders -->
+     <div class="filters">
+      <h2>
+       Filtros
+      </h2>
+      <div class="range-container">
+       <div class="label">
         População
-       </p>
+       </div>
+       <div class="range-wrap">
+        <output class="bubble">
+        </output>
+        <input class="range" id="range-pop" max="5000" min="0" step="100" type="range" value="0"/>
+       </div>
       </div>
-      <div class="range-wrap">
-       <output class="bubble">
-       </output>
-       <input class="range" id="range-pop" max="5000" min="0" step="100" type="range" value="0"/>
-      </div>
-     </div>
-     <div class="range-container double">
-      <div class="range-label">
-       <p>
+      <div class="range-container">
+       <div class="label">
         Distância da rede (km)
-       </p>
-      </div>
-      <br/>
-      <div class="range-wrap">
-       <output class="bubble">
-       </output>
-       <input class="range" id="range-grid" max="50" min="0" step="1" type="range" value="0"/>
-      </div>
-     </div>
-     <h2>
-      Camadas
-     </h2>
-     <div>
-      <div>
-       Clusters
-      </div>
-      <div>
-       <input checked="" id="toggle-clusters" type="checkbox"/>
-       <label for="toggle-clusters">
-       </label>
+       </div>
+       <br/>
+       <div class="range-wrap">
+        <output class="bubble">
+        </output>
+        <input class="range" id="range-grid" max="50" min="0" step="1" type="range" value="0"/>
+       </div>
       </div>
      </div>
-     <div>
+     <!-- Layer selectors -->
+     <div class="layers">
+      <h2>
+       Camadas
+      </h2>
       <div>
-       Gridfinder
+       <div class="label">
+        Clusters
+       </div>
+       <div>
+        <input checked="" id="toggle-clusters" type="checkbox"/>
+        <label for="toggle-clusters">
+        </label>
+       </div>
       </div>
       <div>
-       <input checked="" id="toggle-grid" type="checkbox"/>
-       <label for="toggle-grid">
-       </label>
+       <div class="label">
+        Gridfinder
+       </div>
+       <div>
+        <input checked="" id="toggle-grid" type="checkbox"/>
+        <label for="toggle-grid">
+        </label>
+       </div>
+      </div>
+      <div>
+       <div class="label">
+        Postos
+       </div>
+       <div>
+        <input id="toggle-adm3" type="checkbox"/>
+        <label for="toggle-adm3">
+        </label>
+       </div>
+      </div>
+      <div>
+       <div class="label">
+        Satélite
+       </div>
+       <div>
+        <input id="toggle-satellite" type="checkbox"/>
+        <label for="toggle-satellite">
+        </label>
+       </div>
       </div>
      </div>
-     <div>
-      <div>
-       Postos
+     <!-- Download buttons -->
+     <div class="downloads">
+      <h2>
+       Transferências
+      </h2>
+      <div class="double">
+       <div class="label">
+        Baixar clusters
+       </div>
+       <div class="wrapper">
+        <a download="" href="/download/moz-clusters.csv" target="_blank">
+         <span class="download">
+          CSV
+         </span>
+        </a>
+        <a download="" href="/download/moz-clusters.kml" target="_blank">
+         <span class="download">
+          KML
+         </span>
+        </a>
+       </div>
       </div>
-      <div>
-       <input id="toggle-adm3" type="checkbox"/>
-       <label for="toggle-adm3">
-       </label>
-      </div>
-     </div>
-     <div>
-      <div>
-       Satélite
-      </div>
-      <div>
-       <input id="toggle-satellite" type="checkbox"/>
-       <label for="toggle-satellite">
-       </label>
-      </div>
-     </div>
-     <h2>
-      Transferências
-     </h2>
-     <div class="double">
-      <div>
-       Baixar clusters
-      </div>
-      <div class="wrapper">
-       <a download="" href="/download/moz-clusters.csv" target="_blank">
-        <span class="download">
-         CSV
-        </span>
-       </a>
-       <a download="" href="/download/moz-clusters.kml" target="_blank">
-        <span class="download">
-         KML
-        </span>
-       </a>
-      </div>
-     </div>
-     <div class="double">
-      <div>
-       Baixar postagens
-      </div>
-      <div class="wrapper">
-       <a download="" href="/download/moz-postos.xlsx" target="_blank">
-        <span class="download">
-         XLSX
-        </span>
-       </a>
-       <a download="" href="/download/moz-postos.kml" target="_blank">
-        <span class="download">
-         KML
-        </span>
-       </a>
+      <div class="double">
+       <div class="label">
+        Baixar postagens
+       </div>
+       <div class="wrapper">
+        <a download="" href="/download/moz-postos.xlsx" target="_blank">
+         <span class="download">
+          XLSX
+         </span>
+        </a>
+        <a download="" href="/download/moz-postos.kml" target="_blank">
+         <span class="download">
+          KML
+         </span>
+        </a>
+       </div>
       </div>
      </div>
     </div>
