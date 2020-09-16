@@ -13,7 +13,9 @@ layers:
   title: "Camadas"
   clusters: "Clusters"
   gridfinder: "Gridfinder"
+  gridfinder_help: "Whether to include grid lines estimates from satellite data."
   adm3: "Postos"
+  adm3_help: "Overlay postos, coloured in increasing darkness by population."
   satellite: "Satélite"
 
 downloads:

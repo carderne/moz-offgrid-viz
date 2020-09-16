@@ -49,28 +49,38 @@
                     <div class="layers">
                         <h2>{{ layers.title }}</h2>
                         <div>
-                            <div class="label">{{ layers.clusters }}</div>
+                            <div class="label">
+                                {{ layers.clusters }}
+                            </div>
                             <div>
                                 <input type="checkbox" id="toggle-clusters" checked />
                                 <label for="toggle-clusters"></label>
                             </div>
                         </div>
                         <div>
-                            <div class="label">{{ layers.gridfinder }}</div>
+                            <div class="label ttip">
+                                {{ layers.gridfinder }}
+                                <span class="ttiptext">{{ layers.gridfinder_help }}</span>
+                            </div>
                             <div>
                                 <input type="checkbox" id="toggle-grid" checked />
                                 <label for="toggle-grid"></label>
                             </div>
                         </div>
                         <div>
-                            <div class="label">{{ layers.adm3 }}</div>
+                            <div class="label ttip">
+                                {{ layers.adm3 }}
+                                <span class="ttiptext">{{ layers.adm3_help }}</span>
+                            </div>
                             <div>
                                 <input type="checkbox" id="toggle-adm3" />
                                 <label for="toggle-adm3"></label>
                             </div>
                         </div>
                         <div>
-                            <div class="label">{{ layers.satellite }}</div>
+                            <div class="label">
+                                {{ layers.satellite }}
+                            </div>
                             <div>
                                 <input type="checkbox" id="toggle-satellite" />
                                 <label for="toggle-satellite"></label>

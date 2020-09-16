@@ -67,12 +67,8 @@ Uses [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cult
 ```
 
 # TODO
-- Use Mapbox style with more detail
 - Create documentation with Sphinx/Jekyll.
 - Add hover/click styling to clusters
 - Postos styling/color?
-- pop-density filter
-- pre-filter clusters to pop>100?
-- Google Maps style satellite/map switcher
 - Info popup for postos, extra info for clusters
 - Do something with score/cat

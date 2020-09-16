@@ -34,7 +34,7 @@ mapboxgl.accessToken =
   "pk.eyJ1IjoiY2FyZGVybmUiLCJhIjoiY2puMXN5cnBtNG53NDN2bnhlZ3h4b3RqcCJ9.eNjrtezXwvM7Ho1VSxo06w";
 let map = new mapboxgl.Map({
   container: "map",
-  style: "mapbox://styles/carderne/ckbw6t28y0a4e1iqqzk28d5vd?fresh=true",
+  style: "mapbox://styles/carderne/ckf56efk02bqd19qn0lt47awe?fresh=true",
   center: [35, -18],
   zoom: 5,
   minZoom: 5,
@@ -153,7 +153,7 @@ function toggleLayer() {
   let toggleMap = {
     "toggle-clusters": ["clusters"],
     "toggle-adm3": ["adm3", "adm3-label"],
-    "toggle-satellite": ["mapbox-satellite"],
+    "toggle-satellite": ["satellite-saturated"],
   };
 
   for (let key in toggles) {

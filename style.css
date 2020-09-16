@@ -356,3 +356,30 @@ input[type="range"]::-moz-range-thumb {
     left: 50%;
     transform: translate(-50%, -80%);
 }
+
+.ttip {
+    position: relative;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+.ttiptext {
+    visibility: hidden;
+    width: 120%;
+    background-color: #191919;
+    color: #fff;
+    text-align: left;
+    padding: 5px 5px;
+    margin-left: 15%;
+    border-radius: 6px;
+    opacity: 0.9;
+    position: absolute;
+    z-index: 300;
+    top: -5px;
+}
+
+.ttip:hover .ttiptext,
+.ttip:active .ttiptext,
+.ttip:focus .ttiptext {
+    visibility: visible;
+}
