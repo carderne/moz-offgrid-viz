@@ -59,6 +59,16 @@
                         </div>
                         <div>
                             <div class="label ttip">
+                                {{ layers.cat }}
+                                <span class="ttiptext">{{ layers.cat_help }}</span>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="toggle-cat" />
+                                <label for="toggle-cat"></label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="label ttip">
                                 {{ layers.gridfinder }}
                                 <span class="ttiptext">{{ layers.gridfinder_help }}</span>
                             </div>
@@ -121,11 +131,61 @@
             <div class="map-overlay cluster">
                 <div><h2>{{ clusters.title }}</h2><span class="exit" id="cluster-exit">×</span></div>
                 <div class="table">
-                    <div><div>{{ clusters.name }}:</div><span id="cluster-name"></span><span></span></div>
-                    <div><div>{{ clusters.adm3 }}:</div><span id="cluster-adm3"></span><span></span></div>
-                    <div><div>{{ clusters.pop }}:</div><span id="cluster-pop"></span><span></span></div>
-                    <div><div>{{ clusters.grid }}:</div><span id="cluster-grid"></span><span>km</span></div>
-                    <div><div>{{ clusters.city }}:</div><span id="cluster-city"></span><span></span></div>
+                    <div>
+                        <div>{{ clusters.name }}:</div>
+                        <span id="cluster-name"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.adm3 }}:</div>
+                        <span id="cluster-adm3"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.pop }}:</div>
+                        <span id="cluster-pop"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.grid }}:</div>
+                        <span id="cluster-grid"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.city }}:</div>
+                        <span id="cluster-city"></span>
+                    </div>
+                    <div>
+                        <div class="ttip">
+                            {{ clusters.demand }}:
+                            <span class="ttiptext">{{ clusters.demand_help }}</span>
+                        </div>
+                        <span id="cluster-demand"></span>
+                    </div>
+                    <div>
+                        <div class="ttip">
+                            {{ clusters.cat }}:
+                            <span class="ttiptext">{{ clusters.cat_help }}</span>
+                        </div>
+                        <span id="cluster-cat"></span>
+                    </div>
+                    <br>
+                    <div>
+                        <div>{{ clusters.fid }}:</div>
+                        <span id="cluster-fid"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.health }}:</div>
+                        <span id="cluster-health"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.schools }}:</div>
+                        <span id="cluster-schools"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.urban }}:</div>
+                        <span id="cluster-urban"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.coords }}:</div>
+                        <span id="cluster-coords"></span>
+                    </div>
                 </div>
             </div>
 

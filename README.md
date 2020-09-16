@@ -60,15 +60,6 @@ Uses [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cult
 3. Then use vector `Difference` to subtract the buffered Mozambique from the big square.
 4. Save as GeoJSON for loading in Mapbox Studio.
 
-## Create adm centroids
-```
-./make_centroids.py adm1.geojson
-# same for others
-```
-
 # TODO
-- Create documentation with Sphinx/Jekyll.
 - Add hover/click styling to clusters
-- Postos styling/color?
-- Info popup for postos, extra info for clusters
-- Do something with score/cat
+- Check all cluster attributes

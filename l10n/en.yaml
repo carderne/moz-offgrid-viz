@@ -12,6 +12,8 @@ filters:
 layers:
   title: "Layers"
   clusters: "Clusters"
+  cat: "Rankings"
+  cat_help: "Colour clusters according to rank, from red (least promising) to green (most promising)."
   gridfinder: "Gridfinder"
   gridfinder_help: "Whether to include grid lines estimates from satellite data."
   adm3: "Postos"
@@ -30,6 +32,15 @@ clusters:
   pop: "Population"
   grid: "Grid distance"
   city: "Nearest city"
+  demand: "Demand"
+  demand_help: "Simple peak demand estimation based on population and facilities"
+  cat: "Ranking"
+  cat_help: "Ranking based on population, grid distance and others."
+  fid: "ID"
+  health: "Health sites"
+  schools: "Schools"
+  urban: "Urban level"
+  coords: "Location"
 
 legend:
   title: "Legend"

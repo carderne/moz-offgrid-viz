@@ -18,6 +18,7 @@ let filters = {
 
 let toggles = {
   clusters: get("toggle-clusters"),
+  cat: get("toggle-cat"),
   adm3: get("toggle-adm3"),
   satellite: get("toggle-satellite"),
 };
@@ -110,31 +111,30 @@ function showClusterInfo(e) {
   e.preventDefault();
   query(".cluster").style.display = "block";
 
+  let urban_case = {
+    11: "Uninhabited",
+    12: "Rural",
+    13: "Village",
+    21: "Suburbs",
+    22: "Town",
+    23: "Dense town",
+    30: "City",
+  };
+
   let props = e.features[0].properties;
   props = {
-    id: props.fid,
     name: props.name,
     adm3: props.adm3,
-    adm2: props.adm2,
-    adm1: props.adm1,
     pop: formatter.format(props.pop.toFixed(0)),
-    hh: props.hh.toFixed(0),
-    popd: props.popd.toFixed(0),
-    area: props.area.toFixed(2),
-    ntl: props.ntl.toFixed(2),
-    gdp: props.gdp.toFixed(2),
-    grid: props.grid.toFixed(2),
-    elec: props.elec,
-    travel: props.travel.toFixed(0),
+    grid: props.grid.toFixed(2) + " km",
     city: props.city,
-    cityd: props.cityd.toFixed(0),
-    urban: props.urban.toFixed(0),
+    demand: formatter.format(props.demand) + " kW",
+    cat: "★".repeat(props.cat) + "☆".repeat(5 - props.cat),
+    fid: props.fid,
     health: props.health,
-    school: props.school,
-    lon: props.lon,
-    lat: props.lat,
-    ndvi: props.ndvi,
-    no2: props.no2,
+    schools: props.schools,
+    urban: urban_case[props.urban],
+    coords: -props.lat.toFixed(2) + "°S " + props.lon.toFixed(2) + "°E",
   };
 
   for (let key in props) {
@@ -152,6 +152,7 @@ function closeClusterInfo() {
 function toggleLayer() {
   let toggleMap = {
     "toggle-clusters": ["clusters"],
+    "toggle-cat": ["clusters-cat"],
     "toggle-adm3": ["adm3", "adm3-label"],
     "toggle-satellite": ["satellite-saturated"],
   };
