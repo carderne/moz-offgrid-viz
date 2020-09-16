@@ -279,6 +279,10 @@ input[type="range"]::-moz-range-thumb {
     margin: 0 auto;
 }
 
+.table > div {
+    white-space: nowrap;
+}
+
 .table > div > div {
     display: inline-block;
     width: 60%;
