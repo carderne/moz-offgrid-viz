@@ -18,10 +18,11 @@ let filters = {
 
 let toggles = {
   clusters: get("toggle-clusters"),
-  cat: get("toggle-cat"),
   adm3: get("toggle-adm3"),
   satellite: get("toggle-satellite"),
 };
+
+let toggleClusterStyle = get("toggle-cat");
 
 let formatter = new Intl.NumberFormat("en-US");
 
@@ -94,6 +95,10 @@ map.on("load", () => {
       closeClusterInfo();
     }
   });
+
+  // Change cluster styling from elec/no-elec to cat rankings
+  toggleClusterStyle.onchange = clusterStyle;
+  clusterStyle();
 });
 
 function filterUpdate() {
@@ -149,10 +154,35 @@ function closeClusterInfo() {
   query(".cluster").style.display = "none";
 }
 
+let clustersDefaultStyle;
+function clusterStyle() {
+  let cat = toggleClusterStyle.checked ? true : false;
+  if (cat) {
+    clustersDefaultStyle = map.getPaintProperty("clusters", "fill-color");
+    let style = [
+      "match",
+      ["get", "cat"],
+      [1],
+      "#d7191c",
+      [2],
+      "#fdae61",
+      [3],
+      "#ffffbf",
+      [4],
+      "#a6d96a",
+      [5],
+      "#1a9641",
+      "#000000",
+    ];
+    map.setPaintProperty("clusters", "fill-color", style);
+  } else {
+    map.setPaintProperty("clusters", "fill-color", clustersDefaultStyle);
+  }
+}
+
 function toggleLayer() {
   let toggleMap = {
     "toggle-clusters": ["clusters"],
-    "toggle-cat": ["clusters-cat"],
     "toggle-adm3": ["adm3", "adm3-label"],
     "toggle-satellite": ["satellite-saturated"],
   };
