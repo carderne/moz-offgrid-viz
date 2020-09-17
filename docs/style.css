@@ -27,6 +27,7 @@ body > div {
 }
 
 #content {
+    margin-left: var(--sidebar-width);
     flex-grow: 1;
     background-color: var(--light-bg);
     color: var(--text);
@@ -49,7 +50,13 @@ body > div {
 #toc {
     width: var(--sidebar-width);
     color: var(--text-light);
-    background-color: var(--dark-bg)
+    background-color: var(--dark-bg);
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
 }
 
 #toc a {
