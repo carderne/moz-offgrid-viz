@@ -280,7 +280,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .table > div {
-    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .table > div > div {

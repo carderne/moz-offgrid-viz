@@ -63,3 +63,5 @@ Uses [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cult
 # TODO
 - Add hover/click styling to clusters
 - Check all cluster attributes
+- Fix tooltip in clusters table
+- cluster styling with dynamic, not two layers
