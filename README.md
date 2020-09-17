@@ -29,6 +29,8 @@ Convert adm files and create centroids:
 Need to use QGIS to manually convert clusters and adm files to CSV and KML.
 
 ## Convert GeoJSON to MBtiles
+Use [tippecanoe](https://github.com/mapbox/tippecanoe).
+
 For clusters:
 ```
 # -z highest level
@@ -37,17 +39,18 @@ For clusters:
 # -as drop as needed
 # -l layer name
 # -f force
-tippecanoe -z16 -Z5 -o ./data/clusters.mbtiles -as -l clusters -f ./data/clusters.geojson
+# -ai generate unique ids
+tippecanoe -o ./data/clusters.mbtiles -z16 -Z5 -as -ai -l clusters -f ./data/clusters.geojson
 ```
 
 For adm layers:
 ```
-tippecanoe -z11 -Z5 -o ./data/adm3.mbtiles -as -l adm3 -f ./data/adm3.geojson
+tippecanoe -o ./data/adm3.mbtiles -z11 -Z5 -as -l adm3 -f ./data/adm3.geojson
 ```
 
 For grid:
 ```
-tippecanoe -z11 -Z5 -o ./data/grid.mbtiles -as -l grid -f ./data/grid.geojson
+tippecanoe -o ./data/grid.mbtiles -z11 -Z5 -as -l grid -f ./data/grid.geojson
 ```
 
 Use the replace functionality on Mapbox Studio to replace tilesets, rather than uploading new ones.
@@ -59,8 +62,3 @@ Uses [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cult
 2. Then filter the admin layer with `"SOV_A3" = 'MOZ'` and buffer by 0.2 degrees.
 3. Then use vector `Difference` to subtract the buffered Mozambique from the big square.
 4. Save as GeoJSON for loading in Mapbox Studio.
-
-# TODO
-- Add hover/click styling to clusters
-- Check all cluster attributes
-- Fix tooltip in clusters table

@@ -24,8 +24,6 @@ let toggles = {
 
 let toggleClusterStyle = get("toggle-cat");
 
-let formatter = new Intl.NumberFormat("en-US");
-
 about.onclick = openModal;
 modalRoot.onclick = rootClick;
 modal.onclick = modalClick;
@@ -38,7 +36,7 @@ let map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/carderne/ckf56efk02bqd19qn0lt47awe?fresh=true",
   center: [35, -18],
-  zoom: 5,
+  zoom: 10,
   minZoom: 5,
   maxZoom: 16,
   maxBounds: [
@@ -72,24 +70,51 @@ map.on("load", () => {
   }
   filterUpdate();
 
-  map.setPaintProperty("clusters", "fill-opacity", [
-    "case",
-    ["boolean", ["feature-state", "hover"], false],
-    1,
-    0.5,
-  ]);
-
-  // Style cursor when entering/leaving clusters
-  map.on("mouseenter", "clusters", () => {
+  let clusterHoverId;
+  map.on("mousemove", "clusters", (e) => {
     map.getCanvas().style.cursor = "pointer";
+    if (e.features.length > 0) {
+      if (clusterHoverId) {
+        map.removeFeatureState({
+          source: "composite",
+          sourceLayer: "clusters",
+          id: clusterHoverId,
+        });
+      }
+
+      clusterHoverId = e.features[0].id;
+      map.setFeatureState(
+        {
+          source: "composite",
+          sourceLayer: "clusters",
+          id: clusterHoverId,
+        },
+        { hover: true }
+      );
+    }
   });
+
   map.on("mouseleave", "clusters", () => {
     map.getCanvas().style.cursor = "";
+    if (clusterHoverId) {
+      map.setFeatureState(
+        {
+          source: "composite",
+          sourceLayer: "clusters",
+          id: clusterHoverId,
+        },
+        { hover: false }
+      );
+    }
+    clusterHoverId = null;
   });
 
   // Open info box when click on a cluster
   // And close info box when click anywhere else
-  map.on("click", "clusters", showClusterInfo);
+  map.on("click", "clusters", (e) => {
+    e.preventDefault();
+    showClusterInfo(e);
+  });
   map.on("click", (e) => {
     if (e.defaultPrevented === false) {
       closeClusterInfo();
@@ -113,7 +138,6 @@ function filterUpdate() {
 }
 
 function showClusterInfo(e) {
-  e.preventDefault();
   query(".cluster").style.display = "block";
 
   let urban_case = {
@@ -126,6 +150,7 @@ function showClusterInfo(e) {
     30: "City",
   };
 
+  let formatter = new Intl.NumberFormat("en-US");
   let props = e.features[0].properties;
   props = {
     name: props.name,
@@ -154,30 +179,39 @@ function closeClusterInfo() {
   query(".cluster").style.display = "none";
 }
 
-let clustersDefaultStyle;
+let clusterNoHoverElec = [
+  "case",
+  ["match", ["get", "elec"], [1], true, false],
+  "hsl(0, 48%, 85%)",
+  [">=", ["get", "pop"], 1000],
+  "hsl(0, 0%, 38%)",
+  "hsl(127, 0%, 69%)",
+];
+let clusterNoHoverCat = [
+  "match",
+  ["get", "cat"],
+  [1],
+  "#d7191c",
+  [2],
+  "#fdae61",
+  [3],
+  "#ffffbf",
+  [4],
+  "#a6d96a",
+  [5],
+  "#1a9641",
+  "#000000",
+];
 function clusterStyle() {
-  let cat = toggleClusterStyle.checked ? true : false;
-  if (cat) {
-    clustersDefaultStyle = map.getPaintProperty("clusters", "fill-color");
-    let style = [
-      "match",
-      ["get", "cat"],
-      [1],
-      "#d7191c",
-      [2],
-      "#fdae61",
-      [3],
-      "#ffffbf",
-      [4],
-      "#a6d96a",
-      [5],
-      "#1a9641",
-      "#000000",
-    ];
-    map.setPaintProperty("clusters", "fill-color", style);
-  } else {
-    map.setPaintProperty("clusters", "fill-color", clustersDefaultStyle);
-  }
+  let style = toggleClusterStyle.checked
+    ? clusterNoHoverCat
+    : clusterNoHoverElec;
+  map.setPaintProperty("clusters", "fill-color", [
+    "case",
+    ["boolean", ["feature-state", "hover"], false],
+    "#ffffff",
+    style,
+  ]);
 }
 
 function toggleLayer() {

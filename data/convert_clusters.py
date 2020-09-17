@@ -55,15 +55,24 @@ def clean(clu):
             "agri": i32,
             "emissions": i32,
             "demand": i32,
-            "score": i32,
+            "score": f32,
             "cat": i32,
         },
         errors="ignore",
     )
-    clu = clu.drop(columns=["index"], errors="ignore")
+    droppers = [
+        "index",
+        "pop_score",
+        "popd_score",
+        "grid_score",
+        "health_score",
+        "schools_score",
+    ]
+    clu = clu.drop(columns=droppers, errors="ignore")
     return clu
 
 
+print("Cleaning")
 gdf = gpd.read_file(path_in)
 gdf = clean(gdf)
 gdf.to_file(path_out, driver="GeoJSON")
@@ -76,6 +85,7 @@ rounders = {
     "travel": 1,
     "grid": 1,
     "area": 1,
+    "score": 2,
     "lon": 3,
     "lat": 3,
 }
