@@ -210,7 +210,7 @@ function clusterStyle() {
   map.setPaintProperty("clusters", "fill-color", [
     "case",
     ["boolean", ["feature-state", "hover"], false],
-    "#ffffff",
+    "#7b3294",
     style,
   ]);
 }
