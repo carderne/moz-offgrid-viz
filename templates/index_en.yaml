@@ -19,6 +19,7 @@ layers:
   adm3: "Postos"
   adm3_help: "Overlay postos, coloured in increasing darkness by population."
   satellite: "Satellite"
+  s2: "Copernicus S2"
 
 downloads:
   title: "Downloads"

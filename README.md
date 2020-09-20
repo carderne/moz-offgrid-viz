@@ -82,17 +82,17 @@ For clusters:
 # -l layer name
 # -f force
 # -ai generate unique ids
-tippecanoe -o ./data/clusters.mbtiles -z16 -Z5 -as -ai -l clusters -f ./data/clusters.geojson
+tippecanoe -o ./data/clusters.mbtiles -Z5 -z10 -as -ai -l clusters -f ./data/clusters.geojson
 ```
 
 For adm layers:
 ```
-tippecanoe -o ./data/adm3.mbtiles -z11 -Z5 -as -l adm3 -f ./data/adm3.geojson
+tippecanoe -o ./data/adm3.mbtiles -Z5 -z10 -as -l adm3 -f ./data/adm3.geojson
 ```
 
 For grid:
 ```
-tippecanoe -o ./data/grid.mbtiles -z11 -Z5 -as -l grid -f ./data/grid.geojson
+tippecanoe -o ./data/grid.mbtiles -Z5 -z10 -as -l grid -f ./data/grid.geojson
 ```
 
 Use the replace functionality on Mapbox Studio to replace tilesets, rather than uploading new ones.

@@ -20,6 +20,7 @@ let toggles = {
   clusters: get("toggle-clusters"),
   adm3: get("toggle-adm3"),
   satellite: get("toggle-satellite"),
+  s2: get("toggle-s2"),
 };
 
 let toggleClusterStyle = get("toggle-cat");
@@ -219,6 +220,7 @@ function toggleLayer() {
     "toggle-clusters": ["clusters"],
     "toggle-adm3": ["adm3", "adm3-label"],
     "toggle-satellite": ["satellite-saturated"],
+    "toggle-s2": ["s2"],
   };
 
   for (let key in toggles) {
