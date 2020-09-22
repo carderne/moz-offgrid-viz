@@ -13,6 +13,7 @@ Arg 2: output file
 import sys
 from pathlib import Path
 import json
+
 import geopandas as gpd
 
 path_in = Path(sys.argv[1])
