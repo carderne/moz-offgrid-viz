@@ -20,6 +20,7 @@ layers:
   adm3_help: "Overlay postos, coloured in increasing darkness by population."
   satellite: "Satélite"
   s2: "Copernicus S2"
+  s2_help: "Recent low-cloud Copernicus Sentinel-2 imagery."
 
 downloads:
   title: "Transferências"

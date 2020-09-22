@@ -37,7 +37,7 @@ let map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/carderne/ckf56efk02bqd19qn0lt47awe?fresh=true",
   center: [35, -18],
-  zoom: 10,
+  zoom: 5,
   minZoom: 5,
   maxZoom: 16,
   maxBounds: [
