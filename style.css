@@ -11,6 +11,10 @@
     box-sizing: border-box;
 }
 
+*, *:focus, *:hover{
+    outline: none; /* remove black outline in Chrome */
+}
+
 html {
     font-family: sans-serif;
     color: var(--text);
