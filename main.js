@@ -13,6 +13,7 @@ let modalExit = get("modal-exit");
 let filters = {
   clustersPop: get("range-pop"),
   clustersGrid: get("range-grid"),
+  clustersPopd: get("range-popd"),
   gridSource: get("toggle-grid"),
 };
 
@@ -132,6 +133,7 @@ function filterUpdate() {
     "all",
     [">=", "pop", parseFloat(filters.clustersPop.value)],
     [">=", "grid", parseFloat(filters.clustersGrid.value)],
+    [">=", "popd", parseFloat(filters.clustersPopd.value)],
   ]);
 
   let gridFilter = filters.gridSource.checked ? null : ["==", "source", "osm"];
@@ -261,18 +263,12 @@ function setBubble(range, bubble) {
   let min = range.min ? range.min : 0;
   let max = range.max ? range.max : 100;
   let newVal = Number(((val - min) * 100) / (max - min));
-  let prefix, suffix;
   let which = range.id.split("-")[1];
 
-  if (which == "pop") {
-    prefix = "";
-    suffix = "";
-  } else if (which == "grid") {
-    prefix = "";
-    suffix = " km";
-  }
+  let suffixes = { pop: "", grid: " km", popd: " pop/km2" };
+  let suffix = suffixes[which];
 
-  bubble.innerHTML = prefix + " > " + val + suffix;
+  bubble.innerHTML = " > " + val + suffix;
 
   // Sorta magic numbers based on size of the native UI thumb
   bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
