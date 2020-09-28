@@ -67,7 +67,7 @@ def parse_docs():
         with open(files["md"]) as f:
             text = f.read()
 
-        md = markdown.Markdown(extensions=["toc"])
+        md = markdown.Markdown(extensions=["toc", "tables"])
         html = md.convert(text)
         parsed = BeautifulSoup(html, "html.parser")
 

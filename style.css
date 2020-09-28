@@ -1,10 +1,14 @@
 :root {
     --sidebar-width: 400px;
-    --light-bg: 250, 250, 250;
+    --docs-sidebar-width: 300px;
+    --light-bg: rgb(250, 250, 250);
     --med-bg: 235, 235, 235;
     --dark-bg: 196, 196, 196;
+    --docs-dark-bg: #3F584C;
     --accent: #15BE69;
     --text: #6B6F72;
+    --text-light: #f7f7f7;
+    --text-light-hover: #BABABA;
 }
 
 * {
@@ -23,25 +27,35 @@ html {
 body {
     margin: 0;
     padding: 0;
+    display: flex; /* OKAY??? */
 }
 
-h1, h2 {
+a, a:visited {
+    color: #3469a0;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ======================
+ * WEBMAP
+ * ====================== */
+
+.viz h1, .viz h2 {
     width: 100%;
     color: var(--accent);
     text-transform: uppercase;
 }
 
-h1 {
+.viz h1 {
     font-size: 1.1em;
     text-align: center;
     margin: 0;
 }
 
-h2 {
-    font-size: 0.9em;
-}
-
-p {
+.viz h2 {
     font-size: 0.9em;
 }
 
@@ -54,7 +68,7 @@ p {
     display: flex;
     flex-direction: column;
     width: var(--sidebar-width);
-    background-color: rgb(var(--light-bg));
+    background-color: var(--light-bg);
     height: 100%;
 }
 
@@ -326,7 +340,7 @@ input[type="range"]::-moz-range-thumb {
 .modal {
     margin: 0 auto;
     width: 80%;
-    background-color: rgb(var(--light-bg));
+    background-color: var(--light-bg);
     border-radius: 5px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -382,4 +396,130 @@ input[type="range"]::-moz-range-thumb {
 .ttip:active .ttiptext,
 .ttip:focus .ttiptext {
     visibility: visible;
+}
+
+/* ======================
+ * DOCS
+ * ====================== */
+
+#toc, #content {
+    padding: 10px;
+}
+
+#content {
+    margin-left: var(--docs-sidebar-width);
+    flex-grow: 1;
+    background-color: var(--light-bg);
+    color: var(--text);
+}
+
+#content > * {
+    max-width: 700px;
+}
+
+#content h1 {
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+#content h1:not(:first-child) {
+    margin: 6em 0 0 0;
+}
+
+#toc {
+    width: var(--docs-sidebar-width);
+    color: var(--text-light);
+    background-color: var(--docs-dark-bg);
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+}
+
+#toc a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#toc a:hover {
+    color: var(--text-light-hover);
+}
+
+#toc ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+#toc > ul > li > span {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    margin: 3em 0 0.8em 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--accent);
+    color: white;
+}
+
+figure {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2em 0;
+    flex-wrap: wrap;
+}
+
+figcaption {
+    font-style: italic;
+    margin-top: 15px;
+}
+
+@media screen and (min-width: 1300px) {
+    figure {
+        flex-wrap: nowrap;
+        width: 135%
+    }
+
+    figcaption {
+        width: 30%;
+        padding-left: 1.5em;
+        margin-top: 0;
+    }
+}
+
+img, video {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
