@@ -3,6 +3,7 @@ main:
   warning: "AINDA NÃO PÚBLICO"
   intro: "Esta ferramenta permite que você explore dados relevantes para oportunidades de mercado de energia fora da rede."
   about: "Sobre"
+  help: "Ajude-Me!"
 
 filters:
   title: "Filtros"

@@ -14,17 +14,17 @@
             <div class="sidebar">
 
                 <!-- Headers, logos -->
-                <div>
+                <header>
                     <div class="lang">
-                        <span id="en"><a href="/">en</a></span><span id="pt"><a href="/pt/">pt</a></span>
+                        <a id="lang" href=""></a>
                     </div>
                     <h1>{{ main.title }}</h1>
                     <p style="color:red;text-align:center;">{{ main.warning }}</p>
                     <p>{{ main.intro }}</p>
-                </div>
+                </header>
 
                 <!-- Filters and controls -->
-                <div class="controls">
+                <main class="controls">
 
                     <!-- Filter sliders -->
                     <div class="filters">
@@ -133,13 +133,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </main>
 
                 <!-- More info button -->
-                <div class="foot">
+                <footer>
                     <div id="about"><span>{{ main.about }}</span></div>
-                    <a href="/docs/"><div><span>Help!</span></div></a>
-                </div>
+                    <a id="help" href="/docs/"><div><span>{{ main.help }}</span></div></a>
+                </footer>
             </div>
 
             <!-- Container for Mapbox GL map object -->

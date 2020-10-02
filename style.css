@@ -69,18 +69,31 @@ a:hover {
     height: 100%;
 }
 
-.sidebar > * {
-    padding: 20px;
+header {
+    padding: 0px 20px 0px 20px;
+}
+
+main {
+    padding: 0px 20px 0px 20px;
 }
 
 .lang {
-    position: absolute;
-    top: 2px;
-    left: 5px;
+    margin-left: -20px;
+    margin-bottom: 5px;
 }
 
 .lang a {
+    display: inline-block;
+    padding: 5px;
     text-decoration: none;
+    background-color: var(--dark-bg);
+    border-bottom-right-radius: 6px;
+    font-weight: bold;
+}
+
+.lang a:hover {
+    background-color: #b0b0b0;
+    color: black !important;
 }
 
 .controls {
@@ -232,7 +245,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 
-.foot {
+footer {
     height: 50px;
     display: flex;
     background-color: var(--dark-bg);
@@ -242,22 +255,22 @@ input[type="range"]::-moz-range-thumb {
     font-weight: bold;
 }
 
-.foot > * {
+footer > * {
     display: inline-block;
     width: 50%;
 }
 
-.foot div:hover {
+footer div:hover {
     background-color: #b0b0b0;
 }
 
-.foot div span {
+footer div span {
     display: inline-block;
     vertical-align: middle;
     line-height: 50px;
 }
 
-.foot a, .foot a:hover, .foot a:visited {
+footer a, footer a:hover, footer a:visited {
     color: inherit;
     text-decoration: none;
 }
@@ -418,7 +431,12 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* DOCS */
-#toc, #content {
+
+#toc {
+    padding: 0px 10px 10px 20px;
+}
+
+#content {
     padding: 10px;
 }
 

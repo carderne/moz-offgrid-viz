@@ -25,9 +25,12 @@ def parse_index():
         text = yaml.safe_load(open(files["yml"]))
         out = files["out"]
 
-        # Replace <a> for current language with bare text (e.g. "en")
-        change = soup.find("span", {"id": lang})
-        change.contents[0].replace_with(change.text)
+        change = soup.find("a", {"id": "lang"})
+        change["href"] = "/pt/" if lang == "en" else "/"
+        change.string = "Português" if lang == "en" else "English"
+
+        change = soup.find("a", {"id": "help"})
+        change["href"] = "/docs/" if lang == "en" else "/pt/docs/"
 
         p = re.compile(r"{{.*?}}")
         tags = ["title", "h1", "h2", "p", "div", "span", "a"]
@@ -57,7 +60,7 @@ def parse_docs():
     template = templates / "docs_template.html"
     langs = {
         "en": {"md": templates / "docs_en.md", "out": root / "docs/index.html"},
-        "pt": {"md": templates / "docs_pt.md", "out": root / "docs/pt/index.html"},
+        "pt": {"md": templates / "docs_pt.md", "out": root / "pt/docs/index.html"},
     }
 
     for lang, files in langs.items():
@@ -71,6 +74,14 @@ def parse_docs():
         html = md.convert(text)
         parsed = BeautifulSoup(html, "html.parser")
 
+        change = soup.find("a", {"id": "lang"})
+        change["href"] = "/pt/docs/" if lang == "en" else "/docs/"
+        change.string = "Português" if lang == "en" else "English"
+
+        change = soup.find("a", {"id": "tool"})
+        change["href"] = "/" if lang == "en" else "/pt/"
+        change.string = "Back to the tool" if lang == "en" else "De volta à plataforma!"
+
         for a in parsed.div.find_all("a"):
             id = a["href"][1:]
             for h in parsed.find_all("h1"):
@@ -80,12 +91,12 @@ def parse_docs():
                     a.replace_with(span)
 
         for div in parsed.find_all("div", {"class": "toc"}):
-            soup.find("div", {"id": "toc"}).append(div.ul)
+            soup.find("nav", {"id": "toc"}).append(div.ul)
             div.decompose()
 
         content = parsed.new_tag("div")
         content.append(parsed)
-        soup.find("div", {"id": "content"}).append(content)
+        soup.find("main", {"id": "content"}).append(content)
 
         out = files["out"]
         out.parents[0].mkdir(exist_ok=True)
