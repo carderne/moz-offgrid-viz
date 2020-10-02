@@ -69,11 +69,7 @@ a:hover {
     height: 100%;
 }
 
-header {
-    padding: 0px 20px 0px 20px;
-}
-
-main {
+header, main {
     padding: 0px 20px 0px 20px;
 }
 
@@ -577,4 +573,42 @@ img, video {
 
 .doc-overlay:hover {
     background-color: #788a81;
+}
+
+/* MOBILE */
+#switch {
+    display: none;
+}
+
+@media screen and (max-width: 750px) {
+    #switch {
+        display: unset;
+        position: fixed;
+        z-index: 9;
+        top: 0;
+        left: 0;
+        height: 40px;
+        width: 100vw;
+        text-align: center;
+        background-color: var(--dark-bg);
+        padding: 10px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    #switch:hover {
+        background-color: #b0b0b0;
+    }
+
+    .sidebar {
+        width: 100vw;
+        margin-top: 40px;
+    }
+
+    .map-overlay {
+        display: none;
+    }
+    .controls {
+        overflow-y: unset;
+    }
 }

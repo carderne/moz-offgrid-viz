@@ -9,6 +9,7 @@ let modal = query(".modal");
 let about = get("about");
 let clusterExit = get("cluster-exit");
 let modalExit = get("modal-exit");
+let mobileSwitch = get("switch");
 
 let filters = {
   clustersPop: get("range-pop"),
@@ -31,6 +32,7 @@ modalRoot.onclick = rootClick;
 modal.onclick = modalClick;
 modalExit.onclick = rootClick;
 clusterExit.onclick = closeClusterInfo;
+mobileSwitch.onclick = switchMap;
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoiY2FyZGVybmUiLCJhIjoiY2puMXN5cnBtNG53NDN2bnhlZ3h4b3RqcCJ9.eNjrtezXwvM7Ho1VSxo06w";
@@ -280,4 +282,26 @@ function setBubble(range, bubble) {
     "%, #fff " +
     pc +
     "%, white 100%)";
+}
+
+let sidebarActive = true;
+function switchMap() {
+  let map = get("map");
+  let sidebar = query(".sidebar");
+
+  if (sidebarActive) {
+    console.log("to map");
+    sidebar.style.display = "none";
+    map.style.width = "100vw";
+    mobileSwitch.classList.add("switch-absolute");
+    mobileSwitch.innerText = "SHOW CONTROLS";
+    sidebarActive = false;
+  } else {
+    console.log("to control");
+    sidebar.style.display = null;
+    map.style.width = null;
+    mobileSwitch.classList.remove("switch-absolute");
+    mobileSwitch.innerText = "SHOW MAP";
+    sidebarActive = true;
+  }
 }
