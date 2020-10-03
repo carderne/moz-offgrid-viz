@@ -181,7 +181,7 @@ function showClusterInfo(e) {
 }
 
 function closeClusterInfo() {
-  query(".cluster").style.display = "none";
+  query(".cluster").style.display = null;
 }
 
 let clusterNoHoverElec = [
@@ -285,9 +285,11 @@ function setBubble(range, bubble) {
 }
 
 let sidebarActive = true;
+let clusterInfoState = null;
 function switchMap() {
   let map = get("map");
   let sidebar = query(".sidebar");
+  let clusterInfo = query(".cluster");
 
   if (sidebarActive) {
     console.log("to map");
@@ -296,6 +298,7 @@ function switchMap() {
     mobileSwitch.classList.add("switch-absolute");
     mobileSwitch.innerText = "SHOW CONTROLS";
     sidebarActive = false;
+    clusterInfo.style.display = clusterInfoState;
   } else {
     console.log("to control");
     sidebar.style.display = null;
@@ -303,5 +306,7 @@ function switchMap() {
     mobileSwitch.classList.remove("switch-absolute");
     mobileSwitch.innerText = "SHOW MAP";
     sidebarActive = true;
+    clusterInfoState = clusterInfo.style.display;
+    clusterInfo.style.display = null;
   }
 }

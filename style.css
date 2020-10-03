@@ -27,7 +27,8 @@ html {
 body {
     margin: 0;
     padding: 0;
-    display: flex; /* OKAY??? */
+    display: flex;
+    background-color: var(--light-bg);
 }
 
 a, a:visited {
@@ -59,6 +60,7 @@ a:hover {
 .flex-container {
     display: flex;
     height: 100vh;
+    background-color: var(--light-bg);
 }
 
 .sidebar {
@@ -434,9 +436,6 @@ footer a, footer a:hover, footer a:visited {
 
 #content {
     padding: 10px;
-}
-
-#content {
     margin-left: var(--docs-sidebar-width);
     flex-grow: 1;
     background-color: var(--light-bg);
@@ -578,37 +577,79 @@ img, video {
 /* MOBILE */
 #switch {
     display: none;
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    text-align: center;
+    background-color: var(--dark-bg);
+    background-color: #d0f2e1;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border-bottom-left-radius: 6px;
+}
+
+.force-display {
+    display: block !important;
+    position: absolute !important;
+    width: 50% !important;
+    color: black;
 }
 
 @media screen and (max-width: 750px) {
     #switch {
         display: unset;
-        position: fixed;
-        z-index: 9;
-        top: 0;
-        left: 0;
-        height: 40px;
-        width: 100vw;
-        text-align: center;
-        background-color: var(--dark-bg);
-        padding: 10px;
-        cursor: pointer;
-        font-weight: bold;
     }
 
     #switch:hover {
-        background-color: #b0b0b0;
+        background-color: #8adeb4;
     }
 
     .sidebar {
         width: 100vw;
-        margin-top: 40px;
     }
 
-    .map-overlay {
+    .legend {
         display: none;
     }
+
+    .cluster {
+        width: 90vw;
+        left: 5vw;
+        margin-left: 0;
+    }
+
     .controls {
         overflow-y: unset;
+    }
+
+    body.docs {
+        display: unset;
+    }
+
+    #toc {
+        width: 100vw;
+        height: 200px;
+        position: unset;
+        overflow: unset;
+    }
+
+    #toc > ul {
+        display: none;
+    }
+
+    #content {
+        margin-left: 0;
+    }
+
+    #content table {
+        font-size: 0.8em;
+    }
+
+    td {
+        word-wrap: break-word;
+        word-break: break-all;
     }
 }

@@ -80,7 +80,7 @@ def parse_docs():
 
         change = soup.find("a", {"id": "tool"})
         change["href"] = "/" if lang == "en" else "/pt/"
-        change.string = "Back to the tool" if lang == "en" else "De volta à plataforma!"
+        change.string = "To the tool" if lang == "en" else "À plataforma!"
 
         for a in parsed.div.find_all("a"):
             id = a["href"][1:]
