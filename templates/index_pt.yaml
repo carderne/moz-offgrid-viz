@@ -50,6 +50,7 @@ legend:
   title: "Lenda"
   elec: "Eletrificado"
   not: "Não eletrificado"
+  small: "Small villages"
 
 background:
   title: "Fundo"

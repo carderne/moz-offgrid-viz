@@ -50,6 +50,7 @@ legend:
   title: "Legend"
   elec: "Electrified"
   not: "Not electrified"
+  small: "Small villages"
 
 background:
   title: "Background"

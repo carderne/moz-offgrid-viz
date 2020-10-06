@@ -133,7 +133,10 @@ map.on("load", () => {
 function filterUpdate() {
   map.setFilter("clusters", [
     "all",
+    ["match", ["get", "adm1_code"], ["MZ01"], false, true],
+    [">=", "pop", 200],
     [">=", "pop", parseFloat(filters.clustersPop.value)],
+    ["<=", "pop", 100000],
     [">=", "grid", parseFloat(filters.clustersGrid.value)],
     [">=", "popd", parseFloat(filters.clustersPopd.value)],
   ]);
