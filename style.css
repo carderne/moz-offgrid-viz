@@ -2,11 +2,15 @@
     --sidebar-width: 400px;
     --docs-sidebar-width: 300px;
     --light-bg: rgb(250, 250, 250);
-    --med-bg: 235, 235, 235;
+    --med-bg: rgb(235, 235, 235);
     --dark-bg: rgb(196, 196, 196);
+    --darker-bg: #b0b0b0;
     --docs-dark-bg: #3F584C;
     --accent: #15BE69;
+    --accent-bg: #4299e1;
+    --accent-bg-hover: #2B6CB0;
     --text: #6B6F72;
+    --text-link: #3469a0;
     --text-light: #f7f7f7;
     --text-light-hover: #BABABA;
 }
@@ -32,7 +36,7 @@ body {
 }
 
 a, a:visited {
-    color: #3469a0;
+    color: var(--text-link);
     text-decoration: none;
 }
 
@@ -84,19 +88,13 @@ header, main {
     display: inline-block;
     padding: 5px;
     text-decoration: none;
-    background-color: var(--dark-bg);
     border-bottom-right-radius: 6px;
     font-weight: bold;
 }
 
-.lang a:hover {
-    background-color: #b0b0b0;
-    color: black !important;
-}
-
 .controls {
     flex-grow: 1;
-    background-color: rgb(var(--med-bg));
+    background-color: var(--med-bg);
     overflow-y: auto;
 }
 
@@ -259,7 +257,7 @@ footer > * {
 }
 
 footer div:hover {
-    background-color: #b0b0b0;
+    background-color: var(--darker-bg);
 }
 
 footer div span {
@@ -290,7 +288,7 @@ footer a, footer a:hover, footer a:visited {
 
 .map-overlay > div:first-child, .modal > div:first-child {
     margin: 0;
-    background-color: rgba(var(--med-bg), 0.9);
+    background-color: rgba(235, 235, 235, 0.9);
     height: 38px;
 }
 
@@ -393,6 +391,16 @@ footer a, footer a:hover, footer a:visited {
     padding: 40px;
 }
 
+@media screen and (max-width: 750px) {
+    .modal-flex {
+        flex-direction: column;
+    }
+    .modal-flex > div {
+        width: 100%;
+        padding: 5px;
+    }
+}
+
 .noscript {
     text-align: center;
     position: fixed;
@@ -411,7 +419,7 @@ footer a, footer a:hover, footer a:visited {
     visibility: hidden;
     width: 120%;
     background-color: #191919;
-    color: #fff;
+    color: white;
     text-align: left;
     padding: 5px 5px;
     margin-left: 15%;
@@ -501,11 +509,11 @@ td, th {
 }
 
 tr:nth-child(even){
-    background-color: #f2f2f2;
+    background-color: var(--med-bg);
 }
 
 tr:hover {
-    background-color: #ddd;
+    background-color: var(--dark-bg);
 }
 
 th {
@@ -553,26 +561,15 @@ img, video {
     margin-right: auto;
 }
 
-.doc-overlay {
-    position: fixed;
-    top: 50px;
-    font-size: 1.4em;
-    padding: 5px;
-    background-color: var(--docs-dark-bg);
-    text-transform: uppercase;
+.button {
+    background-color: var(--accent-bg);
+    color: white !important;
 }
 
-.doc-overlay a {
-    color: var(--text-light);
+.button:hover {
+    background-color: var(--accent-bg-hover);
 }
 
-.doc-overlay a:hover {
-    text-decoration: none;
-}
-
-.doc-overlay:hover {
-    background-color: #788a81;
-}
 
 /* MOBILE */
 #switch {
@@ -583,8 +580,6 @@ img, video {
     right: 0;
     width: 50vw;
     text-align: center;
-    background-color: var(--dark-bg);
-    background-color: #d0f2e1;
     padding: 5px;
     cursor: pointer;
     font-weight: bold;
@@ -595,16 +590,11 @@ img, video {
     display: block !important;
     position: absolute !important;
     width: 50% !important;
-    color: black;
 }
 
 @media screen and (max-width: 750px) {
     #switch {
         display: unset;
-    }
-
-    #switch:hover {
-        background-color: #8adeb4;
     }
 
     .sidebar {
