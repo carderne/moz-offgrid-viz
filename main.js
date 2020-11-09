@@ -1,5 +1,8 @@
 /* global mapboxgl */
 
+const mapboxToken = "pk.eyJ1IjoiY2FyZGVybmUiLCJhIjoiY2puMXN5cnBtNG53NDN2bnhlZ3h4b3RqcCJ9.eNjrtezXwvM7Ho1VSxo06w";
+const styleUrl = "mapbox://styles/carderne/ckf56efk02bqd19qn0lt47awe?fresh=true";
+
 const get = document.getElementById.bind(document);
 const query = document.querySelector.bind(document);
 const queryAll = document.querySelectorAll.bind(document);
@@ -34,11 +37,10 @@ modalExit.onclick = rootClick;
 clusterExit.onclick = closeClusterInfo;
 mobileSwitch.onclick = switchMap;
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiY2FyZGVybmUiLCJhIjoiY2puMXN5cnBtNG53NDN2bnhlZ3h4b3RqcCJ9.eNjrtezXwvM7Ho1VSxo06w";
+mapboxgl.accessToken = mapboxToken;
 let map = new mapboxgl.Map({
   container: "map",
-  style: "mapbox://styles/carderne/ckf56efk02bqd19qn0lt47awe?fresh=true",
+  style: styleUrl;
   center: [35, -18],
   zoom: 5,
   minZoom: 5,
