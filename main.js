@@ -40,7 +40,7 @@ mobileSwitch.onclick = switchMap;
 mapboxgl.accessToken = mapboxToken;
 let map = new mapboxgl.Map({
   container: "map",
-  style: styleUrl;
+  style: styleUrl,
   center: [35, -18],
   zoom: 5,
   minZoom: 5,
