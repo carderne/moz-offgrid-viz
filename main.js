@@ -1,7 +1,9 @@
 /* global mapboxgl */
 
-const mapboxToken = "pk.eyJ1IjoiY2FyZGVybmUiLCJhIjoiY2puMXN5cnBtNG53NDN2bnhlZ3h4b3RqcCJ9.eNjrtezXwvM7Ho1VSxo06w";
-const styleUrl = "mapbox://styles/carderne/ckf56efk02bqd19qn0lt47awe?fresh=true";
+const mapboxToken =
+  "pk.eyJ1IjoiY2FyZGVybmUiLCJhIjoiY2puMXN5cnBtNG53NDN2bnhlZ3h4b3RqcCJ9.eNjrtezXwvM7Ho1VSxo06w";
+const styleUrl =
+  "mapbox://styles/carderne/ckf56efk02bqd19qn0lt47awe?fresh=true";
 
 const get = document.getElementById.bind(document);
 const query = document.querySelector.bind(document);
@@ -135,12 +137,12 @@ map.on("load", () => {
 function filterUpdate() {
   map.setFilter("clusters", [
     "all",
-    ["match", ["get", "adm1_code"], ["MZ01"], false, true],
-    [">=", "pop", 200],
-    [">=", "pop", parseFloat(filters.clustersPop.value)],
-    ["<=", "pop", 100000],
-    [">=", "grid", parseFloat(filters.clustersGrid.value)],
-    [">=", "popd", parseFloat(filters.clustersPopd.value)],
+    ["!=", ["get", "adm1_code"], "MZ01"],
+    [">=", ["get", "pop"], 200],
+    [">=", ["get", "pop"], parseFloat(filters.clustersPop.value)],
+    ["<=", ["get", "pop"], 100000],
+    [">=", ["get", "grid"], parseFloat(filters.clustersGrid.value)],
+    [">=", ["get", "popd"], parseFloat(filters.clustersPopd.value)],
   ]);
 
   let gridFilter = filters.gridSource.checked ? null : ["==", "source", "osm"];
