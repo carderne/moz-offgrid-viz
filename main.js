@@ -1,9 +1,9 @@
 /* global mapboxgl */
 
 const mapboxToken =
-  "pk.eyJ1IjoiY2FyZGVybmUiLCJhIjoiY2puMXN5cnBtNG53NDN2bnhlZ3h4b3RqcCJ9.eNjrtezXwvM7Ho1VSxo06w";
+  "pk.eyJ1IjoiZ2V0LWludmVzdC1tb3phbWJpcXVlIiwiYSI6ImNraXEydDZoajFjMXcyeW81czB2ZDF0YmYifQ.9AgWyA_EQR_Cvfie9BZKIw";
 const styleUrl =
-  "mapbox://styles/carderne/ckf56efk02bqd19qn0lt47awe?fresh=true";
+  "mapbox://styles/get-invest-mozambique/ckir8us5b7gga17p9kfj9m3mp";
 
 const get = document.getElementById.bind(document);
 const query = document.querySelector.bind(document);
