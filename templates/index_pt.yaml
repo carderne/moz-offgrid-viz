@@ -66,6 +66,7 @@ support:
   program: "Nome do programa"
   address: "Endereço"
   contact: "Contato"
+  programs: "The Energy Cluster by GIZ is formed by these programmes:"
 dev:
   title: "Desenvolvimento"
-  text1: "A análise e o desenvolvimento web são de Chris Arderne."
+  text1: "A análise e o desenvolvimento web são de"

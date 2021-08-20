@@ -290,9 +290,10 @@ footer a, footer a:hover, footer a:visited {
     margin: 0;
     background-color: rgba(235, 235, 235, 0.9);
     height: 38px;
+    border-radius: 5px;
 }
 
-.map-overlay h2, .modal h2 {
+.map-overlay h2, .modal-scroll h2 {
     margin: 0;
     text-align: center;
 }
@@ -310,7 +311,7 @@ footer a, footer a:hover, footer a:visited {
     cursor: pointer;
 }
 
-.map-overlay > *, .modal > * {
+.map-overlay > *, .modal-scroll > * {
     padding: 10px;
 }
 
@@ -374,8 +375,33 @@ footer a, footer a:hover, footer a:visited {
     position: relative;
     top: 20%;
     transform: translateY(-20%);
-    max-height: calc(100vh - 210px);
+}
+
+.modal-scroll {
     overflow-y: auto;
+    max-height: calc(100vh - 210px - 38px);
+}
+
+.modal-logos {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-logos-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.logo {
+    width: 33%;
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+    padding: 20px;
+    mix-blend-mode: darken;
 }
 
 .modal-flex {
@@ -564,6 +590,10 @@ img, video {
 .button {
     background-color: var(--accent-bg);
     color: white !important;
+}
+
+.gap {
+    height: 100px;
 }
 
 .button:hover {

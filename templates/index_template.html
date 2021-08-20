@@ -12,7 +12,7 @@
         <!-- Everything except the modal goes in here -->
         <div class="flex-container">
             <div id="switch" class="button">
-               SHOW MAP
+                SHOW MAP
             </div>
 
             <div class="sidebar">
@@ -237,27 +237,46 @@
         </div>
 
         <!-- Modal is toggled with the about button bottom of the sidebar -->
-        <div id="modal-root">
+        <div id="modal-root" class="visible">
             <div class="modal">
                 <div><h2>&nbsp;</h2><span class="exit" id="modal-exit">×</span></div>
-                <div class="modal-flex">
-                    <div>
-                        <h2>{{ background.title }}</h2>
-                        <p>{{ background.text1 }}</p>
-                        <p>{{ background.text2 }}</p>
-                        <h2>{{ open.title }}</h2>
-                        <p>{{ open.text1 }}<a href="https://github.com/carderne/moz-offgrid-data"> moz-offgrid-data.</a></p>
-                        <p>{{ open.text2 }}<a href="https://github.com/carderne/moz-offgrid-viz"> moz-offgrid-viz</a>.</p>
+                <div class="modal-scroll">
+                    <div class="modal-logos">
+                        <div class="modal-logos-row">
+                            <div class="logo"><img src="/assets/logo_ca.png" alt="Cooperacao alema"></div>
+                            <div class="logo"><img src="/assets/logo_nlmfa.jpg" alt="Ministry of Foreign Affairs of the Netherlands"></div>
+                            <div class="logo"><img src="/assets/logo_norad.png" alt="Norad"></div>
+                        </div>
+                        <div class="modal-logos-row">
+                            <div class="logo"><img src="/assets/logo_giz.png" alt="GIZ"></div>
+                            <div class="logo"><img src="/assets/logo_endev.png" alt="Endev"></div>
+                            <div class="logo"><img src="/assets/logo_getinvest.png" alt="GET.invest"></div>
+                        </div>
                     </div>
-                    <div>
-                        <h2>{{ support.title }}</h2>
-                        <p>{{ support.text1 }}</p>
-                        <p>{{ support.program }}</p>
-                        <p>{{ support.address }}</p>
-                        <p>{{ support.contact }}</p>
-                        <h2>{{ dev.title }}</h2>
-                        <p>{{ dev.text1 }}</p>
-                        <p><a href="https://rdrn.me/">www.rdrn.me</a></p>
+                    <div class="modal-flex">
+                        <div>
+                            <h2>{{ background.title }}</h2>
+                            <p>{{ background.text1 }}</p>
+                            <p>{{ background.text2 }}</p>
+                            <h2>{{ open.title }}</h2>
+                            <p>{{ open.text1 }}<a href="https://github.com/carderne/moz-offgrid-data"> moz-offgrid-data.</a></p>
+                            <p>{{ open.text2 }}<a href="https://github.com/carderne/moz-offgrid-viz"> moz-offgrid-viz.</a></p>
+                        </div>
+                        <div>
+                            <h2>{{ support.title }}</h2>
+                            <p>{{ support.text1 }}</p>
+                            <p style="font-weight:bold">{{ support.program }}</p>
+                            <p>{{ support.address }}</p>
+                            <p>{{ support.contact }}<a href="mailto:rosario.loayza@giz.de">Rosario Fischer</a></p>
+                            <p>{{ support.programs }}</p>
+                            <ul>
+                                <li><a href="https://endev.info/">Energising Development<a/></li>
+                                <li><a href="https://gruene-buergerenergie.org/en/countries/mozambique/">Green People's Energy<a/></li>
+                                <li><a href="https://www.get-invest.eu/">Energising GET.invest<a/></li>
+                            </ul>
+                            <h2>{{ dev.title }}</h2>
+                            <p>{{ dev.text1 }}<a href="https://rdrn.me/">Chris Arderne.</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
