@@ -159,15 +159,15 @@ In the area of grid densification, EnDev Mozambique is working with the national
 
 Implemented by:
 <div class="modal-logos-row">
-<div class="logo"><img src="/assets/logo_giz.png" alt="GIZ"></div>
-<div class="logo"><img src="/assets/logo_endev.png" alt="Endev"></div>
+<div class="logo"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_endev_4.png" alt="Endev" srcset="/assets/logo_endev_1.png 1x, /assets/logo_endev_2.png 2x, /assets/logo_endev_3.png 3x, /assets/logo_endev_4.png 4x"></div>
 </div>
 <div class="gap"></div>
 
 ## Green People's Energy
 
 <div class="modal-logos-row">
-<div class="logo"><img src="/assets/logo_ca.png" alt="Cooperacao alema"></div>
+<div class="logo"><img src="/assets/logo_ca_4.png" alt="Cooperacao alema" srcset="/assets/logo_ca_1.png 1x, /assets/logo_ca_2.png 2x, /assets/logo_ca_3.png 3x, /assets/logo_ca_4.png 4x"></div>
 </div>
 
 The initiative Green People’s Energy for Africa (GBE) aims to improve the conditions for decentralised energy supply in selected sub-Saharan African countries with the participation of citizens and companies. In Mozambique, GBE focusses on promoting the productive use of decentralised renewable energies and the electrification of social institutions. The aim above all is economic development by increasing local value chains and employment.
@@ -176,16 +176,16 @@ By advising local businesses and promoting local training centers, local people 
 
 Implemented by:
 <div class="modal-logos-row">
-<div class="logo"><img src="/assets/logo_giz.png" alt="GIZ"></div>
+<div class="logo"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
 </div>
 <div class="gap"></div>
 
 ## GET.invest
 
 <div class="modal-logos-row">
-<div class="logo"><img src="/assets/logo_promove.png" alt="ProMove"></div>
-<div class="logo"><img src="/assets/logo_eu.jpg" alt="EU"></div>
-<div class="logo"><img src="/assets/logo_ca.png" alt="Cooperacao alema"></div>
+<div class="logo"><img src="/assets/logo_promove_4.png" alt="ProMove" srcset="/assets/logo_promove_1.png 1x, /assets/logo_promove_2.png 2x, /assets/logo_promove_3.png 3x, /assets/logo_promove_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_eu_4.png" alt="EU" srcset="/assets/logo_eu_1.png 1x, /assets/logo_eu_2.png 2x, /assets/logo_eu_3.png 3x, /assets/logo_eu_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_ca_4.png" alt="Cooperacao alema" srcset="/assets/logo_ca_1.png 1x, /assets/logo_ca_2.png 2x, /assets/logo_ca_3.png 3x, /assets/logo_ca_4.png 4x"></div>
 </div>
 
 GET.invest is a European programme that mobilises investment in renewable energy, supported by the European Union, Germany, Sweden, the Netherlands and Austria. Since 2019, the programme has been operating a country window in Mozambique funded by the European Union and Germany, implemented by the Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ).
@@ -194,6 +194,6 @@ GET.invest Mozambique is part of PROMOVE ENERGIA – a comprehensive strategy be
 
 Implemented by:
 <div class="modal-logos-row">
-<div class="logo"><img src="/assets/logo_giz.png" alt="GIZ"></div>
-<div class="logo"><img src="/assets/logo_getinvest.png" alt="GET.invest"></div>
+<div class="logo"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
+_4<div class="logo"><img src="/assets/logo_getinvest_4.png" alt="GET.invest" srcset="/assets/logo_getinvest_1.png 1x, /assets/logo_getinvest_2.png 2x, /assets/logo_getinvest_3.png 3x, /assets/logo_getinvest_4.png 4x"></div>
 </div>
