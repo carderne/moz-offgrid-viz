@@ -151,6 +151,12 @@ Your browser does not support the video tag.
 
 # Programmes of the Energy Cluster
 ## Energising Development
+<div class="modal-logos-row">
+<div class="logo"><img src="/assets/logo_ca_4.png" alt="Cooperacao alema" srcset="/assets/logo_ca_1.png 1x, /assets/logo_ca_2.png 2x, /assets/logo_ca_3.png 3x, /assets/logo_ca_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_nlmfa_4.jpg" alt="Ministry of Foreign Affairs of the Netherlands" srcset="/assets/logo_nlmfa_1.png 1x, /assets/logo_nlmfa_2.png 2x, /assets/logo_nlmfa_3.png 3x, /assets/logo_nlmfa_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_norad_4.png" alt="Norad" srcset="/assets/logo_norad_1.png 1x, /assets/logo_norad_2.png 2x, /assets/logo_norad_3.png 3x, /assets/logo_norad_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_sdc_4.png" alt="SDC" srcset="/assets/logo_sdc_1.png 1x, /assets/logo_sdc_2.png 2x, /assets/logo_sdc_3.png 3x, /assets/logo_sdc_4.png 4x"></div>
+</div>
 Energising Development (EnDev) is global programme financed by Germany, the Netherlands, Norway, and Switzerland. EnDev works in more than 20 countries across Africa, Asia and Latin America. EnDev supports national governments to create an environment that enables supply and demand of sustainable energy – to the last mile. Because achieving universal access to energy requires profitable business models.
 
 EnDev tackles energy poverty with a market-based approach putting the focus on consumers’ needs. Since 2006, EnDev has provided sustainable energy access to more than one million people in Mozambique through grid densification, village mini-grids based on hydropower plants, solar lanterns, solar home systems and improved cookstoves. EnDev supported the establishment of a results-based financing fund: [FASER](https://www.faser.co.mz/) (Fondo de Acesso sustentável as energias renováveis em Moçambique, Fund for Sustainable Access to Renewable Energies and Efficient Technologies) was launched in July 2019. Since then, the open basket fund grew in terms of funding: GBE joined in 2020 and the EU decided to scale-up the CovidPlus incentive in 2021.
@@ -195,5 +201,5 @@ GET.invest Mozambique is part of PROMOVE ENERGIA – a comprehensive strategy be
 Implemented by:
 <div class="modal-logos-row">
 <div class="logo"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
-_4<div class="logo"><img src="/assets/logo_getinvest_4.png" alt="GET.invest" srcset="/assets/logo_getinvest_1.png 1x, /assets/logo_getinvest_2.png 2x, /assets/logo_getinvest_3.png 3x, /assets/logo_getinvest_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_getinvest_4.png" alt="GET.invest" srcset="/assets/logo_getinvest_1.png 1x, /assets/logo_getinvest_2.png 2x, /assets/logo_getinvest_3.png 3x, /assets/logo_getinvest_4.png 4x"></div>
 </div>
