@@ -404,6 +404,10 @@ footer a, footer a:hover, footer a:visited {
     mix-blend-mode: darken;
 }
 
+.logo.logo-s img {
+    height: 80px;
+}
+
 .modal-flex {
     display: flex;
     flex-direction: row;
