@@ -165,13 +165,12 @@ In the area of grid densification, EnDev Mozambique is working with the national
 
 Implemented by:
 <div class="modal-logos-row">
-<div class="logo"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
-<div class="logo"><img src="/assets/logo_endev_4.png" alt="Endev" srcset="/assets/logo_endev_1.png 1x, /assets/logo_endev_2.png 2x, /assets/logo_endev_3.png 3x, /assets/logo_endev_4.png 4x"></div>
+<div class="logo logo-s"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
+<div class="logo logo-s"><img src="/assets/logo_endev_4.png" alt="Endev" srcset="/assets/logo_endev_1.png 1x, /assets/logo_endev_2.png 2x, /assets/logo_endev_3.png 3x, /assets/logo_endev_4.png 4x"></div>
 </div>
 <div class="gap"></div>
 
 ## Green People's Energy
-
 <div class="modal-logos-row">
 <div class="logo"><img src="/assets/logo_ca_4.png" alt="Cooperacao alema" srcset="/assets/logo_ca_1.png 1x, /assets/logo_ca_2.png 2x, /assets/logo_ca_3.png 3x, /assets/logo_ca_4.png 4x"></div>
 </div>
@@ -182,12 +181,11 @@ By advising local businesses and promoting local training centers, local people 
 
 Implemented by:
 <div class="modal-logos-row">
-<div class="logo"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
+<div class="logo logo-s"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
 </div>
 <div class="gap"></div>
 
 ## GET.invest
-
 <div class="modal-logos-row">
 <div class="logo"><img src="/assets/logo_promove_4.png" alt="ProMove" srcset="/assets/logo_promove_1.png 1x, /assets/logo_promove_2.png 2x, /assets/logo_promove_3.png 3x, /assets/logo_promove_4.png 4x"></div>
 <div class="logo"><img src="/assets/logo_eu_4.png" alt="EU" srcset="/assets/logo_eu_1.png 1x, /assets/logo_eu_2.png 2x, /assets/logo_eu_3.png 3x, /assets/logo_eu_4.png 4x"></div>
@@ -200,6 +198,6 @@ GET.invest Mozambique is part of PROMOVE ENERGIA – a comprehensive strategy be
 
 Implemented by:
 <div class="modal-logos-row">
-<div class="logo"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
-<div class="logo"><img src="/assets/logo_getinvest_4.png" alt="GET.invest" srcset="/assets/logo_getinvest_1.png 1x, /assets/logo_getinvest_2.png 2x, /assets/logo_getinvest_3.png 3x, /assets/logo_getinvest_4.png 4x"></div>
+<div class="logo logo-s"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
+<div class="logo logo-s"><img src="/assets/logo_getinvest_4.png" alt="GET.invest" srcset="/assets/logo_getinvest_1.png 1x, /assets/logo_getinvest_2.png 2x, /assets/logo_getinvest_3.png 3x, /assets/logo_getinvest_4.png 4x"></div>
 </div>
