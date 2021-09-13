@@ -26,13 +26,13 @@
       </a>
      </div>
      <h1>
-      Energia fora da rede de Moçambique
+      Energia Fora da Rede Eléctrica (off-grid) de Moçambique
      </h1>
      <p style="color:red;text-align:center;">
       AINDA NÃO PÚBLICO
      </p>
      <p>
-      Esta ferramenta permite que você explore dados relevantes para oportunidades de mercado de energia fora da rede.
+      Esta ferramenta permite explorar dados relativos a oportunidades de mercado em locais fora da rede.
      </p>
     </header>
     <!-- Filters and controls -->
@@ -54,7 +54,7 @@
       </div>
       <div class="range-container">
        <div class="label">
-        Distância da rede
+        Distância à rede
        </div>
        <div class="range-wrap">
         <output class="bubble">
@@ -64,7 +64,7 @@
       </div>
       <div class="range-container">
        <div class="label">
-        Population density
+        Densidade populacional
        </div>
        <div class="range-wrap">
         <output class="bubble">
@@ -76,7 +76,7 @@
      <!-- Layer selectors -->
      <div class="layers">
       <h2>
-       Camadas
+       layers
       </h2>
       <div>
        <div class="label">
@@ -90,9 +90,9 @@
       </div>
       <div>
        <div class="label ttip">
-        Rankings
+        Classificações
         <span class="ttiptext">
-         Colour clusters according to rank, from red (least promising) to green (most promising).
+         Clusters classificados por cores: de vermelho (menos promissores) a verde (mais promissores)
         </span>
        </div>
        <div>
@@ -105,7 +105,7 @@
        <div class="label ttip">
         Gridfinder
         <span class="ttiptext">
-         Whether to include grid lines estimates from satellite data.
+         Incluir estimação sobre a localização da rede eléctrica
         </span>
        </div>
        <div>
@@ -118,7 +118,7 @@
        <div class="label ttip">
         Postos
         <span class="ttiptext">
-         Overlay postos, coloured in increasing darkness by population.
+         Postos coloridos por ordem crescente de número de população (mais claros a mais escuros)
         </span>
        </div>
        <div>
@@ -141,7 +141,7 @@
        <div class="label ttip">
         Copernicus S2
         <span class="ttiptext">
-         Recent low-cloud Copernicus Sentinel-2 imagery.
+         Imagens recentes de baixa-nuvem do Copernicus Sentinel-2
         </span>
        </div>
        <div>
@@ -154,11 +154,11 @@
      <!-- Download buttons -->
      <div class="downloads">
       <h2>
-       Transferências
+       Descarregar dados
       </h2>
       <div class="double">
        <div class="label">
-        Baixar clusters
+        Descarregar clusters
        </div>
        <div class="wrapper">
         <a download="" href="/download/moz-clusters.csv" target="_blank">
@@ -175,7 +175,7 @@
       </div>
       <div class="double">
        <div class="label">
-        Baixar postagens
+        Descarregar postos
        </div>
        <div class="wrapper">
         <a download="" href="/download/moz-postos.xlsx" target="_blank">
@@ -202,7 +202,7 @@
      <a href="/pt/docs/" id="help">
       <div>
        <span>
-        Ajude-Me!
+        Ajuda!
        </span>
       </div>
      </a>
@@ -224,7 +224,7 @@
     <div class="table">
      <div>
       <div>
-       Inhame
+       Nome
       </div>
       <span id="cluster-name">
       </span>
@@ -245,7 +245,7 @@
      </div>
      <div>
       <div>
-       Distância da rede
+       Distância à rede
       </div>
       <span id="cluster-grid">
       </span>
@@ -259,9 +259,9 @@
      </div>
      <div>
       <div class="ttip">
-       Demand
+       Procura
        <span class="ttiptext">
-        Simple peak demand estimation based on population and facilities
+        Estimativa do pico de procura com base na população e na instrastutura local
        </span>
       </div>
       <span id="cluster-demand">
@@ -269,9 +269,9 @@
      </div>
      <div>
       <div class="ttip">
-       Ranking
+       Classificação
        <span class="ttiptext">
-        Ranking based on population, grid distance and others.
+        Classificação baseada na população, distância à rede e outros parâmetros
        </span>
       </div>
       <span id="cluster-cat">
@@ -287,28 +287,28 @@
      </div>
      <div>
       <div>
-       Health sites
+       Centros de saúde
       </div>
       <span id="cluster-health">
       </span>
      </div>
      <div>
       <div>
-       Schools
+       Escolas
       </div>
       <span id="cluster-schools">
       </span>
      </div>
      <div>
       <div>
-       Urban level
+       Nível urbano
       </div>
       <span id="cluster-urban">
       </span>
      </div>
      <div>
       <div>
-       Location
+       Localização
       </div>
       <span id="cluster-coords">
       </span>
@@ -319,7 +319,7 @@
    <div class="map-overlay legend">
     <div>
      <h2>
-      Lenda
+      Legenda
      </h2>
     </div>
     <div>
@@ -327,21 +327,21 @@
       <span class="legend-key" style="background-color: #e2a1a1">
       </span>
       <span>
-       Eletrificado
+       Electrificado
       </span>
      </div>
      <div>
       <span class="legend-key" style="background-color: #616161">
       </span>
       <span>
-       Não eletrificado
+       Não electrificado
       </span>
      </div>
      <div>
       <span class="legend-key" style="background-color: #b0b0b0">
       </span>
       <span>
-       Small villages
+       Pequenas aldeias
       </span>
      </div>
     </div>
@@ -392,25 +392,25 @@
      <div class="modal-flex">
       <div>
        <h2>
-        Fundo
+        Contexto
        </h2>
        <p>
-        Este mapa foi criado como parte do programa de energia fora da rede da GIZ em Moçambique. Destina-se a apoiar o desenvolvimento do setor fora da rede, fornecendo acesso melhorado a dados e inteligência de mercado, para desenvolvedores, distribuidores e investidores de minirredes e sistemas solares domésticos.
+        Este mapa foi criado como parte do cluster de energia fora da rede (off-grid) da GIZ em Moçambique. Destina-se a apoiar o desenvolvimento do setor off-grid, proporcionando melhor acesso a dados do mercado, para promotores, distribuidores e investidores de mini-redes e sistemas domésticos de energia solar.
        </p>
        <p>
-        O mapa mostra dados para todas as províncias de Moçambique, usando apenas dados disponíveis publicamente. Ele incorpora a análise da combinação de dados internacionais, governamentais e de satélite para ajudar os desenvolvedores a encontrar mercados e clientes.
+        O mapa mostra dados para todas as províncias de Moçambique, usando apenas dados disponíveis publicamente. Ele incorpora análises combinando dados públicos e de satélite para ajudar os promotores a identificar mercados e clientes potenciais.
        </p>
        <h2>
-        Abrir
+        Fonte Aberta
        </h2>
        <p>
-        A lista completa de conjuntos de dados públicos usados e os métodos usados para prepará-los está disponível no repositório GitHub do projeto
+        A lista completa do conjuntos de dados públicos usados e os métodos utilizados para tratá-los e analisá-los está disponível no repositório GitHub do projeto
         <a href="https://github.com/carderne/moz-offgrid-data">
          moz-offgrid-data.
         </a>
        </p>
        <p>
-        O código e os recursos usados neste site estão disponíveis em um repositório separado
+        O código e os recursos usados neste site estão disponíveis num repositório separado
         <a href="https://github.com/carderne/moz-offgrid-viz">
          moz-offgrid-viz.
         </a>
@@ -421,24 +421,24 @@
         Suporte
        </h2>
        <p>
-        Este programa é operado e apoiado pela Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH
+        Este mapa é operado e apoiado pela Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH.
        </p>
        <ul>
         <li style="font-weight:bold">
-         Nome do programa
+         GIZ Energy Cluster
         </li>
         <li>
-         Endereço
+         Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH Av. do Zimbabwe n.1536, Maputo, Moçambique
         </li>
         <li>
-         Contato
+         Contacto:
          <a href="mailto:rosario.loayza@giz.de">
           Rosario Fischer
          </a>
         </li>
        </ul>
        <p>
-        The Energy Cluster by GIZ is formed by these programmes:
+        O Energy Cluster da GIZ é formado por estes programas:
        </p>
        <ul>
         <li>
@@ -464,10 +464,10 @@
         </li>
        </ul>
        <h2>
-        Desenvolvimento
+        Website
        </h2>
        <p>
-        A análise e o desenvolvimento web são de
+        Análise e desenvolvimento web por
         <a href="https://rdrn.me/">
          Chris Arderne.
         </a>

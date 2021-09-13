@@ -1,154 +1,204 @@
 [TOC]
 
-# Summary
-## Project summary
-This project was developed to support the off-grid energy sector in Mozambique. It is also a showcase of the value that open data, satellite imagery, and modern geospatial techniques can bring to development.
+# Resumo
+## Resumo do projeto
+Este projeto foi desenvolvido para apoiar o sector de energia fora da rede (off-grid) em Moçambique. É também uma vitrine do valor que dados públicos, imagens de satélite e técnicas geoespaciais modernas podem trazer para o desenvolvimento deste sector.
 
-The project consists of two core components:
+O projeto consiste em dois componentes principais:
 
-1. **Data:** Combining official government data with openly shared data (such as population, urban level) and raw satellite imagery, to create a database of "settlements", ranging from 50 to 100,000 people, with attached information about each, from number of households, to estimated electricity demand and pollution levels.
+1. **Dados:** Combinando dados oficiais do governo com dados disponíveis publicamente (como população, nível urbano) e imagens de satélite brutas, de forma a criar um banco de dados de "clusters", variando de 50 a 100.000 pessoas, com informações anexadas sobre cada um, incluindo, entre outros, o número de famílias, estimativa da procura energética e níveis de poluição.
 
-2. **Visualization:** Bringing together the above data, together with some simple filtering and controls and a modern web-map interface, to allow all users to access and investigate the data. This also serves as an entry-point to the project, and allows users to download all data for analysis in GIS or spreadsheet software.
+2. **Visualização:** Reunir os dados mencionados acima, com alguns filtros e controles simples e uma interface web moderna, para permitir que todos os usuários acessem e analisem os dados. Isto também serve como um ponto de entrada para o projecto e permite que o usuário descarregue todos os dados para análise em softwares SIG (Sistemas de Informação Geográfica) ou em uma folha de cálculos. 
 
-Both of these are designed to be useful to a wide variety of people: government decision-makers and experts, off-grid companies and their staff, along with the local and international communities of stakeholders and citizens.
+Ambos são projectados para serem úteis a uma ampla variedade de actores: tomadores de decisão e técnicos governamentais, sector privado fora da rede (empresas e seus colaboradores), parceiros internacionais e locais.
 
-All processes used in creating this data and visualization are openly licensed and shared, so that others may benefit from them. They live on GitHub, in [moz-offgrid-data](https://github.com/carderne/moz-offgrid-data) and [moz-offgrid-viz](https://github.com/carderne/moz-offgrid-viz). The sources for all raw input files are linked, along with their various licenses.
+Todos os processos utilizados na criação dos dados e sua visualização são licenciados e partilhados abertamente, para que outros se possam beneficiar deles. Estes processos estão armazenados no GitHub, em [moz-offgrid-data](https://github.com/carderne/moz-offgrid-data) e [moz-offgrid-viz](https://github.com/carderne/moz-offgrid-viz). As fontes de todos os arquivos de entrada brutos estão indicadas, assim como as suas licenças.
 
-If you have questions, comments, or suggestions about this project, please [get in touch.](#get-in-touch)
+Caso haja dúvidas, comentários ou sugestões sobre este projecto, por favor [entre em contato] (# get-in-touch)
 
-# Methodology
-## Data sources
-The full list of data sources used in this project is shown in the table below. Note that any changes will first be made in the [GitHub repository](https://github.com/carderne/moz-offgrid-data), so please look there for the most up-to-date list. Wherever possible, the respective licenses are shown for each dataset. Please let the team know if any links, names or licenses are incorrect.
+# Metodologia
+## Fontes de dados
+A lista completa de fontes de dados usadas neste projeto é mostrada na tabela abaixo. Observe que quaisquer alterações serão feitas primeiro no [repositório GitHub] (https://github.com/carderne/moz-offgrid-data), portanto, procure lá a lista mais atualizada. Sempre que possível, as respectivas licenças são mostradas para cada conjunto de dados. Por favor, informe a equipa se algum link, nome ou licença estiver incorreto.
 
-| Type | Source | License |
+| Tipo | Fonte | Licença |
 | ---- | ------ | ------- |
-| Population | [Facebook HRSL](https://data.humdata.org/dataset/mozambique-high-resolution-population-density) | Creative Commons Attribution International |
-| Population | [Worldpop](https://www.worldpop.org/geodata/summary?id=6404) | Creative Commons Attribution 4.0 International |
-| Population | [GHS-POP](https://ghsl.jrc.ec.europa.eu/download.php?ds=pop) | Creative Commons Attribution 4.0 International |
-| Urban degree | [GHS-SMOD](https://ghsl.jrc.ec.europa.eu/download.php?ds=smod) | Creative Commons Attribution 4.0 International |
-| Grid | [gridfinder](https://zenodo.org/record/3628142) | Creative Commons Attribution 4.0 International |
-| Grid | [Transmission network](https://energydata.info/dataset/mozambique-electricity-transmission-network-2017) | Creative Commons Attribution 4.0 |
-| Spatial electricity access | [GDESSA](https://data.mendeley.com/datasets/kn4636mtvg/4) | CC BY 4.0 |
-| Electricity statistics | [EDM Master Plan 2018](https://portal.edm.co.mz/sites/default/files/documents/Reports/INTEGRATED%20MASTER%20PLAN%202018-2043.pdf#pdfjs.action=download) | |
-| Distance to cities | [JRC Global Accessibility Map](https://forobs.jrc.ec.europa.eu/products/gam/download.php) | Not specified - but most EU data is CC BY 4.0 |
-| GDP | [UNEP/DEWA/GRID-Geneva GDP 2010](https://preview.grid.unep.ch/index.php?preview=data&events=socec&evcat=1&lang=eng) | UN license, Free for non-commercial |
-| Admin boundaries | [GADM](https://gadm.org/download_country_v3.html) | Free for non-commercial use, noredistribution |
-| Admin boundaries | [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/) | Public domain |
-| Compilation | [USAID RtM](https://dec.usaid.gov/dec/content/Detail_Presto.aspx?vID=47&ctID=ODVhZjk4NWQtM2YyMi00YjRmLTkxNjktZTcxMjM2NDBmY2Uy&rID=NTU5NDcy) | General USAID DEC license, Creative Commons Attribution-No Derivatives 4.0 International License |
-| Night time lights | [NOAA VIIRS](https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_DNB_MONTHLY_V1_VCMCFG) | No copyright |
-| NDVI | [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR) | Copernicus Sentinel Data Terms and Conditions (attribution) |
-| NO2 emissions | [Sentinel-5P](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_NO2) | Copernicus Sentinel Data Terms and Conditions (attribution) |
-| Hydropower resources | [African Small Hydro Potential](https://energydata.info/dataset/small-and-mini-hydropower-potential-in-sub-saharan-africa) | Creative Commons Attribution 4.0 |
-| OpenStreetMap | [OpenStreetMap](https://download.geofabrik.de/africa.html) | Open Data Commons Open Database License |
-| OpenStreetMap | [HOT Feature Exports](https://data.humdata.org/search?organization=hot&q=mozambique) | Open Database License (ODC-ODbL) |
-| Settlements | [UN IOM Mozambique settlements](https://data.humdata.org/dataset/mozambique-settlement-shapefiles) | Non-commercial, no redistribute |
-| Settlements | [OCHA Main Cities](https://data.humdata.org/dataset/mozambique-main-cities) |   Creative Commons Attribution International |
-| Health | [OCHA Health Facilities](https://data.humdata.org/dataset/mozambique-health-facilities) | Public domain |
-| Energy | [OCHA Energy Facilities](https://data.humdata.org/dataset/mozambique-energy-facilities) | Creative Commons Attribution International |
-| Rivers | [OCHA Stream Network](https://data.humdata.org/dataset/mozambique-rivers-and-stream-network) | Creative Commons Attribution International |
-| Poverty | [OPHI Poverty Rate](https://data.humdata.org/dataset/mozambique-poverty-rate) |     Creative Commons Attribution International |
-| Affordability | [USAID Power Africa surveys]() | |
-| Admin boundaries | [OCHA Admin Boundaries](https://data.humdata.org/dataset/mozambique-administrative-levels-0-3) | humanitarian use only |
+| População | [Facebook HRSL](https://data.humdata.org/dataset/mozambique-high-resolution-population-density) | Creative Commons Attribution International |
+| População | [Worldpop](https://www.worldpop.org/geodata/summary?id=6404) | Creative Commons Attribution 4.0 International |
+| População | [GHS-POP](https://ghsl.jrc.ec.europa.eu/download.php?ds=pop) | Creative Commons Attribution 4.0 International |
+| Grau urbano | [GHS-SMOD](https://ghsl.jrc.ec.europa.eu/download.php?ds=smod) | Creative Commons Attribution 4.0 International |
+| Rede | [gridfinder](https://zenodo.org/record/3628142) | Creative Commons Attribution 4.0 International |
+| Rede | [Rede de transmissão](https://energydata.info/dataset/mozambique-electricity-transmission-network-2017) | Creative Commons Attribution 4.0 |
+| Acesso espacial de electricidade | [GDESSA](https://data.mendeley.com/datasets/kn4636mtvg/4) | CC BY 4.0 |
+| Estatísticas de electricidade | [EDM Master Plan 2018](https://portal.edm.co.mz/sites/default/files/documents/Reports/INTEGRATED%20MASTER%20PLAN%202018-2043.pdf#pdfjs.action=download) | |
+| Distância a cidades | [JRC Global Accessibility Map](https://forobs.jrc.ec.europa.eu/products/gam/download.php) | Não especificado - mas a maioria dos dados da UE é CC BY 4.0 |
+| GDP | [UNEP/DEWA/GRID-Geneva GDP 2010](https://preview.grid.unep.ch/index.php?preview=data&events=socec&evcat=1&lang=eng) | Licença da ONU, grátis para não comercial |
+| Limites administrativos | [GADM](https://gadm.org/download_country_v3.html) | Gratuito para uso não comercial, sem redistribuição |
+| Limites de administrativos | [Natural Earth Admin 0](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/) | Domínio público |
+| Compilação | [USAID RtM](https://dec.usaid.gov/dec/content/Detail_Presto.aspx?vID=47&ctID=ODVhZjk4NWQtM2YyMi00YjRmLTkxNjktZTcxMjM2NDBmY2Uy&rID=NTU5NDcy) | General USAID DEC license, Creative Commons Attribution-No Derivatives 4.0 International License |
+| Luzes noturnas | [NOAA VIIRS](https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_DNB_MONTHLY_V1_VCMCFG) | Sem direitos autorais |
+| NDVI | [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR) | Termos e Condições de Dados do Copernicus Sentinel (atribuição) |
+| Emissões de NO2 | [Sentinel-5P](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_NO2) | Termos e Condições de Dados do Copernicus Sentinel (atribuição) |
+| Recursos hidroelétricos | [African Small Hydro Potential](https://energydata.info/dataset/small-and-mini-hydropower-potential-in-sub-saharan-africa) | Creative Commons Attribution 4.0 |
+| OpenStreetMap | [OpenStreetMap](https://download.geofabrik.de/africa.html) | Licença de Banco de Dados Aberto |
+| OpenStreetMap | [HOT Feature Exports](https://data.humdata.org/search?organization=hot&q=mozambique) | Licença de banco de dados aberto (ODC-ODbL) |
+| Assentamentos | [UN IOM Mozambique settlements](https://data.humdata.org/dataset/mozambique-settlement-shapefiles) | Não comercial, não redistribua |
+| Assentamentos | [OCHA Main Cities](https://data.humdata.org/dataset/mozambique-main-cities) |   Creative Commons Attribution International |
+| Saúde | [OCHA Health Facilities](https://data.humdata.org/dataset/mozambique-health-facilities) | Domínio público |
+| Energia | [OCHA Energy Facilities](https://data.humdata.org/dataset/mozambique-energy-facilities) | Creative Commons Attribution International |
+| Rios | [OCHA Stream Network](https://data.humdata.org/dataset/mozambique-rivers-and-stream-network) | Creative Commons Attribution International |
+| Pobreza | [OPHI Poverty Rate](https://data.humdata.org/dataset/mozambique-poverty-rate) |     Creative Commons Attribution International |
+| Acessibilidade| [USAID Power Africa surveys]() | |
+| Limites de administrativos | [OCHA Admin Boundaries](https://data.humdata.org/dataset/mozambique-administrative-levels-0-3) | uso humanitário apenas |
 
-## Clustering
-In order to make this data easier to interpret for different users, the data above are processed to create individual "clusters" for each settlement. That is, a cluster of houses and buildings that represent a single village or town. As this process is automated, these do not always match up perfectly with existing names and boundaries. This is an ongoing process, and feedback is welcome on how to improve the data!
+## Cluster (Agrupamentos/Aglomerados)
+A fim de tornar estes dados mais fáceis de interpretar para diferentes usuários, os dados acima são processados para criar agrupamentos individuais para cada assentamento. Ou seja, um agrupamento de casas e edifícios que representam um único povoamento. Como este processo é automatizado, eles nem sempre correspondem perfeitamente aos nomes e limites existentes desses locais. Este é um processo contínuo e comentários são bem-vindos sobre como melhorar os dados!
 
-The starting point for the clusters is the [High Resolution Settlement Layer](https://data.humdata.org/dataset/mozambique-high-resolution-population-density), created by Facebook. This provides high resolution information on population in a raster format: a uniform grid of cells where each cell is 30 metres wide. To convert this into vector format (i.e., polygons and shapes for each settlement), the algorithm finds neighbouring populated cells, and merges these together. Some other operations are then performed to remove clusters that are too small or large, or join clusters where necessary.
+O ponto de partida para os clusters é o [High Resolution Settlement Layer] (https://data.humdata.org/dataset/mozambique-high-resolution-population-density), criado pelo Facebook. Estes dados de alta resolução sobre a população são fornecidos em formato matricial (raster): uma rede uniforme de células em que cada célula tem 30 metros de largura. Para a sua conversão em formato vetorial (ou seja, polígonos e formas para cada povoado), o algoritmo encontra células vizinhas com povoações e junta-as. Algumas outras operações são executadas para remover clusters que são demasiado grandes ou pequenos, ou unir aglomerados quando apropriado.
 
-Once these bare clusters are prepared, we can any and all of the above datasets to them as attributes. Grid data is used to calculate the distance from each cluster to the grid. GDP data is used to calculate the GDP/capita in each cluster. Population, schools and health facilities are used to estimate energy demand. The table below shows all attributes that have already been added to the clusters.
+Uma vez produzidos os clusters, podemos-lhes atribuir os dados acima como atributos. Os dados da rede são utilizados  para calcular a distância de cada aglomerado à rede. Os dados do PIB são usados para calcular o PIB per capita em cada aglomerado. População, escolas e instalações de saúde são usadas para estimar a procura de energia. A seguinte tabela indica todos os atributos que foram adicionados aos aglomerados.
 
-*As better data becomes available, we can improve on these attributes and add new ones!*
+*Quando melhores dados se tornarem disponíveis, podemos melhorar esses atributos e adicionar novos!*
 
-| Attribute              | Name      | Unit    | Source           |
+| Atributo              | Nome      | Unidade    | Fonte           |
 | ---------              | ----      | ----    | ------           |
-| Province               | adm1      |         | OCHA             |
-| Province code          | adm1_code |         | OCHA             |
-| District               | adm2      |         | OCHA             |
-| District code          | adm2_code |         | OCHA             |
+| Província               | adm1      |         | OCHA             |
+| Código de província          | adm1_code |         | OCHA             |
+| Distrito               | adm2      |         | OCHA             |
+| Código do distrito          | adm2_code |         | OCHA             |
 | Posto                  | adm3      |         | OCHA             |
-| Posto code             | adm3_code |         | OCHA             |
-| Settlement             | name      |         | IOM Settlements  |
+| Código de Posto             | adm3_code |         | OCHA             |
+|Povoação             | nome      |         | IOM Assentamentos  |
 | Latitude               | lat       | deg     |                  |
 | Longitude              | lon       | deg     |                  |
-| Area                   | area      | km2     |                  |
-| Population             | pop       |         | HRSL             |
-| Households             | hh        |         | HRSL             |
-| Population density     | popd      | pop/km2 | HRSL             |
-| Urban type             | urban     |         | GHSL SMOD        |
-| Nearest city           | city      |         | OCHA Main Cities |
-| Nearest city distance  | cityd     | km      | OCHA Main Cities |
-| Travel time to city    | travel    | hours   | JRC              |
-| Health facilities      | health    |         | OCHA             |
-| Schools                | schools   |         | OSM              |
-| Grid distance          | grid      | km      | gridfinder/OSM   |
-| Electricity access     | elec      |         | gridfinder/OSM   |
-| Agricultural indicator | agri      |         | NDVI             |
-| Growth                 | growth    |         | ML with S2 image |
-| Emissions              | emissions |         | NO2              |
+| Área                   | área      | km2     |                  |
+| População             | pop       |         | HRSL             |
+| Famílias             | hh        |         | HRSL             |
+| Densidade populacional     | popd      | pop/km2 | HRSL             |
+| Tipo urbano             | urban     |         | GHSL SMOD        |
+| Cidade mais próxima           | cidade      |         | OCHA Cidades principais |
+| Distância da cidade mais próxima  | cityd     | km      | OCHA Cidades principais |
+| Tempo de viagem para a cidade    | viajem | horas   | JRC              |
+| Instalações de saúde      | saúde    |         | OCHA             |
+| Escolas                | escolas   |         | OSM              |
+| Distância da rede          | rede      | km      | gridfinder/OSM   |
+| Acesso à eletricidade     | elec      |         | gridfinder/OSM   |
+| Indicador agrícola | agri      |         | NDVI             |
+| Crescimento                | crescimento    |         | ML com imagem S2 |
+| Emissões              | emissões |         | NO2              |
 | NTL                    | ntl       |         | VIIRS            |
 | GDP                    | gdp       | USD/cap | UNEP             |
-| Poverty rate           | poverty   |         |                  |
-| Markets                | markets   |         |                  |
-| Telecom towers         | telecom   |         |                  |
-| Electricity access     | prov_elec |         | USAID            |
-| Poverty rate           | prov_pov  |         | OPHI             |
-| Demand                 | demand    | kW      |                  |
+| Taxa de pobreza           | pobreza   |         |                  |
+| Mercados                | mercados   |         |                  |
+| Torres de telecomunicações         | telecom   |         |                  |
+| Acesso à eletricidade     | prov_elec |         | USAID            |
+| Taxa de pobreza           | prov_pov  |         | OPHI             |
+| Demanda                 | demanda    | kW      |                  |
 
-The full process is outlined in the [repository](https://github.com/carderne/moz-offgrid-data), including exact instructions and scripts needed to arrive at the final clusters files.
+O processo completo é descrito no [repositório] (https://github.com/carderne/moz-offgrid-data), incluindo instruções exatas e scripts necessários para produzir os aglomerados finais.
 
-In addition to these clusters, the more important data are also aggregated to province, district and posto levels.
+Além dos aglomerados, os dados mais relevantes são também agregados aos níveis de província, distrito e posto.
 
-The final data is available to download from the visualization platform, but can also be downloaded directly here:
+Os dados finais estão disponíveis para download na plataforma de visualização, mas também podem ser descarregados diretamente aqui:
 
-- **Clusters:** [download CSV](/download/moz-clusters.csv) or [download KML](/download/moz-clusters.kml)
+- **Aglomerados:** [download CSV](/download/moz-clusters.csv) or [download KML](/download/moz-clusters.kml)
 - **Postos:** [download XLSX](/download/moz-postos.xlsx) or [download KML](/download/moz-postos.kml)
 
-# Visualization
-## Requirements
-The [visualization](/) was designed for modern Firefox, Chrome and Edge browsers. We recommend to use one of these if available. The tool requires JavaScript to be enabled. The site does not require cookies, or any kind of account to be created, and there is no form of user-tracking used.
+# Visualização
+## Requisitos
+A [visualização](/) foi desenhada para as últimas versões dos navegadores Firefox, Chrome e Edge, portanto, de forma a evitar erros na visualização, recomendamos o uso destes navegadores se disponiveis. A ferramenta requer que o JavaScript esteja ativado. O site não requer a criação de cookies, nem a criação de qualquer tipo de conta, e não há forma de rastreamento de usuários.
 
-The visualization relies on loading the separate data sources and map background imagery. Spending a few minutes using the tool will probably require around 10 MB of data to be downloaded, depending on many different area you look it. This should decrease as you use the tool more and the data is saved inside your browser.
+A visualização depende do carregamento de fontes de dados separadas e imagens de fundo do mapa. Passar alguns minutos usando a ferramenta provavelmente exigirá o download de cerca de 10 MB de dados, dependendo das diversas áreas em que estiver. Isso deve diminuir à medida que usa mais a ferramenta e os dados são guardados pelo seu navegador.
 
-## Exploring the data
-When you load the tool, you will be greeted with a screen similar to the one below. The filters, controls and download links are in the left panel, while the map and all data are displayed in the main area on the right. You can move around the map by clicking and dragging (or using the arrow keys) and you can zoom in and out by scrolling, or using the **+** and **-** buttons in the bottom right.
+## Explorando os dados
+Ao carregar a ferramenta, será saudado com uma janela semelhante à que é apresentada abaixo. Os filtros, controles e links de download estão no painel esquerdo, enquanto o mapa e todos os dados são exibidos na área principal à direita. O utilizador pode mover o mapa clicando e arrastando (ou usando as teclas de seta) e aumentar e diminuir o zoom com a roda do rato ou utilisando os botões ** + ** e ** - ** no canto inferior direito.
 
-*Note: wherever you see text that is <span style="text-decoration:underline;text-decoration-style:dotted;">dotted-underlined,</span> you can hover on it to get a small help box!*
+*Observação: quando este texto é visualizado <span style="text-decoration:underline;text-decoration-style:dotted;">pontilhado e sublinhado,</span> o utilizador pode passar o ponteiro do rato sobre ele para obter uma pequena caixa de ajuda!*
 
 <figure>
 <img load="lazy" src="/assets/docs-home.png" alt="Viz tool home screen">
-<figcaption>This is what the home screen looks like, ready to explore Mozambique!</figcaption>
+<figcaption>Esta é a aparência da tela inicial, pronta para explorar Moçambique!</figcaption>
 </figure>
 
-If you zoom in, you will see much more detail about the location and size of each cluster. You can click on an individual cluster (highlighted in purple below) and a pop-up in the top-right of the screen will display a summary of information about that cluster. Note that the full list of data from above is excluded, but can be access if you download the cluster files!
+Ao aumentar o zoom, mais detalhes sobre a localização e o tamanho de cada cluster serão mostrados. Pode clicar num cluster individual (destacado em roxo abaixo) e um pop-up no canto superior direito da tela exibirá um resumo das informações sobre esse cluster. Observe que a lista completa de dados acima foi excluída, mas esta pode ser acessada se o arquivos dos clusters for descarregada!
 
 <figure>
 <img load="lazy" src="/assets/docs-details.png" alt="Cluster information">
-<figcaption>Remember that you can download the full dataset to get more information.</figcaption>
+<figcaption>O conjunto de dados completo pode ser descarregado de forma a obter mais informações sobre cada cluster.</figcaption>
 </figure>
 
-## Filters and layers
-The filters can be used to control which clusters are displayed, based on population, grid distance, and population density. Please see the video below for an example!
+## Filtros e camadas
+Os filtros podem ser usados para controlar que clusters são exibidos, com base na população, distância da rede e densidade populacional. O seguinte vídeo oferece um exemplo de como utilizar esta funcionalidade!
 
 <figure>
 <video width="100%" height="500" controls>
 <source src="/assets/docs-filters.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</source>
+O seu navegador não suporta a tag de vídeo.
+</fonte>
 </video>
-<figcaption>You can use the filters to find the most promising and needy markets.</figcaption>
+<figcaption>Os filtros podem ser usados de forma a identificar as necessidades energéticas e o potencial de locais e regiões específicas.</figcaption>
 </figure>
 
-The "Layers" section has toggles that enable and disable certain layers. You can experiment with these to see how they work!
+A secção "Layers" tem filtros que permitem habilitar e desabilitar determinados layers.
 
 <figure>
 <video width="100%" height="500" controls>
 <source src="/assets/docs-layers.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</source>
+O seu navegador não suporta a tag de vídeo.
+</fonte>
 </video>
-<figcaption>Explore and choose the most useful combination of layers.</figcaption>
+<figcaption>Explore and seleccione a combinação de layers mais apropriada.</figcaption>
 </figure>
 
-# Contact
-## Get in touch
-Please get in touch
+# Programas do Cluster de Energia
+## Energising Development 
+<div class="modal-logos-row">
+<div class="logo"><img src="/assets/logo_ca_4.png" alt="Cooperacao alema" srcset="/assets/logo_ca_1.png 1x, /assets/logo_ca_2.png 2x, /assets/logo_ca_3.png 3x, /assets/logo_ca_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_nlmfa_4.jpg" alt="Ministry of Foreign Affairs of the Netherlands" srcset="/assets/logo_nlmfa_1.png 1x, /assets/logo_nlmfa_2.png 2x, /assets/logo_nlmfa_3.png 3x, /assets/logo_nlmfa_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_norad_4.png" alt="Norad" srcset="/assets/logo_norad_1.png 1x, /assets/logo_norad_2.png 2x, /assets/logo_norad_3.png 3x, /assets/logo_norad_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_sdc_4.png" alt="SDC" srcset="/assets/logo_sdc_1.png 1x, /assets/logo_sdc_2.png 2x, /assets/logo_sdc_3.png 3x, /assets/logo_sdc_4.png 4x"></div>
+</div>
+Energising Development (EnDev) é um programa global financiado pela Alemanha, Paises Baixos, Noruega e Suíça. A EnDev atua em mais de 20 países na África, Ásia e América Latina. A EnDev apóia os governos nacionais na criação de um ambiente que possibilite o fornecimento e a procura de energia sustentável - até ao consumidor final. Uma vez que alcançar o acesso universal à energia requer modelos de negócio rentáveis, o EnDev aborda a problemática da pobreza energética com uma perspectiva baseada no mercado, colocando o enfoque nas necessidades dos consumidores.
+
+Desde 2006, a EnDev forneceu acesso à energia sustentável a mais de um milhão de pessoas em Moçambique por meio da densificação da rede, mini-redes, sistemas solares domésticos, fogões melhorados e densificação da rede. A EnDev apoiou a criação de um fundo de financiamento baseado em resultados: [FASER] (https://www.faser.co.mz/) (Fundo de Acesso Sustentável as energias Renováveis em Moçambique) lançado em julho de 2019. Desde então, o fundo cresceu em termos de financiamento: o GBE aderiu em 2020 e a UE decidiu escalar o incentivo CovidPlus em 2021.
+
+Na área de densificação da rede, a EnDev Moçambique está a trabalhar com a empresa estatal de eletricidade EdM para fornecer acesso à rede elétrica para famílias desfavorecidas. Mais informações estão disponíveis online: [Energizing Change - EnDev] (https://endev.info/).
+
+Implementado por:
+<div class="modal-logos-row">
+<div class="logo"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_endev_4.png" alt="Endev" srcset="/assets/logo_endev_1.png 1x, /assets/logo_endev_2.png 2x, /assets/logo_endev_3.png 3x, /assets/logo_endev_4.png 4x"></div>
+</div>
+<div class="gap"></div>
+
+## Green People's Energy
+
+<div class="modal-logos-row">
+<div class="logo"><img src="/assets/logo_ca_4.png" alt="Cooperacao alema" srcset="/assets/logo_ca_1.png 1x, /assets/logo_ca_2.png 2x, /assets/logo_ca_3.png 3x, /assets/logo_ca_4.png 4x"></div>
+</div>
+
+A iniciativa Green People's Energy para a África (GBE) visa melhorar as condições para o fornecimento descentralizado de energia em certos países da África Subsaariana com a participação de cidadãos e empresas. Em Moçambique, o GBE está focado na promoção do uso produtivo de energias renováveis descentralizadas e na eletrificação de instituições sociais. O objetivo acima de tudo é o desenvolvimento económico, através do desenvolvimento das cadeias de valor locais e do emprego.
+
+Ao aconselhar as empresas locais e ao promover centros de formação locais, a população local fica habilitada em assumir o desenvolvimento nas suas próprias mãos. Ao oferecer oportunidades de formação, o programa pretende capacitar os funcionários das empresas nos mercados de sistemas solares domésticos e fogões melhorados. A GBE Moçambique também apoia a capacitação no sector público. Ao aconselhar os actores estatais sobre o planeamento da electrificação rural, a segurança do investimento para os actores privados é melhorada para permitir uma electrificação mais eficiente e rápida das áreas rurais em Moçambique. Mais informações disponíveis online: [Green People’s Energy for Africa] (https://gruene-buergerenergie.org/en/countries/mozambique/).
+
+Implementado por:
+<div class="modal-logos-row">
+<div class="logo"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
+</div>
+<div class="gap"></div>
+
+## GET.invest
+
+<div class="modal-logos-row">
+<div class="logo"><img src="/assets/logo_promove_4.png" alt="ProMove" srcset="/assets/logo_promove_1.png 1x, /assets/logo_promove_2.png 2x, /assets/logo_promove_3.png 3x, /assets/logo_promove_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_eu_4.png" alt="EU" srcset="/assets/logo_eu_1.png 1x, /assets/logo_eu_2.png 2x, /assets/logo_eu_3.png 3x, /assets/logo_eu_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_ca_4.png" alt="Cooperacao alema" srcset="/assets/logo_ca_1.png 1x, /assets/logo_ca_2.png 2x, /assets/logo_ca_3.png 3x, /assets/logo_ca_4.png 4x"></div>
+</div>
+O GET.invest é um programa europeu de mobilização de investimentos em energias renováveis, apoiado pela União Europeia, Alemanha, Suécia, Paises Baixos e Áustria. Desde 2019, o programa opera uma janela de país em Moçambique financiado pela União Europeia e Alemanha, implementado pela Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ).
+
+GET.invest Moçambique faz parte do PROMOVE ENERGIA - uma estratégia abrangente entre a UE e o Governo de Moçambique para fornecer às famílias e empresas em áreas rurais o acesso a energia sustentável e acessível. Mais informações estão disponíveis online em [GET.invest] (https://www.get-invest.eu/).
+
+Implementado por:
+<div class="modal-logos-row">
+<div class="logo"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_getinvest_4.png" alt="GET.invest" srcset="/assets/logo_getinvest_1.png 1x, /assets/logo_getinvest_2.png 2x, /assets/logo_getinvest_3.png 3x, /assets/logo_getinvest_4.png 4x"></div>
+</div>
