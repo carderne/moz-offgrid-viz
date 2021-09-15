@@ -49,6 +49,11 @@ To re-generate the outputs files after modifying the templates or language files
 ./templates/parse.py
 ```
 
+Or
+```bash
+find templates/ | entr ./templates/parse.py
+```
+
 This generates the following files:
 ```
 ./index.html

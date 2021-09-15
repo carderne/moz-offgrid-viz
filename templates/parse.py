@@ -33,7 +33,7 @@ def parse_index():
         change["href"] = "/docs/" if lang == "en" else "/pt/docs/"
 
         p = re.compile(r"{{.*?}}")
-        tags = ["title", "h1", "h2", "p", "div", "span", "a"]
+        tags = ["title", "h1", "h2", "p", "div", "span", "a", "li"]
         for t in tags:
             res = soup.find_all(t)
             for r in res:

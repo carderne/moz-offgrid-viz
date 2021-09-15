@@ -149,6 +149,55 @@ Your browser does not support the video tag.
 <figcaption>Explore and choose the most useful combination of layers.</figcaption>
 </figure>
 
-# Contact
-## Get in touch
-Please get in touch
+# Programmes of the Energy Cluster
+## Energising Development
+<div class="modal-logos-row">
+<div class="logo"><img src="/assets/logo_ca_4.png" alt="Cooperacao alema" srcset="/assets/logo_ca_1.png 1x, /assets/logo_ca_2.png 2x, /assets/logo_ca_3.png 3x, /assets/logo_ca_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_nlmfa_4.jpg" alt="Ministry of Foreign Affairs of the Netherlands" srcset="/assets/logo_nlmfa_1.png 1x, /assets/logo_nlmfa_2.png 2x, /assets/logo_nlmfa_3.png 3x, /assets/logo_nlmfa_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_norad_4.png" alt="Norad" srcset="/assets/logo_norad_1.png 1x, /assets/logo_norad_2.png 2x, /assets/logo_norad_3.png 3x, /assets/logo_norad_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_sdc_4.png" alt="SDC" srcset="/assets/logo_sdc_1.png 1x, /assets/logo_sdc_2.png 2x, /assets/logo_sdc_3.png 3x, /assets/logo_sdc_4.png 4x"></div>
+</div>
+Energising Development (EnDev) is global programme financed by Germany, the Netherlands, Norway, and Switzerland. EnDev works in more than 20 countries across Africa, Asia and Latin America. EnDev supports national governments to create an environment that enables supply and demand of sustainable energy – to the last mile. Because achieving universal access to energy requires profitable business models.
+
+EnDev tackles energy poverty with a market-based approach putting the focus on consumers’ needs. Since 2006, EnDev has provided sustainable energy access to more than one million people in Mozambique through grid densification, village mini-grids based on hydropower plants, solar lanterns, solar home systems and improved cookstoves. EnDev supported the establishment of a results-based financing fund: [FASER](https://www.faser.co.mz/) (Fondo de Acesso sustentável as energias renováveis em Moçambique, Fund for Sustainable Access to Renewable Energies and Efficient Technologies) was launched in July 2019. Since then, the open basket fund grew in terms of funding: GBE joined in 2020 and the EU decided to scale-up the CovidPlus incentive in 2021.
+
+In the area of grid densification, EnDev Mozambique is working with the national state-owned electricity utility EdM to provide access to the electricity grid for disadvantaged households. More information is available online: [Energising Change - EnDev](https://endev.info/).
+
+Implemented by:
+<div class="modal-logos-row">
+<div class="logo logo-s"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
+<div class="logo logo-s"><img src="/assets/logo_endev_4.png" alt="Endev" srcset="/assets/logo_endev_1.png 1x, /assets/logo_endev_2.png 2x, /assets/logo_endev_3.png 3x, /assets/logo_endev_4.png 4x"></div>
+</div>
+<div class="gap"></div>
+
+## Green People's Energy
+<div class="modal-logos-row">
+<div class="logo"><img src="/assets/logo_ca_4.png" alt="Cooperacao alema" srcset="/assets/logo_ca_1.png 1x, /assets/logo_ca_2.png 2x, /assets/logo_ca_3.png 3x, /assets/logo_ca_4.png 4x"></div>
+</div>
+
+The initiative Green People’s Energy for Africa (GBE) aims to improve the conditions for decentralised energy supply in selected sub-Saharan African countries with the participation of citizens and companies. In Mozambique, GBE focusses on promoting the productive use of decentralised renewable energies and the electrification of social institutions. The aim above all is economic development by increasing local value chains and employment.
+
+By advising local businesses and promoting local training centers, local people are empowered to take development into their own hands. With offering training opportunities, the programme intents to capacitate the employees of the current and potential companies in the markets for solar home systems and improved cookstoves. GBE Mozambique also supports capacity building in the public sector. By advising state actors on rural electrification planning, investment security for private actors is improved to enable more efficient and faster electrification of rural areas in Mozambique. More information is available online: [Green People’s Energy for Africa](https://gruene-buergerenergie.org/en/countries/mozambique/).
+
+Implemented by:
+<div class="modal-logos-row">
+<div class="logo logo-s"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
+</div>
+<div class="gap"></div>
+
+## GET.invest
+<div class="modal-logos-row">
+<div class="logo"><img src="/assets/logo_promove_4.png" alt="ProMove" srcset="/assets/logo_promove_1.png 1x, /assets/logo_promove_2.png 2x, /assets/logo_promove_3.png 3x, /assets/logo_promove_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_eu_4.png" alt="EU" srcset="/assets/logo_eu_1.png 1x, /assets/logo_eu_2.png 2x, /assets/logo_eu_3.png 3x, /assets/logo_eu_4.png 4x"></div>
+<div class="logo"><img src="/assets/logo_ca_4.png" alt="Cooperacao alema" srcset="/assets/logo_ca_1.png 1x, /assets/logo_ca_2.png 2x, /assets/logo_ca_3.png 3x, /assets/logo_ca_4.png 4x"></div>
+</div>
+
+GET.invest is a European programme that mobilises investment in renewable energy, supported by the European Union, Germany, Sweden, the Netherlands and Austria. Since 2019, the programme has been operating a country window in Mozambique funded by the European Union and Germany, implemented by the Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ).
+
+GET.invest Mozambique is part of PROMOVE ENERGIA – a comprehensive strategy between the EU and the Government of Mozambique to provide households and businesses in rural areas with access to sustainable and affordable energy. More information is available online at [GET.invest](https://www.get-invest.eu/).
+
+Implemented by:
+<div class="modal-logos-row">
+<div class="logo logo-s"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
+<div class="logo logo-s"><img src="/assets/logo_getinvest_4.png" alt="GET.invest" srcset="/assets/logo_getinvest_1.png 1x, /assets/logo_getinvest_2.png 2x, /assets/logo_getinvest_3.png 3x, /assets/logo_getinvest_4.png 4x"></div>
+</div>

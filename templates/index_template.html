@@ -12,7 +12,7 @@
         <!-- Everything except the modal goes in here -->
         <div class="flex-container">
             <div id="switch" class="button">
-               SHOW MAP
+                SHOW MAP
             </div>
 
             <div class="sidebar">
@@ -237,27 +237,50 @@
         </div>
 
         <!-- Modal is toggled with the about button bottom of the sidebar -->
-        <div id="modal-root">
+        <div id="modal-root" class="visible">
             <div class="modal">
                 <div><h2>&nbsp;</h2><span class="exit" id="modal-exit">×</span></div>
-                <div class="modal-flex">
-                    <div>
-                        <h2>{{ background.title }}</h2>
-                        <p>{{ background.text1 }}</p>
-                        <p>{{ background.text2 }}</p>
-                        <h2>{{ open.title }}</h2>
-                        <p>{{ open.text1 }}<a href="https://github.com/carderne/moz-offgrid-data"> moz-offgrid-data.</a></p>
-                        <p>{{ open.text2 }}<a href="https://github.com/carderne/moz-offgrid-viz"> moz-offgrid-viz</a>.</p>
+                <div class="modal-scroll">
+                    <div class="modal-logos">
+                        <div class="modal-logos-row" style="margin-bottom:2rem;">
+                            <div class="logo"><img src="/assets/logo_ca_4.png" alt="Cooperacao alema" srcset="/assets/logo_ca_1.png 1x, /assets/logo_ca_2.png 2x, /assets/logo_ca_3.png 3x, /assets/logo_ca_4.png 4x"></div>
+                            <div class="logo"><img src="/assets/logo_nlmfa_4.jpg" alt="Ministry of Foreign Affairs of the Netherlands" srcset="/assets/logo_nlmfa_1.png 1x, /assets/logo_nlmfa_2.png 2x, /assets/logo_nlmfa_3.png 3x, /assets/logo_nlmfa_4.png 4x"></div>
+                            <div class="logo"><img src="/assets/logo_norad_4.png" alt="Norad" srcset="/assets/logo_norad_1.png 1x, /assets/logo_norad_2.png 2x, /assets/logo_norad_3.png 3x, /assets/logo_norad_4.png 4x"></div>
+                            <div class="logo"><img src="/assets/logo_sdc_4.png" alt="SDC" srcset="/assets/logo_sdc_1.png 1x, /assets/logo_sdc_2.png 2x, /assets/logo_sdc_3.png 3x, /assets/logo_sdc_4.png 4x"></div>
+                            <div class="logo"><img src="/assets/logo_eu_4.png" alt="eu" srcset="/assets/logo_eu_1.png 1x, /assets/logo_eu_2.png 2x, /assets/logo_eu_3.png 3x, /assets/logo_eu_4.png 4x"></div>
+                        </div>
+                        <div class="modal-logos-row">
+                            <div class="logo logo-s"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
+                            <div class="logo logo-s"><img src="/assets/logo_endev_4.png" alt="Endev" srcset="/assets/logo_endev_1.png 1x, /assets/logo_endev_2.png 2x, /assets/logo_endev_3.png 3x, /assets/logo_endev_4.png 4x"></div>
+                            <div class="logo logo-s"><img src="/assets/logo_getinvest_4.png" alt="GET.invest" srcset="/assets/logo_getinvest_1.png 1x, /assets/logo_getinvest_2.png 2x, /assets/logo_getinvest_3.png 3x, /assets/logo_getinvest_4.png 4x"></div>
+                        </div>
                     </div>
-                    <div>
-                        <h2>{{ support.title }}</h2>
-                        <p>{{ support.text1 }}</p>
-                        <p>{{ support.program }}</p>
-                        <p>{{ support.address }}</p>
-                        <p>{{ support.contact }}</p>
-                        <h2>{{ dev.title }}</h2>
-                        <p>{{ dev.text1 }}</p>
-                        <p><a href="https://rdrn.me/">www.rdrn.me</a></p>
+                    <div class="modal-flex">
+                        <div>
+                            <h2>{{ background.title }}</h2>
+                            <p>{{ background.text1 }}</p>
+                            <p>{{ background.text2 }}</p>
+                            <h2>{{ open.title }}</h2>
+                            <p>{{ open.text1 }}<a href="https://github.com/carderne/moz-offgrid-data"> moz-offgrid-data.</a></p>
+                            <p>{{ open.text2 }}<a href="https://github.com/carderne/moz-offgrid-viz"> moz-offgrid-viz.</a></p>
+                        </div>
+                        <div>
+                            <h2>{{ support.title }}</h2>
+                            <p>{{ support.text1 }}</p>
+                            <ul>
+                            <li style="font-weight:bold">{{ support.program }}</li>
+                            <li>{{ support.address }}</li>
+                            <li>{{ support.contact }}<a href="mailto:rosario.loayza@giz.de">Rosario Fischer</a></li>
+                            </ul>
+                            <p>{{ support.programs }}</p>
+                            <ul>
+                                <li><a href="https://endev.info/">Energising Development<a/></li>
+                                <li><a href="https://gruene-buergerenergie.org/en/countries/mozambique/">Green People's Energy<a/></li>
+                                <li><a href="https://www.get-invest.eu/">GET.invest<a/></li>
+                            </ul>
+                            <h2>{{ dev.title }}</h2>
+                            <p>{{ dev.text1 }}<a href="https://rdrn.me/">Chris Arderne.</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
