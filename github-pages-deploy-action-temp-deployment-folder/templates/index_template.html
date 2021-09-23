@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Mozambique Off-Grid Energy</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='/vendor/mapbox-gl.js'></script>
+        <link href='/vendor/mapbox-gl.css' rel='stylesheet' />
+        <link href='/style.css' rel='stylesheet' />
+    </head>
+    <body class="viz">
+        <!-- Everything except the modal goes in here -->
+        <div class="flex-container">
+            <div id="switch" class="button">
+                SHOW MAP
+            </div>
+
+            <div class="sidebar">
+
+                <!-- Headers, logos -->
+                <header>
+                    <div class="lang">
+                        <a id="lang" class="button" href=""></a>
+                    </div>
+                    <h1>{{ main.title }}</h1>
+                    <p>{{ main.intro }}</p>
+                </header>
+
+                <!-- Filters and controls -->
+                <main class="controls">
+
+                    <!-- Filter sliders -->
+                    <div class="filters">
+                        <h2>{{ filters.title }}</h2>
+                        <div class="range-container">
+                            <div class="label">{{ filters.pop }}</div>
+                            <div class="range-wrap">
+                                <output class="bubble"></output>
+                                <input type="range" id="range-pop" class="range" min="0" max="5000" step="100" value="1000">
+                            </div>
+                        </div>
+                        <div class="range-container">
+                            <div class="label">{{ filters.grid }}</div>
+                            <div class="range-wrap">
+                                <output class="bubble"></output>
+                                <input type="range" id="range-grid" class="range" min="0" max="50" step="1" value="0">
+                            </div>
+                        </div>
+                        <div class="range-container">
+                            <div class="label">{{ filters.popd }}</div>
+                            <div class="range-wrap">
+                                <output class="bubble"></output>
+                                <input type="range" id="range-popd" class="range" min="0" max="2000" step="50" value="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Layer selectors -->
+                    <div class="layers">
+                        <h2>{{ layers.title }}</h2>
+                        <div>
+                            <div class="label">
+                                {{ layers.clusters }}
+                            </div>
+                            <div>
+                                <input type="checkbox" id="toggle-clusters" checked />
+                                <label for="toggle-clusters"></label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="label ttip">
+                                {{ layers.cat }}
+                                <span class="ttiptext">{{ layers.cat_help }}</span>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="toggle-cat" />
+                                <label for="toggle-cat"></label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="label ttip">
+                                {{ layers.gridfinder }}
+                                <span class="ttiptext">{{ layers.gridfinder_help }}</span>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="toggle-grid" checked />
+                                <label for="toggle-grid"></label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="label ttip">
+                                {{ layers.adm3 }}
+                                <span class="ttiptext">{{ layers.adm3_help }}</span>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="toggle-adm3" />
+                                <label for="toggle-adm3"></label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="label">
+                                {{ layers.satellite }}
+                            </div>
+                            <div>
+                                <input type="checkbox" id="toggle-satellite" />
+                                <label for="toggle-satellite"></label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="label ttip">
+                                {{ layers.s2 }}
+                                <span class="ttiptext">{{ layers.s2_help }}</span>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="toggle-s2" />
+                                <label for="toggle-s2"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Download buttons -->
+                    <div class="downloads">
+                        <h2>{{ downloads.title }}</h2>
+                        <div class="double">
+                            <div class="label">{{ downloads.clusters }}</div>
+                            <div class="wrapper">
+                                <a href="/download/moz-clusters.csv" download target="_blank"><span class="download">CSV</span></a>
+                                <a href="/download/moz-clusters.kml" download target="_blank"><span class="download">KML</span></a>
+                            </div>
+                        </div>
+                        <div class="double">
+                            <div class="label">{{ downloads.adm3 }}</div>
+                            <div class="wrapper">
+                                <a href="/download/moz-postos.xlsx" download target="_blank"><span class="download">XLSX</span></a>
+                                <a href="/download/moz-postos.kml" download target="_blank"><span class="download">KML</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+                <!-- More info button -->
+                <footer>
+                    <div id="about"><span>{{ main.about }}</span></div>
+                    <a id="help" href="/docs/"><div><span>{{ main.help }}</span></div></a>
+                </footer>
+            </div>
+
+            <!-- Container for Mapbox GL map object -->
+            <div id='map'></div>
+
+            <!-- Cluster info (hidden and empty until clusters clicked) -->
+            <div class="map-overlay cluster">
+                <div>
+                    <h2>{{ clusters.title }}</h2>
+                    <span class="exit" id="cluster-exit">×</span>
+                </div>
+                <div class="table">
+                    <div>
+                        <div>{{ clusters.name }}:</div>
+                        <span id="cluster-name"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.adm3 }}:</div>
+                        <span id="cluster-adm3"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.pop }}:</div>
+                        <span id="cluster-pop"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.grid }}:</div>
+                        <span id="cluster-grid"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.city }}:</div>
+                        <span id="cluster-city"></span>
+                    </div>
+                    <div>
+                        <div class="ttip">
+                            {{ clusters.demand }}:
+                            <span class="ttiptext">{{ clusters.demand_help }}</span>
+                        </div>
+                        <span id="cluster-demand"></span>
+                    </div>
+                    <div>
+                        <div class="ttip">
+                            {{ clusters.cat }}:
+                            <span class="ttiptext">{{ clusters.cat_help }}</span>
+                        </div>
+                        <span id="cluster-cat"></span>
+                    </div>
+                    <br>
+                    <div>
+                        <div>{{ clusters.fid }}:</div>
+                        <span id="cluster-fid"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.health }}:</div>
+                        <span id="cluster-health"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.schools }}:</div>
+                        <span id="cluster-schools"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.urban }}:</div>
+                        <span id="cluster-urban"></span>
+                    </div>
+                    <div>
+                        <div>{{ clusters.coords }}:</div>
+                        <span id="cluster-coords"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legend/key -->
+            <div class="map-overlay legend">
+                <div><h2>{{ legend.title }}</h2></div>
+                <div>
+                    <div>
+                        <span class="legend-key" style="background-color: #e2a1a1"></span>
+                        <span>{{ legend.elec }}</span>
+                    </div>
+                    <div>
+                        <span class="legend-key" style="background-color: #616161"></span>
+                        <span>{{ legend.not }}</span>
+                    </div>
+                    <div>
+                        <span class="legend-key" style="background-color: #b0b0b0"></span>
+                        <span>{{ legend.small }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map controls are added in JS -->
+        </div>
+
+        <!-- Modal is toggled with the about button bottom of the sidebar -->
+        <div id="modal-root" class="visible">
+            <div class="modal">
+                <div><h2>&nbsp;</h2><span class="exit" id="modal-exit">×</span></div>
+                <div class="modal-scroll">
+                    <div class="modal-logos">
+                        <div class="modal-logos-row" style="margin-bottom:2rem;">
+                            <div class="logo"><img src="/assets/logo_ca_4.png" alt="Cooperacao alema" srcset="/assets/logo_ca_1.png 1x, /assets/logo_ca_2.png 2x, /assets/logo_ca_3.png 3x, /assets/logo_ca_4.png 4x"></div>
+                            <div class="logo"><img src="/assets/logo_nlmfa_4.jpg" alt="Ministry of Foreign Affairs of the Netherlands" srcset="/assets/logo_nlmfa_1.png 1x, /assets/logo_nlmfa_2.png 2x, /assets/logo_nlmfa_3.png 3x, /assets/logo_nlmfa_4.png 4x"></div>
+                            <div class="logo"><img src="/assets/logo_norad_4.png" alt="Norad" srcset="/assets/logo_norad_1.png 1x, /assets/logo_norad_2.png 2x, /assets/logo_norad_3.png 3x, /assets/logo_norad_4.png 4x"></div>
+                            <div class="logo"><img src="/assets/logo_sdc_4.png" alt="SDC" srcset="/assets/logo_sdc_1.png 1x, /assets/logo_sdc_2.png 2x, /assets/logo_sdc_3.png 3x, /assets/logo_sdc_4.png 4x"></div>
+                            <div class="logo"><img src="/assets/logo_eu_4.png" alt="eu" srcset="/assets/logo_eu_1.png 1x, /assets/logo_eu_2.png 2x, /assets/logo_eu_3.png 3x, /assets/logo_eu_4.png 4x"></div>
+                        </div>
+                        <div class="modal-logos-row">
+                            <div class="logo logo-s"><img src="/assets/logo_giz_4.png" alt="GIZ" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"></div>
+                            <div class="logo logo-s"><img src="/assets/logo_endev_4.png" alt="Endev" srcset="/assets/logo_endev_1.png 1x, /assets/logo_endev_2.png 2x, /assets/logo_endev_3.png 3x, /assets/logo_endev_4.png 4x"></div>
+                            <div class="logo logo-s"><img src="/assets/logo_getinvest_4.png" alt="GET.invest" srcset="/assets/logo_getinvest_1.png 1x, /assets/logo_getinvest_2.png 2x, /assets/logo_getinvest_3.png 3x, /assets/logo_getinvest_4.png 4x"></div>
+                        </div>
+                    </div>
+                    <div class="modal-flex">
+                        <div>
+                            <h2>{{ background.title }}</h2>
+                            <p>{{ background.text1 }}</p>
+                            <p>{{ background.text2 }}</p>
+                            <h2>{{ open.title }}</h2>
+                            <p>{{ open.text1 }}<a href="https://github.com/carderne/moz-offgrid-data"> moz-offgrid-data.</a></p>
+                            <p>{{ open.text2 }}<a href="https://github.com/carderne/moz-offgrid-viz"> moz-offgrid-viz.</a></p>
+                        </div>
+                        <div>
+                            <h2>{{ support.title }}</h2>
+                            <p>{{ support.text1 }}</p>
+                            <ul>
+                            <li style="font-weight:bold">{{ support.program }}</li>
+                            <li>{{ support.address }}</li>
+                            <li>{{ support.contact }}<a href="mailto:rosario.loayza@giz.de">Rosario Fischer</a></li>
+                            </ul>
+                            <p>{{ support.programs }}</p>
+                            <ul>
+                                <li><a href="https://endev.info/">Energising Development<a/></li>
+                                <li><a href="https://gruene-buergerenergie.org/en/countries/mozambique/">Green People's Energy<a/></li>
+                                <li><a href="https://www.get-invest.eu/">GET.invest<a/></li>
+                            </ul>
+                            <h2>{{ dev.title }}</h2>
+                            <p>{{ dev.text1 }}<a href="https://rdrn.me/">Chris Arderne.</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- All app logic is in here -->
+        <script src="/main.js"></script>
+        <noscript>
+            <div class='noscript'>This interactive map doesn't work without JavaScript.</div>
+        </noscript>
+    </body>
+</html>
