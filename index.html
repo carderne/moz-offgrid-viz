@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Mozambique Off-Grid Energy
+  </title>
+  <meta content="initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport"/>
+  <script src="/vendor/mapbox-gl.js">
+  </script>
+  <link href="/vendor/mapbox-gl.css" rel="stylesheet"/>
+  <link href="/style.css" rel="stylesheet"/>
+ </head>
+ <body class="viz">
+  <!-- Everything except the modal goes in here -->
+  <div class="flex-container">
+   <div class="button" id="switch">
+    SHOW MAP
+   </div>
+   <div class="sidebar">
+    <!-- Headers, logos -->
+    <header>
+     <div class="lang">
+      <a class="button" href="/pt/" id="lang">
+       Português
+      </a>
+     </div>
+     <h1>
+      Mozambique Off-Grid Energy
+     </h1>
+     <p>
+      This tool allows you to explore data relevant to off-grid energy market opportunities.
+     </p>
+    </header>
+    <!-- Filters and controls -->
+    <main class="controls">
+     <!-- Filter sliders -->
+     <div class="filters">
+      <h2>
+       Filters
+      </h2>
+      <div class="range-container">
+       <div class="label">
+        Population
+       </div>
+       <div class="range-wrap">
+        <output class="bubble">
+        </output>
+        <input class="range" id="range-pop" max="5000" min="0" step="100" type="range" value="1000"/>
+       </div>
+      </div>
+      <div class="range-container">
+       <div class="label">
+        Grid distance
+       </div>
+       <div class="range-wrap">
+        <output class="bubble">
+        </output>
+        <input class="range" id="range-grid" max="50" min="0" step="1" type="range" value="0"/>
+       </div>
+      </div>
+      <div class="range-container">
+       <div class="label">
+        Population density
+       </div>
+       <div class="range-wrap">
+        <output class="bubble">
+        </output>
+        <input class="range" id="range-popd" max="2000" min="0" step="50" type="range" value="0"/>
+       </div>
+      </div>
+     </div>
+     <!-- Layer selectors -->
+     <div class="layers">
+      <h2>
+       Layers
+      </h2>
+      <div>
+       <div class="label">
+        Clusters
+       </div>
+       <div>
+        <input checked="" id="toggle-clusters" type="checkbox"/>
+        <label for="toggle-clusters">
+        </label>
+       </div>
+      </div>
+      <div>
+       <div class="label ttip">
+        Rankings
+        <span class="ttiptext">
+         Colour clusters according to rank, from red (least promising) to green (most promising).
+        </span>
+       </div>
+       <div>
+        <input id="toggle-cat" type="checkbox"/>
+        <label for="toggle-cat">
+        </label>
+       </div>
+      </div>
+      <div>
+       <div class="label ttip">
+        Gridfinder
+        <span class="ttiptext">
+         Whether to include grid lines estimates from satellite data.
+        </span>
+       </div>
+       <div>
+        <input checked="" id="toggle-grid" type="checkbox"/>
+        <label for="toggle-grid">
+        </label>
+       </div>
+      </div>
+      <div>
+       <div class="label ttip">
+        Postos
+        <span class="ttiptext">
+         Overlay postos, coloured in increasing darkness by population.
+        </span>
+       </div>
+       <div>
+        <input id="toggle-adm3" type="checkbox"/>
+        <label for="toggle-adm3">
+        </label>
+       </div>
+      </div>
+      <div>
+       <div class="label">
+        Satellite
+       </div>
+       <div>
+        <input id="toggle-satellite" type="checkbox"/>
+        <label for="toggle-satellite">
+        </label>
+       </div>
+      </div>
+      <div>
+       <div class="label ttip">
+        Copernicus S2
+        <span class="ttiptext">
+         Recent low-cloud Copernicus Sentinel-2 imagery.
+        </span>
+       </div>
+       <div>
+        <input id="toggle-s2" type="checkbox"/>
+        <label for="toggle-s2">
+        </label>
+       </div>
+      </div>
+     </div>
+     <!-- Download buttons -->
+     <div class="downloads">
+      <h2>
+       Downloads
+      </h2>
+      <div class="double">
+       <div class="label">
+        Download clusters
+       </div>
+       <div class="wrapper">
+        <a download="" href="/download/moz-clusters.csv" target="_blank">
+         <span class="download">
+          CSV
+         </span>
+        </a>
+        <a download="" href="/download/moz-clusters.kml" target="_blank">
+         <span class="download">
+          KML
+         </span>
+        </a>
+       </div>
+      </div>
+      <div class="double">
+       <div class="label">
+        Download postos
+       </div>
+       <div class="wrapper">
+        <a download="" href="/download/moz-postos.xlsx" target="_blank">
+         <span class="download">
+          XLSX
+         </span>
+        </a>
+        <a download="" href="/download/moz-postos.kml" target="_blank">
+         <span class="download">
+          KML
+         </span>
+        </a>
+       </div>
+      </div>
+     </div>
+    </main>
+    <!-- More info button -->
+    <footer>
+     <div id="about">
+      <span>
+       About
+      </span>
+     </div>
+     <a href="/docs/" id="help">
+      <div>
+       <span>
+        Help!
+       </span>
+      </div>
+     </a>
+    </footer>
+   </div>
+   <!-- Container for Mapbox GL map object -->
+   <div id="map">
+   </div>
+   <!-- Cluster info (hidden and empty until clusters clicked) -->
+   <div class="map-overlay cluster">
+    <div>
+     <h2>
+      Cluster details
+     </h2>
+     <span class="exit" id="cluster-exit">
+      ×
+     </span>
+    </div>
+    <div class="table">
+     <div>
+      <div>
+       Name
+      </div>
+      <span id="cluster-name">
+      </span>
+     </div>
+     <div>
+      <div>
+       Posto
+      </div>
+      <span id="cluster-adm3">
+      </span>
+     </div>
+     <div>
+      <div>
+       Population
+      </div>
+      <span id="cluster-pop">
+      </span>
+     </div>
+     <div>
+      <div>
+       Grid distance
+      </div>
+      <span id="cluster-grid">
+      </span>
+     </div>
+     <div>
+      <div>
+       Nearest city
+      </div>
+      <span id="cluster-city">
+      </span>
+     </div>
+     <div>
+      <div class="ttip">
+       Demand
+       <span class="ttiptext">
+        Simple peak demand estimation based on population and facilities
+       </span>
+      </div>
+      <span id="cluster-demand">
+      </span>
+     </div>
+     <div>
+      <div class="ttip">
+       Ranking
+       <span class="ttiptext">
+        Ranking based on population, grid distance and others.
+       </span>
+      </div>
+      <span id="cluster-cat">
+      </span>
+     </div>
+     <br/>
+     <div>
+      <div>
+       ID
+      </div>
+      <span id="cluster-fid">
+      </span>
+     </div>
+     <div>
+      <div>
+       Health sites
+      </div>
+      <span id="cluster-health">
+      </span>
+     </div>
+     <div>
+      <div>
+       Schools
+      </div>
+      <span id="cluster-schools">
+      </span>
+     </div>
+     <div>
+      <div>
+       Urban level
+      </div>
+      <span id="cluster-urban">
+      </span>
+     </div>
+     <div>
+      <div>
+       Location
+      </div>
+      <span id="cluster-coords">
+      </span>
+     </div>
+    </div>
+   </div>
+   <!-- Legend/key -->
+   <div class="map-overlay legend">
+    <div>
+     <h2>
+      Legend
+     </h2>
+    </div>
+    <div>
+     <div>
+      <span class="legend-key" style="background-color: #e2a1a1">
+      </span>
+      <span>
+       Electrified
+      </span>
+     </div>
+     <div>
+      <span class="legend-key" style="background-color: #616161">
+      </span>
+      <span>
+       Not electrified
+      </span>
+     </div>
+     <div>
+      <span class="legend-key" style="background-color: #b0b0b0">
+      </span>
+      <span>
+       Small villages
+      </span>
+     </div>
+    </div>
+   </div>
+   <!-- Map controls are added in JS -->
+  </div>
+  <!-- Modal is toggled with the about button bottom of the sidebar -->
+  <div class="visible" id="modal-root">
+   <div class="modal">
+    <div>
+     <h2>
+     </h2>
+     <span class="exit" id="modal-exit">
+      ×
+     </span>
+    </div>
+    <div class="modal-scroll">
+     <div class="modal-logos">
+      <div class="modal-logos-row" style="margin-bottom:2rem;">
+       <div class="logo">
+        <img alt="Cooperacao alema" src="/assets/logo_ca_4.png" srcset="/assets/logo_ca_1.png 1x, /assets/logo_ca_2.png 2x, /assets/logo_ca_3.png 3x, /assets/logo_ca_4.png 4x"/>
+       </div>
+       <div class="logo">
+        <img alt="Ministry of Foreign Affairs of the Netherlands" src="/assets/logo_nlmfa_4.jpg" srcset="/assets/logo_nlmfa_1.png 1x, /assets/logo_nlmfa_2.png 2x, /assets/logo_nlmfa_3.png 3x, /assets/logo_nlmfa_4.png 4x"/>
+       </div>
+       <div class="logo">
+        <img alt="Norad" src="/assets/logo_norad_4.png" srcset="/assets/logo_norad_1.png 1x, /assets/logo_norad_2.png 2x, /assets/logo_norad_3.png 3x, /assets/logo_norad_4.png 4x"/>
+       </div>
+       <div class="logo">
+        <img alt="SDC" src="/assets/logo_sdc_4.png" srcset="/assets/logo_sdc_1.png 1x, /assets/logo_sdc_2.png 2x, /assets/logo_sdc_3.png 3x, /assets/logo_sdc_4.png 4x"/>
+       </div>
+       <div class="logo">
+        <img alt="eu" src="/assets/logo_eu_4.png" srcset="/assets/logo_eu_1.png 1x, /assets/logo_eu_2.png 2x, /assets/logo_eu_3.png 3x, /assets/logo_eu_4.png 4x"/>
+       </div>
+      </div>
+      <div class="modal-logos-row">
+       <div class="logo logo-s">
+        <img alt="GIZ" src="/assets/logo_giz_4.png" srcset="/assets/logo_giz_1.png 1x, /assets/logo_giz_2.png 2x, /assets/logo_giz_3.png 3x, /assets/logo_giz_4.png 4x"/>
+       </div>
+       <div class="logo logo-s">
+        <img alt="Endev" src="/assets/logo_endev_4.png" srcset="/assets/logo_endev_1.png 1x, /assets/logo_endev_2.png 2x, /assets/logo_endev_3.png 3x, /assets/logo_endev_4.png 4x"/>
+       </div>
+       <div class="logo logo-s">
+        <img alt="GET.invest" src="/assets/logo_getinvest_4.png" srcset="/assets/logo_getinvest_1.png 1x, /assets/logo_getinvest_2.png 2x, /assets/logo_getinvest_3.png 3x, /assets/logo_getinvest_4.png 4x"/>
+       </div>
+      </div>
+     </div>
+     <div class="modal-flex">
+      <div>
+       <h2>
+        Background
+       </h2>
+       <p>
+        This map was created as part of the GIZ off-grid energy program in Mozambique. It is intended to support the development of the off-grid sector, by providing improved access to data and market intelligence, to both mini-grid and solar home system developers, distributors and investors.
+       </p>
+       <p>
+        The map shows data for all provinces of Mozambique, using only publicly available data. It incorporates analysis from combining international, government and satellite data to help developers find markets and customers.
+       </p>
+       <h2>
+        Open Source
+       </h2>
+       <p>
+        The full list of public datasets used and the methods used in preparing them is available at the project's GitHub repository
+        <a href="https://github.com/carderne/moz-offgrid-data">
+         moz-offgrid-data.
+        </a>
+       </p>
+       <p>
+        The code and resources used in this website are available in a separate repository
+        <a href="https://github.com/carderne/moz-offgrid-viz">
+         moz-offgrid-viz.
+        </a>
+       </p>
+      </div>
+      <div>
+       <h2>
+        Support
+       </h2>
+       <p>
+        This map is operated and supported by the Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH.
+       </p>
+       <ul>
+        <li style="font-weight:bold">
+         GIZ Energy Cluster
+        </li>
+        <li>
+         Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH Av. do Zimbabwe n.1536, Maputo, Moçambique
+        </li>
+        <li>
+         Contact:
+         <a href="mailto:rosario.loayza@giz.de">
+          Rosario Fischer
+         </a>
+        </li>
+       </ul>
+       <p>
+        The Energy Cluster by GIZ is formed by these programmes:
+       </p>
+       <ul>
+        <li>
+         <a href="https://endev.info/">
+          Energising Development
+         </a>
+         <a>
+         </a>
+        </li>
+        <li>
+         <a href="https://gruene-buergerenergie.org/en/countries/mozambique/">
+          Green People's Energy
+         </a>
+         <a>
+         </a>
+        </li>
+        <li>
+         <a href="https://www.get-invest.eu/">
+          GET.invest
+         </a>
+         <a>
+         </a>
+        </li>
+       </ul>
+       <h2>
+        Website
+       </h2>
+       <p>
+        Analysis and web development by
+        <a href="https://rdrn.me/">
+         Chris Arderne.
+        </a>
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- All app logic is in here -->
+  <script src="/main.js">
+  </script>
+  <noscript>
+   <div class="noscript">
+    This interactive map doesn't work without JavaScript.
+   </div>
+  </noscript>
+ </body>
+</html>

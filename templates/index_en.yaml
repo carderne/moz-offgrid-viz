@@ -1,0 +1,72 @@
+main:
+  title: "Mozambique Off-Grid Energy"
+  warning: "NOT YET PUBLIC"
+  intro: "This tool allows you to explore data relevant to off-grid energy market opportunities."
+  about: "About"
+  help: "Help!"
+
+filters:
+  title: "Filters"
+  pop: "Population"
+  grid: "Grid distance"
+  popd: "Population density"
+
+layers:
+  title: "Layers"
+  clusters: "Clusters"
+  cat: "Rankings"
+  cat_help: "Colour clusters according to rank, from red (least promising) to green (most promising)."
+  gridfinder: "Gridfinder"
+  gridfinder_help: "Whether to include grid lines estimates from satellite data."
+  adm3: "Postos"
+  adm3_help: "Overlay postos, coloured in increasing darkness by population."
+  satellite: "Satellite"
+  s2: "Copernicus S2"
+  s2_help: "Recent low-cloud Copernicus Sentinel-2 imagery."
+
+downloads:
+  title: "Downloads"
+  clusters: "Download clusters"
+  adm3: "Download postos"
+
+clusters:
+  title: "Cluster details"
+  name: "Name"
+  adm3: "Posto"
+  pop: "Population"
+  grid: "Grid distance"
+  city: "Nearest city"
+  demand: "Demand"
+  demand_help: "Simple peak demand estimation based on population and facilities"
+  cat: "Ranking"
+  cat_help: "Ranking based on population, grid distance and others."
+  fid: "ID"
+  health: "Health sites"
+  schools: "Schools"
+  urban: "Urban level"
+  coords: "Location"
+
+legend:
+  title: "Legend"
+  elec: "Electrified"
+  not: "Not electrified"
+  small: "Small villages"
+
+background:
+  title: "Background"
+  text1: "This map was created as part of the GIZ off-grid energy program in Mozambique. It is intended to support the development of the off-grid sector, by providing improved access to data and market intelligence, to both mini-grid and solar home system developers, distributors and investors."
+  text2: "The map shows data for all provinces of Mozambique, using only publicly available data. It incorporates analysis from combining international, government and satellite data to help developers find markets and customers."
+open:
+  title: "Open Source"
+  text1: "The full list of public datasets used and the methods used in preparing them is available at the project's GitHub repository"
+  text2: "The code and resources used in this website are available in a separate repository"
+support:
+  title: "Support"
+  text1: "This map is operated and supported by the Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH."
+  program: "GIZ Energy Cluster"
+  address: "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH Av. do Zimbabwe n.1536, Maputo, Moçambique"
+  contact: "Contact:"
+  programs: "The Energy Cluster by GIZ is formed by these programmes:"
+dev:
+  title: "Website"
+  text1: "Analysis and web development by "
