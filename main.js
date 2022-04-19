@@ -47,6 +47,7 @@ let map = new mapboxgl.Map({
   zoom: 5,
   minZoom: 5,
   maxZoom: 16,
+  hash: true,
   maxBounds: [
     [15, -35],
     [55, -5],
