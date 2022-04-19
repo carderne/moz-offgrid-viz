@@ -12,9 +12,9 @@ The project consists of two core components:
 
 Both of these are designed to be useful to a wide variety of people: government decision-makers and experts, off-grid companies and their staff, along with the local and international communities of stakeholders and citizens.
 
-All processes used in creating this data and visualization are openly licensed and shared, so that others may benefit from them. They live on GitHub, in [moz-offgrid-data](https://github.com/carderne/moz-offgrid-data) and [moz-offgrid-viz](https://github.com/carderne/moz-offgrid-viz). The sources for all raw input files are linked, along with their various licenses.
+All processes used in creating this data and visualization are openly licensed and shared, so that others may benefit from them. They live on GitHub, in [moz-offgrid-data](https://github.com/GET-invest-Mozambique/moz-offgrid-data) and [moz-offgrid-viz](https://github.com/GET-invest-Mozambique/get-invest-mozambique.github.io). The sources for all raw input files are linked, along with their various licenses.
 
-If you have questions, comments, or suggestions about this project, please [get in touch.](#get-in-touch)
+If you have questions, comments, or suggestions about this project, please [get in touch](mailto:rosario.loayza@giz.de).
 
 # Methodology
 ## Data sources
@@ -22,7 +22,7 @@ The full list of data sources used in this project is shown in the table below. 
 
 | Type | Source | License |
 | ---- | ------ | ------- |
-| Population | [Facebook HRSL](https://data.humdata.org/dataset/mozambique-high-resolution-population-density) | Creative Commons Attribution International |
+| Population | [Facebook HRSL](https://data.humdata.org/dataset/highresolutionpopulationdensitymaps-moz) | Creative Commons Attribution International |
 | Population | [Worldpop](https://www.worldpop.org/geodata/summary?id=6404) | Creative Commons Attribution 4.0 International |
 | Population | [GHS-POP](https://ghsl.jrc.ec.europa.eu/download.php?ds=pop) | Creative Commons Attribution 4.0 International |
 | Urban degree | [GHS-SMOD](https://ghsl.jrc.ec.europa.eu/download.php?ds=smod) | Creative Commons Attribution 4.0 International |

@@ -12,9 +12,9 @@ O projeto consiste em dois componentes principais:
 
 Ambos são projectados para serem úteis a uma ampla variedade de actores: tomadores de decisão e técnicos governamentais, sector privado fora da rede (empresas e seus colaboradores), parceiros internacionais e locais.
 
-Todos os processos utilizados na criação dos dados e sua visualização são licenciados e partilhados abertamente, para que outros se possam beneficiar deles. Estes processos estão armazenados no GitHub, em [moz-offgrid-data](https://github.com/carderne/moz-offgrid-data) e [moz-offgrid-viz](https://github.com/carderne/moz-offgrid-viz). As fontes de todos os arquivos de entrada brutos estão indicadas, assim como as suas licenças.
+Todos os processos utilizados na criação dos dados e sua visualização são licenciados e partilhados abertamente, para que outros se possam beneficiar deles. Estes processos estão armazenados no GitHub, em [moz-offgrid-data](https://github.com/GET-invest-Mozambique/moz-offgrid-data) e [moz-offgrid-viz](https://github.com/GET-invest-Mozambique/get-invest-mozambique.github.io). As fontes de todos os arquivos de entrada brutos estão indicadas, assim como as suas licenças.
 
-Caso haja dúvidas, comentários ou sugestões sobre este projecto, por favor [entre em contato] (# get-in-touch)
+Caso haja dúvidas, comentários ou sugestões sobre este projecto, por favor [entre em contato](mailto:rosario.loayza@giz.de)
 
 # Metodologia
 ## Fontes de dados
@@ -22,7 +22,7 @@ A lista completa de fontes de dados usadas neste projeto é mostrada na tabela a
 
 | Tipo | Fonte | Licença |
 | ---- | ------ | ------- |
-| População | [Facebook HRSL](https://data.humdata.org/dataset/mozambique-high-resolution-population-density) | Creative Commons Attribution International |
+| População | [Facebook HRSL](https://data.humdata.org/dataset/highresolutionpopulationdensitymaps-moz) | Creative Commons Attribution International |
 | População | [Worldpop](https://www.worldpop.org/geodata/summary?id=6404) | Creative Commons Attribution 4.0 International |
 | População | [GHS-POP](https://ghsl.jrc.ec.europa.eu/download.php?ds=pop) | Creative Commons Attribution 4.0 International |
 | Grau urbano | [GHS-SMOD](https://ghsl.jrc.ec.europa.eu/download.php?ds=smod) | Creative Commons Attribution 4.0 International |
@@ -53,7 +53,7 @@ A lista completa de fontes de dados usadas neste projeto é mostrada na tabela a
 ## Cluster (Agrupamentos/Aglomerados)
 A fim de tornar estes dados mais fáceis de interpretar para diferentes usuários, os dados acima são processados para criar agrupamentos individuais para cada assentamento. Ou seja, um agrupamento de casas e edifícios que representam um único povoamento. Como este processo é automatizado, eles nem sempre correspondem perfeitamente aos nomes e limites existentes desses locais. Este é um processo contínuo e comentários são bem-vindos sobre como melhorar os dados!
 
-O ponto de partida para os clusters é o [High Resolution Settlement Layer] (https://data.humdata.org/dataset/mozambique-high-resolution-population-density), criado pelo Facebook. Estes dados de alta resolução sobre a população são fornecidos em formato matricial (raster): uma rede uniforme de células em que cada célula tem 30 metros de largura. Para a sua conversão em formato vetorial (ou seja, polígonos e formas para cada povoado), o algoritmo encontra células vizinhas com povoações e junta-as. Algumas outras operações são executadas para remover clusters que são demasiado grandes ou pequenos, ou unir aglomerados quando apropriado.
+O ponto de partida para os clusters é o [High Resolution Settlement Layer] (https://data.humdata.org/dataset/highresolutionpopulationdensitymaps-moz), criado pelo Facebook. Estes dados de alta resolução sobre a população são fornecidos em formato matricial (raster): uma rede uniforme de células em que cada célula tem 30 metros de largura. Para a sua conversão em formato vetorial (ou seja, polígonos e formas para cada povoado), o algoritmo encontra células vizinhas com povoações e junta-as. Algumas outras operações são executadas para remover clusters que são demasiado grandes ou pequenos, ou unir aglomerados quando apropriado.
 
 Uma vez produzidos os clusters, podemos-lhes atribuir os dados acima como atributos. Os dados da rede são utilizados  para calcular a distância de cada aglomerado à rede. Os dados do PIB são usados para calcular o PIB per capita em cada aglomerado. População, escolas e instalações de saúde são usadas para estimar a procura de energia. A seguinte tabela indica todos os atributos que foram adicionados aos aglomerados.
 
@@ -159,9 +159,9 @@ O seu navegador não suporta a tag de vídeo.
 </div>
 Energising Development (EnDev) é um programa global financiado pela Alemanha, Paises Baixos, Noruega e Suíça. A EnDev atua em mais de 20 países na África, Ásia e América Latina. A EnDev apóia os governos nacionais na criação de um ambiente que possibilite o fornecimento e a procura de energia sustentável - até ao consumidor final. Uma vez que alcançar o acesso universal à energia requer modelos de negócio rentáveis, o EnDev aborda a problemática da pobreza energética com uma perspectiva baseada no mercado, colocando o enfoque nas necessidades dos consumidores.
 
-Desde 2006, a EnDev forneceu acesso à energia sustentável a mais de um milhão de pessoas em Moçambique por meio da densificação da rede, mini-redes, sistemas solares domésticos, fogões melhorados e densificação da rede. A EnDev apoiou a criação de um fundo de financiamento baseado em resultados: [FASER] (https://www.faser.co.mz/) (Fundo de Acesso Sustentável as energias Renováveis em Moçambique) lançado em julho de 2019. Desde então, o fundo cresceu em termos de financiamento: o GBE aderiu em 2020 e a UE decidiu escalar o incentivo CovidPlus em 2021.
+Desde 2006, a EnDev forneceu acesso à energia sustentável a mais de um milhão de pessoas em Moçambique por meio da densificação da rede, mini-redes, sistemas solares domésticos, fogões melhorados e densificação da rede. A EnDev apoiou a criação de um fundo de financiamento baseado em resultados: [FASER](https://www.faser.co.mz/) (Fundo de Acesso Sustentável as energias Renováveis em Moçambique) lançado em julho de 2019. Desde então, o fundo cresceu em termos de financiamento: o GBE aderiu em 2020 e a UE decidiu escalar o incentivo CovidPlus em 2021.
 
-Na área de densificação da rede, a EnDev Moçambique está a trabalhar com a empresa estatal de eletricidade EdM para fornecer acesso à rede elétrica para famílias desfavorecidas. Mais informações estão disponíveis online: [Energizing Change - EnDev] (https://endev.info/).
+Na área de densificação da rede, a EnDev Moçambique está a trabalhar com a empresa estatal de eletricidade EdM para fornecer acesso à rede elétrica para famílias desfavorecidas. Mais informações estão disponíveis online: [Energizing Change - EnDev](https://endev.info/).
 
 Implementado por:
 <div class="modal-logos-row">
@@ -178,7 +178,7 @@ Implementado por:
 
 A iniciativa Green People's Energy para a África (GBE) visa melhorar as condições para o fornecimento descentralizado de energia em certos países da África Subsaariana com a participação de cidadãos e empresas. Em Moçambique, o GBE está focado na promoção do uso produtivo de energias renováveis descentralizadas e na eletrificação de instituições sociais. O objetivo acima de tudo é o desenvolvimento económico, através do desenvolvimento das cadeias de valor locais e do emprego.
 
-Ao aconselhar as empresas locais e ao promover centros de formação locais, a população local fica habilitada em assumir o desenvolvimento nas suas próprias mãos. Ao oferecer oportunidades de formação, o programa pretende capacitar os funcionários das empresas nos mercados de sistemas solares domésticos e fogões melhorados. A GBE Moçambique também apoia a capacitação no sector público. Ao aconselhar os actores estatais sobre o planeamento da electrificação rural, a segurança do investimento para os actores privados é melhorada para permitir uma electrificação mais eficiente e rápida das áreas rurais em Moçambique. Mais informações disponíveis online: [Green People’s Energy for Africa] (https://gruene-buergerenergie.org/en/countries/mozambique/).
+Ao aconselhar as empresas locais e ao promover centros de formação locais, a população local fica habilitada em assumir o desenvolvimento nas suas próprias mãos. Ao oferecer oportunidades de formação, o programa pretende capacitar os funcionários das empresas nos mercados de sistemas solares domésticos e fogões melhorados. A GBE Moçambique também apoia a capacitação no sector público. Ao aconselhar os actores estatais sobre o planeamento da electrificação rural, a segurança do investimento para os actores privados é melhorada para permitir uma electrificação mais eficiente e rápida das áreas rurais em Moçambique. Mais informações disponíveis online: [Green People’s Energy for Africa](https://gruene-buergerenergie.org/en/countries/mozambique/).
 
 Implementado por:
 <div class="modal-logos-row">
@@ -195,7 +195,7 @@ Implementado por:
 </div>
 O GET.invest é um programa europeu de mobilização de investimentos em energias renováveis, apoiado pela União Europeia, Alemanha, Suécia, Paises Baixos e Áustria. Desde 2019, o programa opera uma janela de país em Moçambique financiado pela União Europeia e Alemanha, implementado pela Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ).
 
-GET.invest Moçambique faz parte do PROMOVE ENERGIA - uma estratégia abrangente entre a UE e o Governo de Moçambique para fornecer às famílias e empresas em áreas rurais o acesso a energia sustentável e acessível. Mais informações estão disponíveis online em [GET.invest] (https://www.get-invest.eu/).
+GET.invest Moçambique faz parte do PROMOVE ENERGIA - uma estratégia abrangente entre a UE e o Governo de Moçambique para fornecer às famílias e empresas em áreas rurais o acesso a energia sustentável e acessível. Mais informações estão disponíveis online em [GET.invest](https://www.get-invest.eu/).
 
 Implementado por:
 <div class="modal-logos-row">
