@@ -13,7 +13,7 @@ It requires the following to be deployed:
 
 The only JavaScript dependency is Mapbox GL JS, which is loaded from `vendor/`.
 The required Python libraries for data and template preparation are listed in `requirements.txt` and can be installed with:
-```
+```bash
 pip install -r requirements.txt
 ```
 
@@ -22,21 +22,29 @@ Remove `?fresh=true` from map style URL before publishing.
 
 ## Local development
 To serve locally, install and use `light-server`:
-```
-npm install --global light-server
-light-server -s .
+```bash
+npm install
+npx light-server -s docs
 ```
 
-This will create a localhost server at `0.0.0.0:4000`.
+This will create a localhost server at [localhost:4000](http://localhost:4000).
 
 ## Main directories
 ```
-├── data/                    # geojson and mbtiles served via Mapbox
-├── download/                # files to be downloaded via frontend
-├── templates/               # language files, templates and parsing script
-├── index.html               # generated home page
-├── pt/                      # generated Portuguese version
-└── docs/                    # generated help docs
+├── docs               # content served on the website
+│   ├── docs           # website help docs
+│   ├── download       # files to be downloaded via frontend
+│   ├── index.html     # main site entry-point
+│   ├── main.js        # main JavaScript file
+│   ├── pt
+│   │   └── ...        # Portuguese version of site
+│   └── ...
+├── data
+│   └── ...            # GeoJSON and MBTiles served via Mapbox
+├── scripts
+│   └── ...            # scripts for preparing data and parsing HTML
+└── templates
+    └── ...            # HTML and language templates
 ```
 
 ## Editing
@@ -46,20 +54,20 @@ The JavaScript `.js` and CSS `.css` files in the root and in `./docs/` can be ed
 
 To re-generate the outputs files after modifying the templates or language files, run the script:
 ```bash
-./templates/parse.py
+./scripts/parse.py
 ```
 
 Or
 ```bash
-find templates/ | entr ./templates/parse.py
+find templates/ | entr ./scripts/parse.py
 ```
 
 This generates the following files:
 ```
-./index.html
-./pt/index.html
-./docs/index.html
-./docs/pt/index.html
+docs/index.html
+docs/pt/index.html
+docs/docs/index.html
+docs/docs/pt/index.html
 ```
 
 ## Data preparation
@@ -68,12 +76,12 @@ All data outputs from the main data preparation process are saved as GeoPackages
 ### Clusters and admin to GeoJSON
 Use the script to convert clusters to GeoJSON:
 ```bash
-./data/convert_clusters.py ../data/clusters/clu-man-feat.gpkg ./data/clusters.geojson
+./scripts/convert_clusters.py ../data/clusters/clu.gpkg data/clusters.geojson
 ```
 
 Convert adm files and create centroids:
 ```bash
-./data/convert_adm.py ../data/admin/ ./data/
+./scripts/convert_adm.py ../data/admin/ data/
 ```
 
 ### Create files for download
@@ -85,7 +93,7 @@ In the case of adm files, the CSV is converted to an Excel spreadsheet with a ta
 For displaying in the Mapbox webmap, most of the data layers need to be converted to MBtiles. For vector layers, use [tippecanoe](https://github.com/mapbox/tippecanoe), and for raster layers (only the S2 imagery), use [rio-mbtiles](https://github.com/mapbox/rio-mbtiles).
 
 For clusters:
-```
+```bash
 # -z highest level
 # -Z lowest level
 # -o output file
@@ -93,17 +101,17 @@ For clusters:
 # -l layer name
 # -f force
 # -ai generate unique ids
-tippecanoe -o ./data/clusters.mbtiles -Z5 -z10 -as -ai -l clusters -f ./data/clusters.geojson
+tippecanoe -o data/clusters.mbtiles -Z5 -z10 -as -ai -l clusters -f data/clusters.geojson
 ```
 
 For adm layers:
-```
-tippecanoe -o ./data/adm3.mbtiles -Z5 -z10 -as -l adm3 -f ./data/adm3.geojson
+```bash
+tippecanoe -o data/adm3.mbtiles -Z5 -z10 -as -l adm3 -f data/adm3.geojson
 ```
 
 For grid:
-```
-tippecanoe -o ./data/grid.mbtiles -Z5 -z10 -as -l grid -f ./data/grid.geojson
+```bash
+tippecanoe -o data/grid.mbtiles -Z5 -z10 -as -l grid -f data/grid.geojson
 ```
 
 For S2 imagery (not that this can take many hours to process):

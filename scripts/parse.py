@@ -7,15 +7,22 @@ import yaml
 from bs4 import BeautifulSoup
 import markdown
 
-templates = Path(__file__).resolve().parents[0]
-root = templates.parents[0]
+root = Path(__file__).resolve().parents[1]
+dist = root / "docs"
+templates = root / "templates"
 
 
 def parse_index():
     template = templates / "index_template.html"
     langs = {
-        "en": {"yml": templates / "index_en.yaml", "out": root / "index.html"},
-        "pt": {"yml": templates / "index_pt.yaml", "out": root / "pt/index.html"},
+        "en": {
+            "yml": templates / "index_en.yaml",
+            "out": dist / "index.html",
+        },
+        "pt": {
+            "yml": templates / "index_pt.yaml",
+            "out": dist / "pt/index.html",
+        },
     }
 
     for lang, files in langs.items():
@@ -59,8 +66,14 @@ def parse_index():
 def parse_docs():
     template = templates / "docs_template.html"
     langs = {
-        "en": {"md": templates / "docs_en.md", "out": root / "docs/index.html"},
-        "pt": {"md": templates / "docs_pt.md", "out": root / "pt/docs/index.html"},
+        "en": {
+            "md": templates / "docs_en.md",
+            "out": dist / "docs/index.html",
+        },
+        "pt": {
+            "md": templates / "docs_pt.md",
+            "out": dist / "pt/docs/index.html",
+        },
     }
 
     for lang, files in langs.items():
