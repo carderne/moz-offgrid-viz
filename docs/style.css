@@ -402,6 +402,7 @@ footer a, footer a:hover, footer a:visited {
     width: auto;
     padding: 20px;
     mix-blend-mode: darken;
+    object-fit: contain;
 }
 
 .logo.logo-s img {
