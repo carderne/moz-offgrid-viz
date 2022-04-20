@@ -1,5 +1,51 @@
 [TOC]
 
+# Como usar esta ferramenta
+## Requisitos
+A [visualização](/) foi desenhada para as últimas versões dos navegadores Firefox, Chrome e Edge, portanto, de forma a evitar erros na visualização, recomendamos o uso destes navegadores se disponiveis. A ferramenta requer que o JavaScript esteja ativado. O site não requer a criação de cookies, nem a criação de qualquer tipo de conta, e não há forma de rastreamento de usuários.
+
+A visualização depende do carregamento de fontes de dados separadas e imagens de fundo do mapa. Passar alguns minutos usando a ferramenta provavelmente exigirá o download de cerca de 10 MB de dados, dependendo das diversas áreas em que estiver. Isso deve diminuir à medida que usa mais a ferramenta e os dados são guardados pelo seu navegador.
+
+## Explorando os dados
+Ao carregar a ferramenta, será saudado com uma janela semelhante à que é apresentada abaixo. Os filtros, controles e links de download estão no painel esquerdo, enquanto o mapa e todos os dados são exibidos na área principal à direita. O utilizador pode mover o mapa clicando e arrastando (ou usando as teclas de seta) e aumentar e diminuir o zoom com a roda do rato ou utilisando os botões ** + ** e ** - ** no canto inferior direito.
+
+*Observação: quando este texto é visualizado <span style="text-decoration:underline;text-decoration-style:dotted;">pontilhado e sublinhado,</span> o utilizador pode passar o ponteiro do rato sobre ele para obter uma pequena caixa de ajuda!*
+
+<figure>
+<img load="lazy" src="/assets/docs-home.png" alt="Viz tool home screen">
+<figcaption>Esta é a aparência da tela inicial, pronta para explorar Moçambique!</figcaption>
+</figure>
+
+Ao aumentar o zoom, mais detalhes sobre a localização e o tamanho de cada cluster serão mostrados. Pode clicar num cluster individual (destacado em roxo abaixo) e um pop-up no canto superior direito da tela exibirá um resumo das informações sobre esse cluster. Observe que a lista completa de dados acima foi excluída, mas esta pode ser acessada se o arquivos dos clusters for descarregada!
+
+<figure>
+<img load="lazy" src="/assets/docs-details.png" alt="Cluster information">
+<figcaption>O conjunto de dados completo pode ser descarregado de forma a obter mais informações sobre cada cluster.</figcaption>
+</figure>
+
+## Filtros e camadas
+Os filtros podem ser usados para controlar que clusters são exibidos, com base na população, distância da rede e densidade populacional. O seguinte vídeo oferece um exemplo de como utilizar esta funcionalidade!
+
+<figure>
+<video width="100%" height="500" controls>
+<source src="/assets/docs-filters.mp4" type="video/mp4">
+O seu navegador não suporta a tag de vídeo.
+</fonte>
+</video>
+<figcaption>Os filtros podem ser usados de forma a identificar as necessidades energéticas e o potencial de locais e regiões específicas.</figcaption>
+</figure>
+
+A secção "Layers" tem filtros que permitem habilitar e desabilitar determinados layers.
+
+<figure>
+<video width="100%" height="500" controls>
+<source src="/assets/docs-layers.mp4" type="video/mp4">
+O seu navegador não suporta a tag de vídeo.
+</fonte>
+</video>
+<figcaption>Explore and seleccione a combinação de layers mais apropriada.</figcaption>
+</figure>
+
 # Resumo
 ## Resumo do projeto
 Este projeto foi desenvolvido para apoiar o sector de energia fora da rede (off-grid) em Moçambique. É também uma vitrine do valor que dados públicos, imagens de satélite e técnicas geoespaciais modernas podem trazer para o desenvolvimento deste sector.
@@ -102,52 +148,6 @@ Os dados finais estão disponíveis para download na plataforma de visualizaçã
 
 - **Aglomerados:** [download CSV](/download/moz-clusters.csv) or [download KML](/download/moz-clusters.kml)
 - **Postos:** [download XLSX](/download/moz-postos.xlsx) or [download KML](/download/moz-postos.kml)
-
-# Visualização
-## Requisitos
-A [visualização](/) foi desenhada para as últimas versões dos navegadores Firefox, Chrome e Edge, portanto, de forma a evitar erros na visualização, recomendamos o uso destes navegadores se disponiveis. A ferramenta requer que o JavaScript esteja ativado. O site não requer a criação de cookies, nem a criação de qualquer tipo de conta, e não há forma de rastreamento de usuários.
-
-A visualização depende do carregamento de fontes de dados separadas e imagens de fundo do mapa. Passar alguns minutos usando a ferramenta provavelmente exigirá o download de cerca de 10 MB de dados, dependendo das diversas áreas em que estiver. Isso deve diminuir à medida que usa mais a ferramenta e os dados são guardados pelo seu navegador.
-
-## Explorando os dados
-Ao carregar a ferramenta, será saudado com uma janela semelhante à que é apresentada abaixo. Os filtros, controles e links de download estão no painel esquerdo, enquanto o mapa e todos os dados são exibidos na área principal à direita. O utilizador pode mover o mapa clicando e arrastando (ou usando as teclas de seta) e aumentar e diminuir o zoom com a roda do rato ou utilisando os botões ** + ** e ** - ** no canto inferior direito.
-
-*Observação: quando este texto é visualizado <span style="text-decoration:underline;text-decoration-style:dotted;">pontilhado e sublinhado,</span> o utilizador pode passar o ponteiro do rato sobre ele para obter uma pequena caixa de ajuda!*
-
-<figure>
-<img load="lazy" src="/assets/docs-home.png" alt="Viz tool home screen">
-<figcaption>Esta é a aparência da tela inicial, pronta para explorar Moçambique!</figcaption>
-</figure>
-
-Ao aumentar o zoom, mais detalhes sobre a localização e o tamanho de cada cluster serão mostrados. Pode clicar num cluster individual (destacado em roxo abaixo) e um pop-up no canto superior direito da tela exibirá um resumo das informações sobre esse cluster. Observe que a lista completa de dados acima foi excluída, mas esta pode ser acessada se o arquivos dos clusters for descarregada!
-
-<figure>
-<img load="lazy" src="/assets/docs-details.png" alt="Cluster information">
-<figcaption>O conjunto de dados completo pode ser descarregado de forma a obter mais informações sobre cada cluster.</figcaption>
-</figure>
-
-## Filtros e camadas
-Os filtros podem ser usados para controlar que clusters são exibidos, com base na população, distância da rede e densidade populacional. O seguinte vídeo oferece um exemplo de como utilizar esta funcionalidade!
-
-<figure>
-<video width="100%" height="500" controls>
-<source src="/assets/docs-filters.mp4" type="video/mp4">
-O seu navegador não suporta a tag de vídeo.
-</fonte>
-</video>
-<figcaption>Os filtros podem ser usados de forma a identificar as necessidades energéticas e o potencial de locais e regiões específicas.</figcaption>
-</figure>
-
-A secção "Layers" tem filtros que permitem habilitar e desabilitar determinados layers.
-
-<figure>
-<video width="100%" height="500" controls>
-<source src="/assets/docs-layers.mp4" type="video/mp4">
-O seu navegador não suporta a tag de vídeo.
-</fonte>
-</video>
-<figcaption>Explore and seleccione a combinação de layers mais apropriada.</figcaption>
-</figure>
 
 # Programas do Cluster de Energia
 ## Energising Development 

@@ -1,5 +1,51 @@
 [TOC]
 
+# How to use this tool
+## Requirements
+The [visualization](/) was designed for modern Firefox, Chrome and Edge browsers. We recommend to use one of these if available. The tool requires JavaScript to be enabled. The site does not require cookies, or any kind of account to be created, and there is no form of user-tracking used.
+
+The visualization relies on loading the separate data sources and map background imagery. Spending a few minutes using the tool will probably require around 10 MB of data to be downloaded, depending on many different area you look it. This should decrease as you use the tool more and the data is saved inside your browser.
+
+## Exploring the data
+When you load the tool, you will be greeted with a screen similar to the one below. The filters, controls and download links are in the left panel, while the map and all data are displayed in the main area on the right. You can move around the map by clicking and dragging (or using the arrow keys) and you can zoom in and out by scrolling, or using the **+** and **-** buttons in the bottom right.
+
+*Note: wherever you see text that is <span style="text-decoration:underline;text-decoration-style:dotted;">dotted-underlined,</span> you can hover on it to get a small help box!*
+
+<figure>
+<img load="lazy" src="/assets/docs-home.png" alt="Viz tool home screen">
+<figcaption>This is what the home screen looks like, ready to explore Mozambique!</figcaption>
+</figure>
+
+If you zoom in, you will see much more detail about the location and size of each cluster. You can click on an individual cluster (highlighted in purple below) and a pop-up in the top-right of the screen will display a summary of information about that cluster. Note that the full list of data from above is excluded, but can be access if you download the cluster files!
+
+<figure>
+<img load="lazy" src="/assets/docs-details.png" alt="Cluster information">
+<figcaption>Remember that you can download the full dataset to get more information.</figcaption>
+</figure>
+
+## Filters and layers
+The filters can be used to control which clusters are displayed, based on population, grid distance, and population density. Please see the video below for an example!
+
+<figure>
+<video width="100%" height="500" controls>
+<source src="/assets/docs-filters.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</source>
+</video>
+<figcaption>You can use the filters to find the most promising and needy markets.</figcaption>
+</figure>
+
+The "Layers" section has toggles that enable and disable certain layers. You can experiment with these to see how they work!
+
+<figure>
+<video width="100%" height="500" controls>
+<source src="/assets/docs-layers.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</source>
+</video>
+<figcaption>Explore and choose the most useful combination of layers.</figcaption>
+</figure>
+
 # Summary
 ## Project summary
 This project was developed to support the off-grid energy sector in Mozambique. It is also a showcase of the value that open data, satellite imagery, and modern geospatial techniques can bring to development.
@@ -102,52 +148,6 @@ The final data is available to download from the visualization platform, but can
 
 - **Clusters:** [download CSV](/download/moz-clusters.csv) or [download KML](/download/moz-clusters.kml)
 - **Postos:** [download XLSX](/download/moz-postos.xlsx) or [download KML](/download/moz-postos.kml)
-
-# Visualization
-## Requirements
-The [visualization](/) was designed for modern Firefox, Chrome and Edge browsers. We recommend to use one of these if available. The tool requires JavaScript to be enabled. The site does not require cookies, or any kind of account to be created, and there is no form of user-tracking used.
-
-The visualization relies on loading the separate data sources and map background imagery. Spending a few minutes using the tool will probably require around 10 MB of data to be downloaded, depending on many different area you look it. This should decrease as you use the tool more and the data is saved inside your browser.
-
-## Exploring the data
-When you load the tool, you will be greeted with a screen similar to the one below. The filters, controls and download links are in the left panel, while the map and all data are displayed in the main area on the right. You can move around the map by clicking and dragging (or using the arrow keys) and you can zoom in and out by scrolling, or using the **+** and **-** buttons in the bottom right.
-
-*Note: wherever you see text that is <span style="text-decoration:underline;text-decoration-style:dotted;">dotted-underlined,</span> you can hover on it to get a small help box!*
-
-<figure>
-<img load="lazy" src="/assets/docs-home.png" alt="Viz tool home screen">
-<figcaption>This is what the home screen looks like, ready to explore Mozambique!</figcaption>
-</figure>
-
-If you zoom in, you will see much more detail about the location and size of each cluster. You can click on an individual cluster (highlighted in purple below) and a pop-up in the top-right of the screen will display a summary of information about that cluster. Note that the full list of data from above is excluded, but can be access if you download the cluster files!
-
-<figure>
-<img load="lazy" src="/assets/docs-details.png" alt="Cluster information">
-<figcaption>Remember that you can download the full dataset to get more information.</figcaption>
-</figure>
-
-## Filters and layers
-The filters can be used to control which clusters are displayed, based on population, grid distance, and population density. Please see the video below for an example!
-
-<figure>
-<video width="100%" height="500" controls>
-<source src="/assets/docs-filters.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</source>
-</video>
-<figcaption>You can use the filters to find the most promising and needy markets.</figcaption>
-</figure>
-
-The "Layers" section has toggles that enable and disable certain layers. You can experiment with these to see how they work!
-
-<figure>
-<video width="100%" height="500" controls>
-<source src="/assets/docs-layers.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</source>
-</video>
-<figcaption>Explore and choose the most useful combination of layers.</figcaption>
-</figure>
 
 # Programmes of the Energy Cluster
 ## Energising Development
