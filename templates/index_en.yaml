@@ -37,6 +37,7 @@ clusters:
   name: "Name"
   adm3: "Posto"
   pop: "Population"
+  hh: "Households"
   grid: "Grid distance"
   city: "Nearest city"
   demand: "Demand"

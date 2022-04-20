@@ -184,6 +184,7 @@ function showClusterInfo(e) {
     name: props.name,
     adm3: props.adm3,
     pop: formatter.format(props.pop.toFixed(0)),
+    hh: formatter.format(props.hh.toFixed(0)),
     grid: props.grid.toFixed(2) + " km",
     city: props.city,
     demand: formatter.format(props.demand) + " kW",
