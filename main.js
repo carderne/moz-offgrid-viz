@@ -3,7 +3,7 @@
 const mapboxToken =
   "pk.eyJ1IjoiZ2V0LWludmVzdC1tb3phbWJpcXVlIiwiYSI6ImNraXEydDZoajFjMXcyeW81czB2ZDF0YmYifQ.9AgWyA_EQR_Cvfie9BZKIw";
 const styleUrl =
-  "mapbox://styles/get-invest-mozambique/ckir8us5b7gga17p9kfj9m3mp";
+  "mapbox://styles/get-invest-mozambique/ckir8us5b7gga17p9kfj9m3mp?fresh=true";
 
 const get = document.getElementById.bind(document);
 const query = document.querySelector.bind(document);
@@ -19,7 +19,6 @@ let mobileSwitch = get("switch");
 const hasVisited = () => {
   try {
     const [key, val] = document.cookie.split("=");
-    console.log(key, val);
     return key === "visited" && val === "true";
   } catch (err) {
     return false;
@@ -39,6 +38,8 @@ let filters = {
 
 let toggles = {
   clusters: get("toggle-clusters"),
+  mg: get("toggle-mg"),
+  health: get("toggle-health"),
   adm3: get("toggle-adm3"),
   satellite: get("toggle-satellite"),
   s2: get("toggle-s2"),
@@ -183,6 +184,7 @@ function showClusterInfo(e) {
     name: props.name,
     adm3: props.adm3,
     pop: formatter.format(props.pop.toFixed(0)),
+    hh: formatter.format(props.hh.toFixed(0)),
     grid: props.grid.toFixed(2) + " km",
     city: props.city,
     demand: formatter.format(props.demand) + " kW",
@@ -245,6 +247,8 @@ function toggleLayer() {
   let toggleMap = {
     "toggle-clusters": ["clusters"],
     "toggle-adm3": ["adm3", "adm3-label"],
+    "toggle-mg": ["mg"],
+    "toggle-health": ["health"],
     "toggle-satellite": ["satellite-saturated"],
     "toggle-s2": ["s2"],
   };
