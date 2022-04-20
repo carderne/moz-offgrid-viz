@@ -16,6 +16,20 @@ let clusterExit = get("cluster-exit");
 let modalExit = get("modal-exit");
 let mobileSwitch = get("switch");
 
+const hasVisited = () => {
+  try {
+    const [key, val] = document.cookie.split("=");
+    console.log(key, val);
+    return key === "visited" && val === "true";
+  } catch (err) {
+    return false;
+  }
+};
+
+if (!hasVisited()) {
+  modalRoot.classList.add("visible");
+}
+
 let filters = {
   clustersPop: get("range-pop"),
   clustersGrid: get("range-grid"),
@@ -318,3 +332,5 @@ function switchMap() {
     clusterInfo.style.display = null;
   }
 }
+
+document.cookie = "visited=true;Max-Age=31536000;Path=/";
