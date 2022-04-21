@@ -1,5 +1,7 @@
 /* global mapboxgl */
 
+import adm3Bounds from "./adm3.js";
+
 const mapboxToken =
   "pk.eyJ1IjoiZ2V0LWludmVzdC1tb3phbWJpcXVlIiwiYSI6ImNraXEydDZoajFjMXcyeW81czB2ZDF0YmYifQ.9AgWyA_EQR_Cvfie9BZKIw";
 const styleUrl =
@@ -29,10 +31,11 @@ if (!hasVisited()) {
   modalRoot.classList.add("visible");
 }
 
+let search = get("search");
+
 let filters = {
   clustersPop: get("range-pop"),
   clustersGrid: get("range-grid"),
-  clustersPopd: get("range-popd"),
   gridSource: get("toggle-grid"),
 };
 
@@ -53,6 +56,15 @@ modal.onclick = modalClick;
 modalExit.onclick = rootClick;
 clusterExit.onclick = closeClusterInfo;
 mobileSwitch.onclick = switchMap;
+search.onchange = searchPosto;
+
+function searchPosto(e) {
+  const id = e.target.value;
+  const { minx, miny, maxx, maxy } = adm3Bounds[id];
+  map.fitBounds([minx, miny, maxx, maxy], {
+    padding: 40,
+  });
+}
 
 mapboxgl.accessToken = mapboxToken;
 let map = new mapboxgl.Map({
@@ -158,7 +170,6 @@ function filterUpdate() {
     [">=", ["get", "pop"], parseFloat(filters.clustersPop.value)],
     ["<=", ["get", "pop"], 100000],
     [">=", ["get", "grid"], parseFloat(filters.clustersGrid.value)],
-    [">=", ["get", "popd"], parseFloat(filters.clustersPopd.value)],
   ]);
 
   let gridFilter = filters.gridSource.checked ? null : ["!=", "source", "gf"];
@@ -293,7 +304,7 @@ function setBubble(range, bubble) {
   let newVal = Number(((val - min) * 100) / (max - min));
   let which = range.id.split("-")[1];
 
-  let suffixes = { pop: "", grid: " km", popd: " pop/km2" };
+  let suffixes = { pop: "", grid: " km" };
   let suffix = suffixes[which];
 
   bubble.innerHTML = " > " + val + suffix;
