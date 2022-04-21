@@ -1,3 +1,6 @@
+docs/*.html
+docs/docs
+docs/pt
 package.json
 node_modules/
 *.mbtiles
