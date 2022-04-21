@@ -8,6 +8,8 @@
   <meta content="initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport"/>
   <script src="/vendor/mapbox-gl.js">
   </script>
+  <script src="/vendor/turf.min.js">
+  </script>
   <link href="/vendor/mapbox-gl.css" rel="stylesheet"/>
   <link href="/style.css" rel="stylesheet"/>
  </head>
@@ -1472,6 +1474,8 @@
    <!-- Container for Mapbox GL map object -->
    <div id="map">
    </div>
+   <div class="distance-container" id="distance">
+   </div>
    <!-- Cluster info (hidden and empty until clusters clicked) -->
    <div class="map-overlay cluster">
     <div>
@@ -1580,6 +1584,22 @@
       </div>
       <span id="cluster-coords">
       </span>
+     </div>
+    </div>
+   </div>
+   <!-- Drawing/measuring -->
+   <div class="map-overlay draw">
+    <div>
+     <h2>
+      Measure
+     </h2>
+    </div>
+    <div class="draw-inner">
+     <div class="download draw-button" id="draw">
+      Enable/disable
+     </div>
+     <div class="download draw-button draw-delete" id="delete">
+      Delete
      </div>
     </div>
    </div>
