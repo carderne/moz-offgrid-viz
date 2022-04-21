@@ -161,7 +161,7 @@ function filterUpdate() {
     [">=", ["get", "popd"], parseFloat(filters.clustersPopd.value)],
   ]);
 
-  let gridFilter = filters.gridSource.checked ? null : ["==", "source", "osm"];
+  let gridFilter = filters.gridSource.checked ? null : ["!=", "source", "gf"];
   map.setFilter("grid", gridFilter);
 }
 
