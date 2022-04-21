@@ -5,6 +5,7 @@
         <title>Mozambique Off-Grid Energy</title>
         <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
         <script src='/vendor/mapbox-gl.js'></script>
+        <script src='/vendor/turf.min.js'></script>
         <link href='/vendor/mapbox-gl.css' rel='stylesheet' />
         <link href='/style.css' rel='stylesheet' />
     </head>
@@ -581,6 +582,7 @@
 
             <!-- Container for Mapbox GL map object -->
             <div id='map'></div>
+            <div id="distance" class="distance-container"></div>
 
             <!-- Cluster info (hidden and empty until clusters clicked) -->
             <div class="map-overlay cluster">
@@ -648,6 +650,15 @@
                         <div>{{ clusters.coords }}:</div>
                         <span id="cluster-coords"></span>
                     </div>
+                </div>
+            </div>
+
+            <!-- Drawing/measuring -->
+            <div class="map-overlay draw">
+                <div><h2>Measure</h2></div>
+                <div class="draw-inner">
+                    <div id="draw" class="download draw-button">Enable/disable</div>
+                    <div id="delete" class="download draw-button draw-delete">Delete</div>
                 </div>
             </div>
 

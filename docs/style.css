@@ -240,6 +240,28 @@ input[type="range"]::-moz-range-thumb {
     cursor: pointer;
 }
 
+.draw {
+    bottom: 200px;
+}
+
+.draw-button {
+    font-size: 10px;
+    width: unset !important;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin-bottom: 1em;
+}
+
+.draw-delete {
+    border: 2px solid red !important;
+    color: red !important;
+}
+
+.draw-inner {
+    display: flex;
+    flex-direction: column;
+}
+
 
 footer {
     height: 50px;
@@ -277,6 +299,7 @@ footer a, footer a:hover, footer a:visited {
 }
 
 .map-overlay {
+    width: 180px;
     position: absolute;
     right: 50px;
     background-color: rgba(255, 255, 255, 0.9);
@@ -296,6 +319,24 @@ footer a, footer a:hover, footer a:visited {
 .map-overlay h2, .modal-scroll h2 {
     margin: 0;
     text-align: center;
+}
+
+.distance-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+.distance-container > * {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 11px;
+    line-height: 18px;
+    display: block;
+    margin: 0;
+    padding: 5px 10px;
+    border-radius: 3px;
 }
 
 .exit {
