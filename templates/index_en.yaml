@@ -4,11 +4,14 @@ main:
   about: "About"
   help: "Help!"
 
+search:
+  title: "Search"
+  intro: "Choose a posto to zoom to"
+
 filters:
   title: "Filters"
   pop: "Population"
   grid: "Grid distance"
-  popd: "Population density"
 
 layers:
   title: "Layers"
